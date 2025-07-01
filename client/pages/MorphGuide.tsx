@@ -15,7 +15,7 @@ export default function MorphGuide() {
       name: "Normal (Wild-type)",
       genetics: "Dominant",
       description:
-        "The natural appearance of Tokay geckos featuring a vibrant blue base color with distinctive red or orange spots. This is the foundation morph from which all others derive.",
+        "The natural appearance of Tokay geckos featuring a vibrant blue base color with distinctive red or orange spots. This is the foundation morph from which all others derive. Photos available from breeders like @gekko_and_gecko.",
       traits: [
         "Blue base",
         "Red/orange spots",
@@ -30,7 +30,7 @@ export default function MorphGuide() {
       name: "Reduced Pattern",
       genetics: "Incomplete Dominant",
       description:
-        "An incomplete dominant morph characterized by a blue head, green body, and significantly reduced spotting. Often displays minimal to no spots with prominent white baring.",
+        "An incomplete dominant morph characterized by a blue head, green body, and significantly reduced spotting. Often displays minimal to no spots with prominent white baring. Available from NERD and Lucky Foot Geckos.",
       traits: ["Blue head", "Green body", "Reduced spots", "White baring"],
       rarity: "Uncommon" as const,
       image:
@@ -40,7 +40,7 @@ export default function MorphGuide() {
       name: "Patternless (BHG)",
       genetics: "Recessive",
       description:
-        "Blue Headed Green Patternless results in a solid-colored gecko with a distinctive blue head and green body, completely lacking the typical spot pattern.",
+        "Blue Headed Green Patternless results in a solid-colored gecko with a distinctive blue head and green body, completely lacking the typical spot pattern. Available from Josh's Frogs and Imperial Reptiles.",
       traits: ["Blue head", "Green body", "No spots", "Solid coloration"],
       rarity: "Rare" as const,
       image:
