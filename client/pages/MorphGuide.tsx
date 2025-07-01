@@ -145,6 +145,81 @@ export default function MorphGuide() {
       image:
         "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
     },
+    {
+      name: "Luna",
+      genetics: "Recessive",
+      description:
+        "A stunning morph characterized by solid white coloration with distinctive sapphire blue eyes, resulting from a complete absence of melanin. Both parents must carry the gene to produce Luna offspring.",
+      traits: [
+        "Solid white coloration",
+        "Sapphire blue eyes",
+        "No melanin",
+        "Extremely rare",
+      ],
+      rarity: "Super Rare" as const,
+      image:
+        "https://images.pexels.com/photos/1313252/pexels-photo-1313252.jpeg",
+    },
+    {
+      name: "Ghost",
+      genetics: "Dominant",
+      description:
+        "Features a faded, smoky appearance with reduced dark pigmentation. As a dominant trait, only one parent needs to carry the gene for offspring to exhibit the ghostly coloration.",
+      traits: [
+        "Faded appearance",
+        "Reduced pigmentation",
+        "Smoky coloration",
+        "Color variability",
+      ],
+      rarity: "Uncommon" as const,
+      image:
+        "https://images.pexels.com/photos/407037/gecko-reptile-terrarium-lizard-407037.jpeg",
+    },
+    {
+      name: "Nightmare",
+      genetics: "Line-bred",
+      description:
+        "A distinctive morph featuring a dark base color (black or deep brown) with contrasting light spots or patterns, creating a striking 'nightmarish' appearance. May be line-bred rather than a single gene trait.",
+      traits: [
+        "Dark base color",
+        "Light contrasting spots",
+        "Striking appearance",
+        "Variable pattern",
+      ],
+      rarity: "Rare" as const,
+      image:
+        "https://images.pexels.com/photos/27771838/pexels-photo-27771838.jpeg",
+    },
+    {
+      name: "Paradox",
+      genetics: "Complex Multi-gene",
+      description:
+        "An unpredictable morph displaying a combination of contrasting colors and patterns, often blending elements from different morphs. Each individual is unique due to complex genetic interactions.",
+      traits: [
+        "Mixed patterns",
+        "Unpredictable appearance",
+        "Unique individuals",
+        "Complex genetics",
+      ],
+      rarity: "Super Rare" as const,
+      image:
+        "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
+    },
+    {
+      name: "Axanthic",
+      genetics: "Recessive",
+      description:
+        "Characterized by the reduction or absence of yellow and red pigments, resulting in predominantly gray or silver coloration with black spots. Both parents must carry the axanthic gene.",
+      traits: [
+        "Gray/silver base",
+        "No yellow/red pigments",
+        "Black spots",
+        "Monochrome appearance",
+      ],
+      rarity: "Rare" as const,
+      image:
+        "https://images.pexels.com/photos/2968965/pexels-photo-2968965.jpeg",
+    },
   ];
 
   const geneticsTypes = [
