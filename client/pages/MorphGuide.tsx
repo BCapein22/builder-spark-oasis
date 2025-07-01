@@ -79,7 +79,7 @@ export default function MorphGuide() {
       name: "Super Red",
       genetics: "Co-dominant",
       description:
-        "A co-dominant morph producing geckos with intensely vibrant red coloration, ranging from deep crimson to bright orange-red spots with enhanced color saturation.",
+        "A co-dominant morph producing geckos with intensely vibrant red coloration, ranging from deep crimson to bright orange-red spots with enhanced color saturation. Bred by Bledsoe Exotics - see @bledsoe_exotics on Instagram.",
       traits: [
         "Intense red spots",
         "Enhanced saturation",
@@ -94,7 +94,7 @@ export default function MorphGuide() {
       name: "Platinum",
       genetics: "Recessive",
       description:
-        "A recessive trait featuring a silver base coloration with yellow spots, accompanied by distinctive platinum-colored eyes that give this morph its name.",
+        "A recessive trait featuring a silver base coloration with yellow spots, accompanied by distinctive platinum-colored eyes that give this morph its name. First produced by Joshua Carson in 2014. Photos available from @gekko_and_gecko.",
       traits: [
         "Silver base",
         "Yellow spots",
@@ -124,7 +124,7 @@ export default function MorphGuide() {
       name: "Diablo",
       genetics: "Recessive",
       description:
-        "Features a beautiful lavender base coloration with yellow spots and distinctive black eyes. Unlike some morphs, Diablo retains the characteristic white baring.",
+        "Features a beautiful lavender base coloration with yellow spots and distinctive black eyes. First confirmed as recessive in Indonesia (2018), developed by Max Ong in Malaysia (2019), and first captive-bred in US by Logan Barret of M95 Genetics (2022).",
       traits: [
         "Lavender base",
         "Yellow spots",
