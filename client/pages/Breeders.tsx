@@ -28,20 +28,6 @@ export default function Breeders() {
       rating: 4,
       description: "European breeder known for rare morph development",
     },
-    {
-      name: "Dakotah Blue Exotics",
-      location: "USA",
-      specialties: ["Powder Blue", "Reduced Pattern", "Granite"],
-      rating: 5,
-      description: "Innovative breeding programs and morph documentation",
-    },
-    {
-      name: "Firendado Reptiles",
-      location: "USA",
-      specialties: ["Normal", "Super Red", "Patternless"],
-      rating: 4,
-      description: "Quality breeding with focus on health and temperament",
-    },
   ];
 
   return (
