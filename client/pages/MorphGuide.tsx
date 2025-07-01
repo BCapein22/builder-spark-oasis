@@ -15,7 +15,7 @@ export default function MorphGuide() {
       name: "Normal (Wild-type)",
       genetics: "Dominant",
       description:
-        "The natural appearance of Tokay geckos featuring a vibrant blue base color with distinctive red or orange spots. This is the foundation morph from which all others derive. Photos available from breeders like @gekko_and_gecko.",
+        "The natural appearance of Tokay geckos featuring a vibrant blue base color with distinctive red or orange spots. This is the foundation morph from which all others derive.",
       traits: [
         "Blue base",
         "Red/orange spots",
@@ -30,7 +30,7 @@ export default function MorphGuide() {
       name: "Reduced Pattern",
       genetics: "Incomplete Dominant",
       description:
-        "An incomplete dominant morph characterized by a blue head, green body, and significantly reduced spotting. Often displays minimal to no spots with prominent white baring. Available from NERD and Lucky Foot Geckos.",
+        "An incomplete dominant morph characterized by a blue head, green body, and significantly reduced spotting. Often displays minimal to no spots with prominent white baring.",
       traits: ["Blue head", "Green body", "Reduced spots", "White baring"],
       rarity: "Uncommon" as const,
       image:
@@ -40,7 +40,7 @@ export default function MorphGuide() {
       name: "Patternless (BHG)",
       genetics: "Recessive",
       description:
-        "Blue Headed Green Patternless results in a solid-colored gecko with a distinctive blue head and green body, completely lacking the typical spot pattern. Available from Josh's Frogs and Imperial Reptiles.",
+        "Blue Headed Green Patternless results in a solid-colored gecko with a distinctive blue head and green body, completely lacking the typical spot pattern.",
       traits: ["Blue head", "Green body", "No spots", "Solid coloration"],
       rarity: "Rare" as const,
       image:
@@ -79,7 +79,7 @@ export default function MorphGuide() {
       name: "Super Red",
       genetics: "Co-dominant",
       description:
-        "A co-dominant morph producing geckos with intensely vibrant red coloration, ranging from deep crimson to bright orange-red spots with enhanced color saturation. Bred by Bledsoe Exotics - see @bledsoe_exotics on Instagram.",
+        "A co-dominant morph producing geckos with intensely vibrant red coloration, ranging from deep crimson to bright orange-red spots with enhanced color saturation.",
       traits: [
         "Intense red spots",
         "Enhanced saturation",
@@ -94,7 +94,7 @@ export default function MorphGuide() {
       name: "Platinum",
       genetics: "Recessive",
       description:
-        "A recessive trait featuring a silver base coloration with yellow spots, accompanied by distinctive platinum-colored eyes that give this morph its name. First produced by Joshua Carson in 2014. Photos available from @gekko_and_gecko.",
+        "A recessive trait featuring a silver base coloration with yellow spots, accompanied by distinctive platinum-colored eyes that give this morph its name.",
       traits: [
         "Silver base",
         "Yellow spots",
@@ -124,7 +124,7 @@ export default function MorphGuide() {
       name: "Diablo",
       genetics: "Recessive",
       description:
-        "Features a beautiful lavender base coloration with yellow spots and distinctive black eyes. First confirmed as recessive in Indonesia (2018), developed by Max Ong in Malaysia (2019), and first captive-bred in US by Logan Barret of M95 Genetics (2022).",
+        "Features a beautiful lavender base coloration with yellow spots and distinctive black eyes. Unlike some morphs, Diablo retains the characteristic white baring.",
       traits: [
         "Lavender base",
         "Yellow spots",
