@@ -23,6 +23,8 @@ export default function MorphGuide() {
         "Robust pattern",
       ],
       rarity: "Common" as const,
+      image:
+        "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
     },
     {
       name: "Reduced Pattern",
@@ -31,6 +33,8 @@ export default function MorphGuide() {
         "An incomplete dominant morph characterized by a blue head, green body, and significantly reduced spotting. Often displays minimal to no spots with prominent white baring.",
       traits: ["Blue head", "Green body", "Reduced spots", "White baring"],
       rarity: "Uncommon" as const,
+      image:
+        "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
     },
     {
       name: "Patternless (BHG)",
@@ -39,6 +43,8 @@ export default function MorphGuide() {
         "Blue Headed Green Patternless results in a solid-colored gecko with a distinctive blue head and green body, completely lacking the typical spot pattern.",
       traits: ["Blue head", "Green body", "No spots", "Solid coloration"],
       rarity: "Rare" as const,
+      image:
+        "https://images.pexels.com/photos/32679166/pexels-photo-32679166.jpeg",
     },
     {
       name: "Powder Blue Patternless",
@@ -52,6 +58,7 @@ export default function MorphGuide() {
         "Striking appearance",
       ],
       rarity: "Rare" as const,
+      image: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
     },
     {
       name: "Granite",
@@ -65,6 +72,8 @@ export default function MorphGuide() {
         "Granite-like texture",
       ],
       rarity: "Super Rare" as const,
+      image:
+        "https://images.pexels.com/photos/6788326/pexels-photo-6788326.jpeg",
     },
     {
       name: "Super Red",
@@ -78,6 +87,8 @@ export default function MorphGuide() {
         "Vibrant appearance",
       ],
       rarity: "Rare" as const,
+      image:
+        "https://images.pexels.com/photos/15173992/pexels-photo-15173992.jpeg",
     },
     {
       name: "Platinum",
@@ -91,6 +102,8 @@ export default function MorphGuide() {
         "Metallic appearance",
       ],
       rarity: "Super Rare" as const,
+      image:
+        "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
     },
     {
       name: "Candy Dot",
@@ -104,6 +117,8 @@ export default function MorphGuide() {
         "Uniform pattern",
       ],
       rarity: "Rare" as const,
+      image:
+        "https://images.pexels.com/photos/1875923/pexels-photo-1875923.jpeg",
     },
     {
       name: "Diablo",
@@ -117,6 +132,8 @@ export default function MorphGuide() {
         "White baring retained",
       ],
       rarity: "Super Rare" as const,
+      image:
+        "https://images.pexels.com/photos/32767083/pexels-photo-32767083.jpeg",
     },
     {
       name: "Green Galaxy",
@@ -125,6 +142,8 @@ export default function MorphGuide() {
         "Not a true morph but an 'odd ball' resulting from specific breeding combinations. Displays a green body, blue head, and notably reduced spot size creating a unique appearance.",
       traits: ["Green body", "Blue head", "Reduced spot size", "Combo result"],
       rarity: "Uncommon" as const,
+      image:
+        "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
     },
   ];
 
