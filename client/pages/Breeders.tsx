@@ -16,17 +16,17 @@ export default function Breeders() {
     },
     {
       name: "Cocoa Tokay",
-      location: "USA",
+      location: "South Korea",
       specialties: ["Super Red", "Candy Dot", "Normal"],
       rating: 5,
       description: "Specializing in vibrant colorations and healthy bloodlines",
     },
     {
       name: "Gekko and Gecko",
-      location: "Europe",
+      location: "USA",
       specialties: ["Platinum", "Diablo", "Green Galaxy"],
       rating: 4,
-      description: "European breeder known for rare morph development",
+      description: "Breeder known for rare morph development",
     },
   ];
 
