@@ -88,7 +88,7 @@ export default function MorphGuide() {
       ],
       rarity: "Rare" as const,
       image:
-        "https://images.pexels.com/photos/15173992/pexels-photo-15173992.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdb47718a45a84a57888fb732572b0b29",
     },
     {
       name: "Platinum",
@@ -143,7 +143,7 @@ export default function MorphGuide() {
       traits: ["Green body", "Blue head", "Reduced spot size", "Combo result"],
       rarity: "Uncommon" as const,
       image:
-        "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1f2646c07ddf4895a97aed2a00605a86",
     },
     {
       name: "Luna",
@@ -162,9 +162,9 @@ export default function MorphGuide() {
     },
     {
       name: "Ghost",
-      genetics: "Dominant",
+      genetics: "Recessive",
       description:
-        "Features a faded, smoky appearance with reduced dark pigmentation. As a dominant trait, only one parent needs to carry the gene for offspring to exhibit the ghostly coloration.",
+        "Features a faded, smoky appearance with reduced dark pigmentation. As a Recessive trait, Both parents needs to carry the gene for offspring to exhibit the ghostly coloration.",
       traits: [
         "Faded appearance",
         "Reduced pigmentation",
@@ -173,7 +173,7 @@ export default function MorphGuide() {
       ],
       rarity: "Uncommon" as const,
       image:
-        "https://images.pexels.com/photos/14745753/pexels-photo-14745753.png",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F14bfc223d5a44b5fbd6755237a2abc58",
     },
     {
       name: "Nightmare",
@@ -188,7 +188,7 @@ export default function MorphGuide() {
       ],
       rarity: "Rare" as const,
       image:
-        "https://images.pexels.com/photos/27771838/pexels-photo-27771838.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F97430dd350ff4aa78ca7a799eb483bb8",
     },
     {
       name: "Paradox",
