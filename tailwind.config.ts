@@ -47,6 +47,12 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        gecko: {
+          blue: "hsl(188, 95%, 35%)",
+          green: "hsl(130, 35%, 45%)",
+          orange: "hsl(22, 93%, 58%)",
+          gray: "hsl(213, 27%, 60%)",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
