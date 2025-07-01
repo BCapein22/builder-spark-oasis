@@ -313,6 +313,7 @@ export default function MorphGuide() {
               description={morph.description}
               traits={morph.traits}
               rarity={morph.rarity}
+              image={morph.image}
             />
           ))}
         </div>
