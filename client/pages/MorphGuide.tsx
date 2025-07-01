@@ -44,7 +44,7 @@ export default function MorphGuide() {
       traits: ["Blue head", "Green body", "No spots", "Solid coloration"],
       rarity: "Rare" as const,
       image:
-        "https://images.pexels.com/photos/32679166/pexels-photo-32679166.jpeg",
+        "https://images.pexels.com/photos/19945875/pexels-photo-19945875.jpeg",
     },
     {
       name: "Powder Blue Patternless",
@@ -173,7 +173,7 @@ export default function MorphGuide() {
       ],
       rarity: "Uncommon" as const,
       image:
-        "https://images.pexels.com/photos/407037/gecko-reptile-terrarium-lizard-407037.jpeg",
+        "https://images.pexels.com/photos/14745753/pexels-photo-14745753.png",
     },
     {
       name: "Nightmare",
