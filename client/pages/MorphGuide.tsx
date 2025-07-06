@@ -134,7 +134,7 @@ export default function MorphGuide() {
       ],
       rarity: "Super Rare" as const,
       image:
-        "https://images.pexels.com/photos/32767083/pexels-photo-32767083.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1dad7f014b544e299a1c73a0dd4d40af",
     },
     {
       name: "Green Galaxy",
@@ -174,7 +174,7 @@ export default function MorphGuide() {
       ],
       rarity: "Uncommon" as const,
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F14bfc223d5a44b5fbd6755237a2abc58",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fa1bfad9d36894dcdb5777d16e36d8178",
     },
     {
       name: "Nightmare",
@@ -193,14 +193,14 @@ export default function MorphGuide() {
     },
     {
       name: "Paradox",
-      genetics: "Complex Multi-gene",
+      genetics: "Recessive",
       description:
-        "An unpredictable morph displaying a combination of contrasting colors and patterns, often blending elements from different morphs. Each individual is unique due to complex genetic interactions.",
+        "A distinct recessive morph featuring unique and variable patterns that create a striking appearance. Each Paradox individual displays its own characteristic pattern combinations, making this morph highly sought after.",
       traits: [
-        "Mixed patterns",
-        "Unpredictable appearance",
-        "Unique individuals",
-        "Complex genetics",
+        "Variable patterns",
+        "Unique appearance",
+        "Recessive trait",
+        "Individual variation",
       ],
       rarity: "Super Rare" as const,
       image:
