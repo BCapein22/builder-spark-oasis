@@ -171,9 +171,9 @@ export default function Genetics() {
       results.push(
         {
           genotype: `${parent1.symbol}${parent1.symbol}`,
-          phenotype: "Super " + parent1.name,
+          phenotype: "Enhanced " + parent1.name,
           percentage: 25,
-          description: `25% Super ${parent1.name}`,
+          description: `25% Enhanced ${parent1.name} (homozygous)`,
         },
         {
           genotype: `${parent1.symbol}N`,
@@ -214,9 +214,9 @@ export default function Genetics() {
       results.push(
         {
           genotype: `${parent1.symbol}${parent1.symbol}`,
-          phenotype: "Super " + parent1.name,
+          phenotype: "Enhanced " + parent1.name,
           percentage: 25,
-          description: `25% Super ${parent1.name} (more dramatic)`,
+          description: `25% Enhanced ${parent1.name} (homozygous - more dramatic expression)`,
         },
         {
           genotype: `${parent1.symbol}N`,
@@ -423,8 +423,8 @@ export default function Genetics() {
                     Co-dominant
                   </h4>
                   <p className="text-sm text-muted-foreground">
-                    One copy expresses the trait, two copies create a "super"
-                    form.
+                    One copy expresses the trait, two copies create enhanced
+                    expression.
                   </p>
                 </div>
                 <Separator />

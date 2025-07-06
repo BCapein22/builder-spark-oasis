@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ChevronLeft, ChevronRight, Eye, Heart } from "lucide-react";
+import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 
 export default function Gallery() {
   const [currentPage, setCurrentPage] = useState(1);
