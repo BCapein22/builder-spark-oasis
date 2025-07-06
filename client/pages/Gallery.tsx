@@ -53,8 +53,6 @@ export default function Gallery() {
 
   // Only use the actual tokay gecko morph images - no placeholders
   const allImages = galleryImages;
-
-  const allImages = [...galleryImages, ...placeholderImages];
   const totalPages = Math.ceil(allImages.length / imagesPerPage);
 
   const startIndex = (currentPage - 1) * imagesPerPage;
