@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import GeckoCard from "@/components/GeckoCard";
 import { Button } from "@/components/ui/button";
@@ -248,7 +249,7 @@ export default function MorphGuide() {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/5">
       <Navigation />
 
       <div className="container py-8">
