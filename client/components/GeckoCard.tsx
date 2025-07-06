@@ -27,7 +27,7 @@ export default function GeckoCard({
 }: GeckoCardProps) {
   return (
     <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
-      <div className="aspect-video bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 relative overflow-hidden">
+      <div className="aspect-[4/3] bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 relative overflow-hidden">
         {image ? (
           <img
             src={image}
