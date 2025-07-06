@@ -138,20 +138,21 @@ export default function Index() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {popularMorphs.map((morph, index) => (
-              <Card
-                key={index}
-                className="group hover:shadow-lg transition-all duration-300 overflow-hidden"
-              >
-                <div className={`h-32 ${morph.color} relative`}>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                </div>
-                <CardHeader className="text-center">
-                  <CardTitle className="text-lg">{morph.name}</CardTitle>
-                  <p className="text-sm text-muted-foreground">
-                    {morph.rarity}
-                  </p>
-                </CardHeader>
-              </Card>
+              <Link to="/morphs" key={index}>
+                <Card className="group hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden cursor-pointer">
+                  <div className={`h-32 ${morph.color} relative`}>
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                  </div>
+                  <CardHeader className="text-center">
+                    <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                      {morph.name}
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground">
+                      {morph.rarity}
+                    </p>
+                  </CardHeader>
+                </Card>
+              </Link>
             ))}
           </div>
 
@@ -195,8 +196,7 @@ export default function Index() {
             Your trusted source for Tokay gecko morph information and genetics
           </p>
           <p className="text-sm text-muted-foreground">
-            Built with data from leading breeders including Bledsoe Exotics,
-            Cocoa Tokay, Dakotah Blue Exotics, and more
+            Built with data from leading breeders and the reptile community
           </p>
         </div>
       </footer>
