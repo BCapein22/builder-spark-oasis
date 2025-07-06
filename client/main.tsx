@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import MorphGuide from "./pages/MorphGuide";
 import MorphDetail from "./pages/MorphDetail";
+import Gallery from "./pages/Gallery";
 import Genetics from "./pages/Genetics";
 import Breeders from "./pages/Breeders";
 import NotFound from "./pages/NotFound";
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/morphs" element={<MorphGuide />} />
           <Route path="/morphs/:morphName" element={<MorphDetail />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/genetics" element={<Genetics />} />
           <Route path="/breeders" element={<Breeders />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

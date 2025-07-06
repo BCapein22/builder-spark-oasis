@@ -20,6 +20,7 @@ export default function Navigation() {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Morph Guide", href: "/morphs" },
+    { name: "Gallery", href: "/gallery" },
     { name: "Genetics", href: "/genetics" },
     { name: "Breeders", href: "/breeders" },
   ];
