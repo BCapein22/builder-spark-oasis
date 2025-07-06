@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
+import ImageSubmissionForm from "@/components/ImageSubmissionForm";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,6 +9,7 @@ import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
 
 export default function Gallery() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [showSubmissionForm, setShowSubmissionForm] = useState(false);
   const imagesPerPage = 25;
 
   // Sample gallery images - in production these would come from a database or API
@@ -211,9 +213,22 @@ export default function Gallery() {
               them in our gallery! Submit your high-quality images to showcase
               the beauty of these incredible creatures.
             </p>
-            <Button size="lg">Submit Photos</Button>
+            <Button
+              size="lg"
+              onClick={() => setShowSubmissionForm(true)}
+              className="flex items-center gap-2"
+            >
+              <Plus className="h-4 w-4" />
+              Submit Photos
+            </Button>
           </Card>
         </div>
+
+        {/* Image Submission Form */}
+        <ImageSubmissionForm
+          isOpen={showSubmissionForm}
+          onClose={() => setShowSubmissionForm(false)}
+        />
       </div>
     </div>
   );
