@@ -306,15 +306,20 @@ export default function MorphGuide() {
         {/* Morphs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredMorphs.map((morph, index) => (
-            <GeckoCard
+            <Link
               key={index}
-              name={morph.name}
-              genetics={morph.genetics}
-              description={morph.description}
-              traits={morph.traits}
-              rarity={morph.rarity}
-              image={morph.image}
-            />
+              to={`/morphs/${morph.name.toLowerCase().replace(/\s+/g, "-")}`}
+              className="group"
+            >
+              <GeckoCard
+                name={morph.name}
+                genetics={morph.genetics}
+                description={morph.description}
+                traits={morph.traits}
+                rarity={morph.rarity}
+                image={morph.image}
+              />
+            </Link>
           ))}
         </div>
 
