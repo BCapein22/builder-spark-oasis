@@ -1,12 +1,259 @@
+import { useState, useMemo } from "react";
 import Navigation from "@/components/Navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Link } from "react-router-dom";
-import { ChevronLeft, Calculator, BookOpen, Lightbulb } from "lucide-react";
+import {
+  ChevronLeft,
+  Calculator,
+  BookOpen,
+  Lightbulb,
+  Dna,
+  Heart,
+  Info,
+} from "lucide-react";
+
+interface Morph {
+  name: string;
+  genetics: "Dominant" | "Recessive" | "Co-dominant" | "Incomplete Dominant";
+  symbol: string;
+  description: string;
+}
+
+interface BreedingResult {
+  genotype: string;
+  phenotype: string;
+  percentage: number;
+  description: string;
+}
 
 export default function Genetics() {
+  const [parent1Morph, setParent1Morph] = useState<string>("");
+  const [parent2Morph, setParent2Morph] = useState<string>("");
+  const [parent1Het, setParent1Het] = useState<string[]>([]);
+  const [parent2Het, setParent2Het] = useState<string[]>([]);
+
+  const morphs: Morph[] = [
+    {
+      name: "Normal (Wild-type)",
+      genetics: "Dominant",
+      symbol: "N",
+      description: "The natural appearance - dominant over all morphs",
+    },
+    {
+      name: "Reduced Pattern",
+      genetics: "Incomplete Dominant",
+      symbol: "RP",
+      description: "Blue head, green body, reduced spots",
+    },
+    {
+      name: "Patternless (BHG)",
+      genetics: "Recessive",
+      symbol: "p",
+      description: "Blue head, green body, no spots",
+    },
+    {
+      name: "Powder Blue",
+      genetics: "Recessive",
+      symbol: "pb",
+      description: "Ice blue coloration throughout",
+    },
+    {
+      name: "Granite",
+      genetics: "Recessive",
+      symbol: "g",
+      description: "Dark gray base with black spots (progressive)",
+    },
+    {
+      name: "Super Red",
+      genetics: "Co-dominant",
+      symbol: "SR",
+      description: "Enhanced red coloration",
+    },
+    {
+      name: "Platinum",
+      genetics: "Recessive",
+      symbol: "pt",
+      description: "Silver base with yellow spots",
+    },
+    {
+      name: "Ghost",
+      genetics: "Recessive",
+      symbol: "gh",
+      description: "Faded, smoky appearance",
+    },
+    {
+      name: "Axanthic",
+      genetics: "Recessive",
+      symbol: "ax",
+      description: "Absence of yellow/red pigments",
+    },
+    {
+      name: "Luna",
+      genetics: "Recessive",
+      symbol: "l",
+      description: "White coloration with blue eyes",
+    },
+  ];
+
+  const calculateBreeding = useMemo((): BreedingResult[] => {
+    if (!parent1Morph || !parent2Morph) return [];
+
+    const parent1 = morphs.find((m) => m.name === parent1Morph);
+    const parent2 = morphs.find((m) => m.name === parent2Morph);
+
+    if (!parent1 || !parent2) return [];
+
+    const results: BreedingResult[] = [];
+
+    // Simple breeding calculations based on genetics
+    if (parent1.genetics === "Dominant" && parent2.genetics === "Dominant") {
+      results.push({
+        genotype: "NN",
+        phenotype: "Normal",
+        percentage: 100,
+        description: "All offspring will be normal appearing",
+      });
+    } else if (
+      parent1.genetics === "Recessive" &&
+      parent2.genetics === "Recessive" &&
+      parent1.name === parent2.name
+    ) {
+      results.push({
+        genotype: `${parent1.symbol}${parent1.symbol}`,
+        phenotype: parent1.name,
+        percentage: 100,
+        description: `All offspring will be visual ${parent1.name}`,
+      });
+    } else if (
+      parent1.genetics === "Dominant" &&
+      parent2.genetics === "Recessive"
+    ) {
+      results.push({
+        genotype: `N${parent2.symbol}`,
+        phenotype: "Normal (Het " + parent2.name + ")",
+        percentage: 100,
+        description: "All offspring normal, carrying recessive gene",
+      });
+    } else if (
+      parent1.genetics === "Co-dominant" &&
+      parent2.genetics === "Dominant"
+    ) {
+      results.push(
+        {
+          genotype: `${parent1.symbol}N`,
+          phenotype: parent1.name,
+          percentage: 50,
+          description: `50% chance of ${parent1.name}`,
+        },
+        {
+          genotype: "NN",
+          phenotype: "Normal",
+          percentage: 50,
+          description: "50% chance of normal",
+        },
+      );
+    } else if (
+      parent1.genetics === "Co-dominant" &&
+      parent2.genetics === "Co-dominant" &&
+      parent1.name === parent2.name
+    ) {
+      results.push(
+        {
+          genotype: `${parent1.symbol}${parent1.symbol}`,
+          phenotype: "Super " + parent1.name,
+          percentage: 25,
+          description: `25% Super ${parent1.name}`,
+        },
+        {
+          genotype: `${parent1.symbol}N`,
+          phenotype: parent1.name,
+          percentage: 50,
+          description: `50% normal ${parent1.name}`,
+        },
+        {
+          genotype: "NN",
+          phenotype: "Normal",
+          percentage: 25,
+          description: "25% normal",
+        },
+      );
+    } else if (
+      parent1.genetics === "Incomplete Dominant" &&
+      parent2.genetics === "Dominant"
+    ) {
+      results.push(
+        {
+          genotype: `${parent1.symbol}N`,
+          phenotype: parent1.name,
+          percentage: 50,
+          description: `50% ${parent1.name}`,
+        },
+        {
+          genotype: "NN",
+          phenotype: "Normal",
+          percentage: 50,
+          description: "50% normal",
+        },
+      );
+    } else if (
+      parent1.genetics === "Incomplete Dominant" &&
+      parent2.genetics === "Incomplete Dominant" &&
+      parent1.name === parent2.name
+    ) {
+      results.push(
+        {
+          genotype: `${parent1.symbol}${parent1.symbol}`,
+          phenotype: "Super " + parent1.name,
+          percentage: 25,
+          description: `25% Super ${parent1.name} (more dramatic)`,
+        },
+        {
+          genotype: `${parent1.symbol}N`,
+          phenotype: parent1.name,
+          percentage: 50,
+          description: `50% ${parent1.name}`,
+        },
+        {
+          genotype: "NN",
+          phenotype: "Normal",
+          percentage: 25,
+          description: "25% normal",
+        },
+      );
+    } else {
+      // Default case for mixed genetics
+      results.push({
+        genotype: "Variable",
+        phenotype: "Mixed outcomes",
+        percentage: 100,
+        description:
+          "Complex genetics - consult detailed breeding charts for specific outcomes",
+      });
+    }
+
+    return results;
+  }, [parent1Morph, parent2Morph, parent1Het, parent2Het]);
+
+  const resetCalculator = () => {
+    setParent1Morph("");
+    setParent2Morph("");
+    setParent1Het([]);
+    setParent2Het([]);
+  };
+
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/5">
       <Navigation />
 
       <div className="container py-8">
@@ -24,60 +271,254 @@ export default function Genetics() {
             Tokay Gecko Genetics
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Understanding inheritance patterns and breeding outcomes
+            Understanding inheritance patterns and breeding outcomes for Tokay
+            gecko morphs
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <Card className="text-center p-8">
-            <Calculator className="h-12 w-12 mx-auto mb-4 text-primary" />
-            <CardTitle className="mb-2">Breeding Calculator</CardTitle>
-            <p className="text-muted-foreground text-sm mb-4">
-              Calculate potential offspring outcomes based on parent genetics
-            </p>
-            <Button disabled className="w-full">
-              Coming Soon
-            </Button>
-          </Card>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          {/* Breeding Calculator */}
+          <div className="lg:col-span-2">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Calculator className="h-5 w-5" />
+                  Breeding Calculator
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Parent 1 */}
+                  <div className="space-y-4">
+                    <Label className="text-lg font-semibold">Parent 1</Label>
+                    <div>
+                      <Label htmlFor="parent1">Visual Morph</Label>
+                      <Select
+                        value={parent1Morph}
+                        onValueChange={setParent1Morph}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select morph" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {morphs.map((morph) => (
+                            <SelectItem key={morph.name} value={morph.name}>
+                              {morph.name} ({morph.genetics})
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
 
-          <Card className="text-center p-8">
-            <BookOpen className="h-12 w-12 mx-auto mb-4 text-secondary" />
-            <CardTitle className="mb-2">Genetics Guide</CardTitle>
-            <p className="text-muted-foreground text-sm mb-4">
-              Learn about dominant, recessive, and co-dominant traits
-            </p>
-            <Button disabled className="w-full">
-              Coming Soon
-            </Button>
-          </Card>
+                  {/* Parent 2 */}
+                  <div className="space-y-4">
+                    <Label className="text-lg font-semibold">Parent 2</Label>
+                    <div>
+                      <Label htmlFor="parent2">Visual Morph</Label>
+                      <Select
+                        value={parent2Morph}
+                        onValueChange={setParent2Morph}
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select morph" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {morphs.map((morph) => (
+                            <SelectItem key={morph.name} value={morph.name}>
+                              {morph.name} ({morph.genetics})
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </div>
 
-          <Card className="text-center p-8">
-            <Lightbulb className="h-12 w-12 mx-auto mb-4 text-accent" />
-            <CardTitle className="mb-2">Breeding Tips</CardTitle>
-            <p className="text-muted-foreground text-sm mb-4">
-              Expert advice for successful breeding programs
-            </p>
-            <Button disabled className="w-full">
-              Coming Soon
-            </Button>
-          </Card>
+                <div className="flex gap-4">
+                  <Button
+                    onClick={resetCalculator}
+                    variant="outline"
+                    className="flex items-center gap-2"
+                  >
+                    Reset
+                  </Button>
+                </div>
+
+                {/* Results */}
+                {calculateBreeding.length > 0 && (
+                  <div className="space-y-4">
+                    <Separator />
+                    <h3 className="text-lg font-semibold flex items-center gap-2">
+                      <Dna className="h-5 w-5" />
+                      Breeding Results
+                    </h3>
+                    <div className="space-y-3">
+                      {calculateBreeding.map((result, index) => (
+                        <Card
+                          key={index}
+                          className="p-4 bg-gradient-to-r from-primary/5 to-accent/5"
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <div className="flex items-center gap-3">
+                              <Badge
+                                variant="secondary"
+                                className="font-mono text-sm"
+                              >
+                                {result.genotype}
+                              </Badge>
+                              <span className="font-semibold">
+                                {result.phenotype}
+                              </span>
+                            </div>
+                            <Badge
+                              variant="outline"
+                              className="text-lg font-bold"
+                            >
+                              {result.percentage}%
+                            </Badge>
+                          </div>
+                          <p className="text-sm text-muted-foreground">
+                            {result.description}
+                          </p>
+                        </Card>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Genetics Guide */}
+          <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <BookOpen className="h-5 w-5" />
+                  Genetics Guide
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-primary mb-2">Dominant</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Only one copy needed to express the trait. Normal is
+                    dominant over all morphs.
+                  </p>
+                </div>
+                <Separator />
+                <div>
+                  <h4 className="font-semibold text-secondary mb-2">
+                    Recessive
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Two copies needed to express the trait. Both parents must
+                    carry the gene.
+                  </p>
+                </div>
+                <Separator />
+                <div>
+                  <h4 className="font-semibold text-accent mb-2">
+                    Co-dominant
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    One copy expresses the trait, two copies create a "super"
+                    form.
+                  </p>
+                </div>
+                <Separator />
+                <div>
+                  <h4 className="font-semibold text-orange-600 mb-2">
+                    Incomplete Dominant
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    One copy shows partial expression, two copies show full
+                    expression.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Lightbulb className="h-5 w-5" />
+                  Breeding Tips
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-3">
+                <div className="flex items-start gap-2">
+                  <Heart className="h-4 w-4 text-red-500 mt-0.5" />
+                  <p className="text-sm">
+                    Always prioritize animal health over specific morphs
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Info className="h-4 w-4 text-blue-500 mt-0.5" />
+                  <p className="text-sm">
+                    Keep detailed breeding records for genetic tracking
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <Dna className="h-4 w-4 text-green-500 mt-0.5" />
+                  <p className="text-sm">
+                    Outcross regularly to maintain genetic diversity
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
-        <Card className="p-8 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
-          <CardHeader className="text-center">
-            <CardTitle className="text-2xl">
-              Genetics Section Under Development
-            </CardTitle>
+        {/* Morph Reference */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Morph Genetics Reference</CardTitle>
           </CardHeader>
-          <CardContent className="text-center">
-            <p className="text-muted-foreground mb-6">
-              We're working on comprehensive genetics tools and guides. Check
-              back soon for breeding calculators, inheritance charts, and expert
-              breeding advice.
-            </p>
-            <Button asChild>
-              <Link to="/morphs">Explore Morphs Instead</Link>
-            </Button>
+          <CardContent>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {morphs.map((morph) => (
+                <Card key={morph.name} className="p-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-semibold text-sm">{morph.name}</h4>
+                    <Badge variant="outline" className="text-xs">
+                      {morph.genetics}
+                    </Badge>
+                  </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Badge variant="secondary" className="font-mono text-xs">
+                      {morph.symbol}
+                    </Badge>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    {morph.description}
+                  </p>
+                </Card>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Disclaimer */}
+        <Card className="mt-8 bg-gradient-to-r from-yellow-50 to-orange-50 border-yellow-200">
+          <CardContent className="p-6">
+            <div className="flex items-start gap-3">
+              <Info className="h-5 w-5 text-yellow-600 mt-0.5" />
+              <div>
+                <h3 className="font-semibold text-yellow-800 mb-2">
+                  Important Disclaimer
+                </h3>
+                <p className="text-sm text-yellow-700">
+                  This calculator provides basic genetic predictions based on
+                  simple Mendelian inheritance. Tokay gecko genetics can be
+                  complex, and actual results may vary due to polygenic traits,
+                  environmental factors, and incomplete understanding of some
+                  morphs. Always consult with experienced breeders and maintain
+                  detailed breeding records.
+                </p>
+              </div>
+            </div>
           </CardContent>
         </Card>
       </div>
