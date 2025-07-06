@@ -48,9 +48,10 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         gecko: {
-          blue: "hsl(188, 95%, 35%)",
-          green: "hsl(130, 35%, 45%)",
-          orange: "hsl(22, 93%, 58%)",
+          blue: "hsl(220, 90%, 45%)",
+          darkblue: "hsl(220, 70%, 30%)",
+          red: "hsl(15, 90%, 55%)",
+          orange: "hsl(25, 85%, 60%)",
           gray: "hsl(213, 27%, 60%)",
         },
         sidebar: {
