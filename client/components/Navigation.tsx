@@ -22,6 +22,7 @@ export default function Navigation() {
     { name: "Morph Guide", href: "/morphs" },
     { name: "Gallery", href: "/gallery" },
     { name: "Genetics", href: "/genetics" },
+    { name: "Q&A", href: "/qa" },
     { name: "Breeders", href: "/breeders" },
   ];
 
