@@ -80,7 +80,7 @@ export default function MorphDetail() {
       description:
         "Blue Headed Green Patternless results in a solid-colored gecko with a distinctive blue head and green body, completely lacking the typical spot pattern.",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F62f46a51c9f248dd8fb3ff292311d9b4",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1f2646c07ddf4895a97aed2a00605a86",
       traits: ["Blue head", "Green body", "No spots", "Solid coloration"],
       rarity: "Rare",
       detailed: {
