@@ -26,7 +26,7 @@ export default function GeckoCard({
   rarity = "Common",
 }: GeckoCardProps) {
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 overflow-hidden">
+    <Card className="group hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden cursor-pointer">
       <div className="aspect-[6/5] bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 relative overflow-hidden">
         {image ? (
           <img

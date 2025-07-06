@@ -60,8 +60,9 @@ export default function Index() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-secondary/10 to-accent/10" />
+      <section className="relative py-24 px-4 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-secondary/10 to-accent/15" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
         <div className="container relative z-10 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             Tokay Gecko Morph Guide
@@ -89,7 +90,7 @@ export default function Index() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 px-4">
+      <section className="py-24 px-4 bg-gradient-to-b from-background to-muted/20">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -125,7 +126,7 @@ export default function Index() {
       </section>
 
       {/* Popular Morphs Preview */}
-      <section className="py-20 px-4 bg-muted/50">
+      <section className="py-24 px-4 bg-gradient-to-br from-muted/40 via-primary/5 to-accent/5">
         <div className="container">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
