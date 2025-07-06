@@ -252,7 +252,7 @@ export default function MorphDetail() {
       description:
         "Features a beautiful lavender base coloration with yellow spots and distinctive black eyes. Unlike some morphs, Diablo retains the characteristic white baring.",
       image:
-        "https://images.pexels.com/photos/32767083/pexels-photo-32767083.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1dad7f014b544e299a1c73a0dd4d40af",
       traits: [
         "Lavender base",
         "Yellow spots",
@@ -388,31 +388,31 @@ export default function MorphDetail() {
     },
     paradox: {
       name: "Paradox",
-      genetics: "Complex Multi-gene",
+      genetics: "Recessive",
       description:
-        "An unpredictable morph displaying a combination of contrasting colors and patterns, often blending elements from different morphs. Each individual is unique due to complex genetic interactions.",
+        "A distinct recessive morph featuring unique and variable patterns that create a striking appearance. Each Paradox individual displays its own characteristic pattern combinations, making this morph highly sought after.",
       image:
         "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
       traits: [
-        "Mixed patterns",
-        "Unpredictable appearance",
-        "Unique individuals",
-        "Complex genetics",
+        "Variable patterns",
+        "Unique appearance",
+        "Recessive trait",
+        "Individual variation",
       ],
       rarity: "Super Rare",
       detailed: {
         genetics:
-          "Complex multi-gene interactions create unpredictable and unique patterns. No two paradox geckos are exactly alike.",
+          "Simple recessive trait that produces unique pattern variations. Both parents must carry the Paradox gene for visual offspring.",
         breeding:
-          "Extremely unpredictable outcomes. Even breeding two paradox geckos rarely produces consistent results.",
-        care: "Standard tokay care, though individual animals may have unique needs based on their specific genetic makeup.",
-        size: "Highly variable due to genetic complexity",
-        temperament: "Variable, depending on the genetic combinations present.",
+          "Standard recessive breeding applies - both parents must carry the gene. Each Paradox individual shows unique pattern characteristics.",
+        care: "Standard tokay care requirements with no special considerations needed.",
+        size: "Normal tokay size range",
+        temperament: "No specific temperament differences from other morphs.",
         price: "$800-$1500+",
         availability:
-          "Extremely rare, occasionally appears in breeding projects involving multiple morphs.",
+          "Rare, available from specialized breeders working with this unique morph.",
         history:
-          "Represents the cutting edge of tokay genetics, where multiple genes interact to create truly unique individuals.",
+          "A distinct morph that demonstrates the beautiful pattern variations possible within tokay gecko genetics.",
       },
     },
     axanthic: {

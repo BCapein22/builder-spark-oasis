@@ -30,16 +30,16 @@ export default function Gallery() {
     },
     {
       id: 3,
-      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F14bfc223d5a44b5fbd6755237a2abc58",
+      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fa1bfad9d36894dcdb5777d16e36d8178",
       title: "Luna Morph",
       morph: "Luna",
       photographer: "Professional",
     },
     {
       id: 4,
-      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fd7aadac7b8ce4e2aaf388671a89e5b32",
-      title: "Nightmare Pattern",
-      morph: "Nightmare",
+      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1dad7f014b544e299a1c73a0dd4d40af",
+      title: "Diablo Pattern",
+      morph: "Diablo",
       photographer: "Breeder Submission",
     },
     {
