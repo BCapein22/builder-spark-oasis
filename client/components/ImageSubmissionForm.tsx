@@ -18,7 +18,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
-import { X, Upload, Mail, Crop, RotateCw, Download } from "lucide-react";
+import {
+  X,
+  Upload,
+  Mail,
+  Crop as CropIcon,
+  RotateCw,
+  Download,
+} from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import ReactCrop, {
   centerCrop,
@@ -412,7 +419,7 @@ Submitted via GekkoGuide Gallery
                       onClick={() => setShowCropper(true)}
                       className="flex items-center gap-1"
                     >
-                      <Crop className="h-3 w-3" />
+                      <CropIcon className="h-3 w-3" />
                       {croppedImageFile ? "Re-crop" : "Crop Image"}
                     </Button>
                     <Button
@@ -436,7 +443,7 @@ Submitted via GekkoGuide Gallery
             <div className="space-y-4">
               <Separator />
               <h3 className="text-lg font-semibold flex items-center gap-2">
-                <Crop className="h-5 w-5" />
+                <CropIcon className="h-5 w-5" />
                 Crop Your Image
               </h3>
               <Card className="p-4">
