@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -17,8 +17,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { X, Upload, Mail } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { X, Upload, Mail, Crop, RotateCw, Download } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import ReactCrop, {
+  centerCrop,
+  makeAspectCrop,
+  Crop,
+  PixelCrop,
+} from "react-image-crop";
+import "react-image-crop/dist/ReactCrop.css";
 
 interface ImageSubmissionFormProps {
   isOpen: boolean;
@@ -38,6 +46,13 @@ export default function ImageSubmissionForm({
     imageFile: null as File | null,
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showCropper, setShowCropper] = useState(false);
+  const [imageSrc, setImageSrc] = useState<string>("");
+  const [crop, setCrop] = useState<Crop>();
+  const [completedCrop, setCompletedCrop] = useState<PixelCrop>();
+  const [croppedImageFile, setCroppedImageFile] = useState<File | null>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const { toast } = useToast();
 
   const morphOptions = [
@@ -82,8 +97,116 @@ export default function ImageSubmissionForm({
         return;
       }
 
-      setFormData({ ...formData, imageFile: file });
+      // Load image for cropping
+      const reader = new FileReader();
+      reader.onload = () => {
+        setImageSrc(reader.result as string);
+        setShowCropper(true);
+        setFormData({ ...formData, imageFile: file });
+      };
+      reader.readAsDataURL(file);
     }
+  };
+
+  const onImageLoad = useCallback(
+    (e: React.SyntheticEvent<HTMLImageElement>) => {
+      const { width, height } = e.currentTarget;
+      const crop = centerCrop(
+        makeAspectCrop(
+          {
+            unit: "%",
+            width: 90,
+          },
+          1, // aspect ratio 1:1 for square crop
+          width,
+          height,
+        ),
+        width,
+        height,
+      );
+      setCrop(crop);
+    },
+    [],
+  );
+
+  const getCroppedImage = useCallback(
+    async (
+      image: HTMLImageElement,
+      crop: PixelCrop,
+      fileName: string,
+    ): Promise<File> => {
+      const canvas = canvasRef.current;
+      if (!canvas) throw new Error("Canvas not found");
+
+      const ctx = canvas.getContext("2d");
+      if (!ctx) throw new Error("Canvas context not found");
+
+      const scaleX = image.naturalWidth / image.width;
+      const scaleY = image.naturalHeight / image.height;
+
+      canvas.width = crop.width * scaleX;
+      canvas.height = crop.height * scaleY;
+
+      ctx.drawImage(
+        image,
+        crop.x * scaleX,
+        crop.y * scaleY,
+        crop.width * scaleX,
+        crop.height * scaleY,
+        0,
+        0,
+        canvas.width,
+        canvas.height,
+      );
+
+      return new Promise((resolve) => {
+        canvas.toBlob(
+          (blob) => {
+            if (blob) {
+              const file = new File([blob], fileName, { type: "image/jpeg" });
+              resolve(file);
+            }
+          },
+          "image/jpeg",
+          0.9,
+        );
+      });
+    },
+    [],
+  );
+
+  const handleCropComplete = async () => {
+    if (!completedCrop || !imgRef.current || !formData.imageFile) return;
+
+    try {
+      const croppedFile = await getCroppedImage(
+        imgRef.current,
+        completedCrop,
+        `cropped_${formData.imageFile.name}`,
+      );
+      setCroppedImageFile(croppedFile);
+      setFormData({ ...formData, imageFile: croppedFile });
+      setShowCropper(false);
+      toast({
+        title: "Image cropped successfully",
+        description: "Your image has been cropped and is ready for submission",
+      });
+    } catch (error) {
+      toast({
+        title: "Cropping failed",
+        description: "There was an error cropping your image",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const resetImage = () => {
+    setImageSrc("");
+    setShowCropper(false);
+    setCrop(undefined);
+    setCompletedCrop(undefined);
+    setCroppedImageFile(null);
+    setFormData({ ...formData, imageFile: null });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -164,7 +287,7 @@ Submitted via GekkoGuide Gallery
     formData.email &&
     formData.morph &&
     formData.description &&
-    formData.imageFile;
+    (formData.imageFile || croppedImageFile);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -276,13 +399,97 @@ Submitted via GekkoGuide Gallery
                 Accepted formats: JPG, PNG, GIF. Max size: 10MB. High-quality
                 images preferred.
               </p>
-              {formData.imageFile && (
-                <p className="text-sm text-green-600 mt-2">
-                  ✓ Selected: {formData.imageFile.name}
-                </p>
+              {(formData.imageFile || croppedImageFile) && (
+                <div className="mt-2 space-y-2">
+                  <p className="text-sm text-green-600">
+                    ✓ Selected: {(croppedImageFile || formData.imageFile)?.name}
+                  </p>
+                  <div className="flex gap-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setShowCropper(true)}
+                      className="flex items-center gap-1"
+                    >
+                      <Crop className="h-3 w-3" />
+                      {croppedImageFile ? "Re-crop" : "Crop Image"}
+                    </Button>
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={resetImage}
+                      className="flex items-center gap-1"
+                    >
+                      <X className="h-3 w-3" />
+                      Remove
+                    </Button>
+                  </div>
+                </div>
               )}
             </div>
           </div>
+
+          {/* Image Cropper Modal */}
+          {showCropper && imageSrc && (
+            <div className="space-y-4">
+              <Separator />
+              <h3 className="text-lg font-semibold flex items-center gap-2">
+                <Crop className="h-5 w-5" />
+                Crop Your Image
+              </h3>
+              <Card className="p-4">
+                <div className="max-h-96 overflow-auto">
+                  <ReactCrop
+                    crop={crop}
+                    onChange={(_, percentCrop) => setCrop(percentCrop)}
+                    onComplete={(c) => setCompletedCrop(c)}
+                    aspect={1} // Square crop
+                    minWidth={100}
+                    minHeight={100}
+                  >
+                    <img
+                      ref={imgRef}
+                      alt="Crop preview"
+                      src={imageSrc}
+                      onLoad={onImageLoad}
+                      className="max-w-full h-auto"
+                    />
+                  </ReactCrop>
+                </div>
+                <div className="flex justify-between items-center mt-4">
+                  <p className="text-sm text-muted-foreground">
+                    Drag to select the area you want to keep. Square crop
+                    recommended for gallery.
+                  </p>
+                  <div className="flex gap-2">
+                    <Button
+                      type="button"
+                      variant="outline"
+                      onClick={() => setShowCropper(false)}
+                    >
+                      Cancel
+                    </Button>
+                    <Button
+                      type="button"
+                      onClick={handleCropComplete}
+                      disabled={!completedCrop}
+                      className="flex items-center gap-1"
+                    >
+                      <Download className="h-3 w-3" />
+                      Apply Crop
+                    </Button>
+                  </div>
+                </div>
+              </Card>
+              <canvas
+                ref={canvasRef}
+                style={{ display: "none" }}
+                className="max-w-full h-auto"
+              />
+            </div>
+          )}
 
           {/* Submission Info */}
           <Card className="bg-blue-50 border-blue-200">
