@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUp } from "lucide-react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const navItems = [
     { name: "Home", href: "/" },
@@ -75,6 +85,17 @@ export default function Navigation() {
             ))}
           </div>
         </div>
+      )}
+
+      {/* Scroll to Top Button */}
+      {showScrollTop && (
+        <Button
+          className="fixed bottom-4 right-4 z-50 rounded-full w-12 h-12 shadow-lg"
+          size="icon"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <ArrowUp className="h-4 w-4" />
+        </Button>
       )}
     </nav>
   );

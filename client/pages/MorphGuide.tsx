@@ -320,10 +320,20 @@ export default function MorphGuide() {
 
         {filteredMorphs.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-muted-foreground text-lg">
-              No morphs found matching your criteria. Try adjusting your search
-              or filters.
+            <div className="text-6xl mb-4">🦎</div>
+            <h3 className="text-xl font-semibold mb-2">No morphs found</h3>
+            <p className="text-muted-foreground text-lg mb-4">
+              No morphs match your current search criteria.
             </p>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setSearchTerm("");
+                setSelectedGenetics(null);
+              }}
+            >
+              Clear Filters
+            </Button>
           </div>
         )}
 
