@@ -10,21 +10,18 @@ export default function Breeders() {
     {
       name: "Bledsoe Exotics",
       location: "USA",
-      specialties: ["Reduced Pattern", "Patternless", "Granite"],
       rating: 5,
       description: "Renowned for high-quality morphs and excellent genetics",
     },
     {
       name: "Cocoa Tokay",
       location: "South Korea",
-      specialties: ["Super Red", "Candy Dot", "Normal"],
       rating: 5,
       description: "Specializing in vibrant colorations and healthy bloodlines",
     },
     {
       name: "Gekko and Gecko",
       location: "USA",
-      specialties: ["Platinum", "Diablo", "Green Galaxy"],
       rating: 4,
       description: "Breeder known for rare morph development",
     },
@@ -88,16 +85,6 @@ export default function Breeders() {
                 <p className="text-sm text-muted-foreground">
                   {breeder.description}
                 </p>
-                <div>
-                  <p className="text-sm font-medium mb-2">Specialties:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {breeder.specialties.map((specialty, i) => (
-                      <Badge key={i} variant="secondary" className="text-xs">
-                        {specialty}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
                 <Button variant="outline" size="sm" disabled className="w-full">
                   <ExternalLink className="h-4 w-4 mr-2" />
                   Visit Website
