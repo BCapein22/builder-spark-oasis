@@ -18,7 +18,6 @@ export default function Gallery() {
       title: "Super Red Male",
       morph: "Super Red",
       photographer: "Breeder Submission",
-      views: 1250,
     },
     {
       id: 2,
@@ -26,7 +25,6 @@ export default function Gallery() {
       title: "Green Galaxy Female",
       morph: "Green Galaxy",
       photographer: "Community Member",
-      views: 890,
     },
     {
       id: 3,
@@ -34,7 +32,6 @@ export default function Gallery() {
       title: "Luna Morph",
       morph: "Luna",
       photographer: "Professional",
-      views: 2100,
     },
     {
       id: 4,
@@ -42,7 +39,6 @@ export default function Gallery() {
       title: "Nightmare Pattern",
       morph: "Nightmare",
       photographer: "Breeder Submission",
-      views: 756,
     },
     {
       id: 5,
@@ -50,23 +46,11 @@ export default function Gallery() {
       title: "Patternless BHG",
       morph: "Patternless (BHG)",
       photographer: "Community Member",
-      views: 1423,
     },
   ];
 
-  // Generate more placeholder images to reach 50 total
-  const placeholderImages = Array.from({ length: 45 }, (_, index) => ({
-    id: index + 6,
-    url: `https://images.pexels.com/photos/${2364787 + index}/pexels-photo-${2364787 + index}.jpeg`,
-    title: `Tokay Gecko ${index + 6}`,
-    morph: ["Normal", "Reduced Pattern", "Ghost", "Axanthic", "Candy Dot"][
-      index % 5
-    ],
-    photographer: ["Breeder Submission", "Community Member", "Professional"][
-      index % 3
-    ],
-    views: Math.floor(Math.random() * 2000) + 100,
-  }));
+  // Only use the actual tokay gecko morph images - no placeholders
+  const allImages = galleryImages;
 
   const allImages = [...galleryImages, ...placeholderImages];
   const totalPages = Math.ceil(allImages.length / imagesPerPage);
@@ -103,14 +87,6 @@ export default function Gallery() {
               {totalPages}
             </div>
             <div className="text-sm text-muted-foreground">Pages</div>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold text-accent">
-              {allImages
-                .reduce((sum, img) => sum + img.views, 0)
-                .toLocaleString()}
-            </div>
-            <div className="text-sm text-muted-foreground">Total Views</div>
           </div>
         </div>
 
@@ -175,15 +151,9 @@ export default function Gallery() {
                   <h3 className="text-white font-semibold text-sm mb-1">
                     {image.title}
                   </h3>
-                  <div className="flex items-center justify-between">
-                    <Badge variant="secondary" className="text-xs">
-                      {image.morph}
-                    </Badge>
-                    <div className="flex items-center gap-1 text-white/80 text-xs">
-                      <Eye className="h-3 w-3" />
-                      {image.views}
-                    </div>
-                  </div>
+                  <Badge variant="secondary" className="text-xs">
+                    {image.morph}
+                  </Badge>
                 </div>
               </div>
 
@@ -195,15 +165,9 @@ export default function Gallery() {
                 <p className="text-xs text-muted-foreground mb-2">
                   by {image.photographer}
                 </p>
-                <div className="flex items-center justify-between">
-                  <Badge variant="outline" className="text-xs">
-                    {image.morph}
-                  </Badge>
-                  <div className="flex items-center gap-1 text-muted-foreground">
-                    <Eye className="h-3 w-3" />
-                    <span className="text-xs">{image.views}</span>
-                  </div>
-                </div>
+                <Badge variant="outline" className="text-xs">
+                  {image.morph}
+                </Badge>
               </div>
             </Card>
           ))}
