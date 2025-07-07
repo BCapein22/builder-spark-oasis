@@ -119,17 +119,6 @@ export default function QAndA() {
           answer:
             "Tokay geckos typically lay 2 hard-shelled eggs every 4-6 weeks during breeding season. A healthy female can lay 8-12 clutches per year. Eggs take 60-90 days to hatch at proper temperatures.",
         },
-        {
-          question:
-            "What's the difference between line breeding and outcrossing?",
-          answer:
-            "Line breeding involves mating related animals to strengthen desired traits. Outcrossing introduces unrelated genetics to maintain genetic diversity. Both have their place in responsible breeding programs.",
-        },
-        {
-          question: "Why are some morphs more expensive than others?",
-          answer:
-            "Price depends on rarity, demand, breeding difficulty, and genetic complexity. Recessive morphs requiring both parents to carry the gene are typically more expensive. New or rare morphs command higher prices.",
-        },
       ],
     },
     buying: {
