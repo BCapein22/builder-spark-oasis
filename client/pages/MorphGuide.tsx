@@ -331,21 +331,18 @@ export default function MorphGuide() {
             }
 
             return (
-            <Link
-              key={index}
-              to={`/morphs/${slug}`}
-              className="group"
-            >
-              <GeckoCard
-                name={morph.name}
-                genetics={morph.genetics}
-                description={morph.description}
-                traits={morph.traits}
-                rarity={morph.rarity}
-                image={morph.image}
-              />
-            </Link>
-          ))}
+              <Link key={index} to={`/morphs/${slug}`} className="group">
+                <GeckoCard
+                  name={morph.name}
+                  genetics={morph.genetics}
+                  description={morph.description}
+                  traits={morph.traits}
+                  rarity={morph.rarity}
+                  image={morph.image}
+                />
+              </Link>
+            );
+          })}
         </div>
 
         {filteredMorphs.length === 0 && (
