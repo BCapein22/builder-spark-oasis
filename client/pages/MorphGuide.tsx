@@ -25,7 +25,7 @@ export default function MorphGuide() {
       ],
       rarity: "Common" as const,
       image:
-        "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F6d0d3ee54f3c412f9928072512e55cb2",
     },
     {
       name: "Reduced Pattern",
