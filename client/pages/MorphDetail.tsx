@@ -444,6 +444,36 @@ export default function MorphDetail() {
           "A classic color mutation that demonstrates how individual pigment cell types can be selectively affected by genetic changes.",
       },
     },
+    "shooting-star": {
+      name: "Shooting Star",
+      genetics: "Recessive",
+      description:
+        "A distinctive recessive morph where spots align in a straight line down the gecko's back, resembling shooting stars or candy dots. Features solid black eyes and a unique linear pattern that sets it apart from other morphs.",
+      image:
+        "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
+      traits: [
+        "Linear spot alignment",
+        "Solid black eyes",
+        "Straight-line pattern",
+        "Distinctive appearance",
+      ],
+      rarity: "Super Rare",
+      detailed: {
+        genetics:
+          "Recessive trait that affects spot pattern formation, causing spots to align in linear formations down the spine. Both parents must carry the gene for offspring to display this pattern.",
+        breeding:
+          "As a recessive trait, breeding two Shooting Star geckos will produce 100% Shooting Star offspring. Breeding a Shooting Star to a normal will produce 100% het Shooting Star offspring.",
+        care: "Standard tokay gecko care requirements. The unique pattern does not affect their husbandry needs or overall health.",
+        size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
+        temperament:
+          "Typical tokay temperament - territorial and vocal but can become manageable with patient handling.",
+        price: "$800-$1,500",
+        availability:
+          "Very limited availability from specialized morph breeders. Long waiting lists are common.",
+        history:
+          "A relatively recent morph discovery in the tokay gecko breeding community. The linear pattern formation represents a unique genetic expression affecting spot placement and alignment.",
+      },
+    },
   };
 
   const slug = morphName?.toLowerCase().replace(/\s+/g, "-");
