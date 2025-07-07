@@ -11,19 +11,21 @@ export default function Breeders() {
       name: "Bledsoe Exotics",
       location: "USA",
       rating: 5,
-      description: "Renowned for high-quality morphs and excellent genetics",
+      image:
+        "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
     },
     {
       name: "Cocoa Tokay",
       location: "South Korea",
       rating: 5,
-      description: "Specializing in vibrant colorations and healthy bloodlines",
+      image: "https://images.pexels.com/photos/751689/pexels-photo-751689.jpeg",
     },
     {
       name: "Gekko and Gecko",
       location: "USA",
-      rating: 4,
-      description: "Breeder known for rare morph development",
+      rating: 5,
+      image:
+        "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
     },
   ];
 
