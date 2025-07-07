@@ -122,8 +122,9 @@ export default function Genetics() {
 
     const results: BreedingResult[] = [];
 
-    // Simple breeding calculations based on genetics
+    // Handle breeding based on genetics types
     if (parent1.genetics === "Dominant" && parent2.genetics === "Dominant") {
+      // Normal x Normal
       results.push({
         genotype: "NN",
         phenotype: "Normal",
@@ -135,6 +136,7 @@ export default function Genetics() {
       parent2.genetics === "Recessive" &&
       parent1.name === parent2.name
     ) {
+      // Same recessive x Same recessive (e.g., Diablo x Diablo)
       results.push({
         genotype: `${parent1.symbol}${parent1.symbol}`,
         phenotype: parent1.name,
@@ -142,31 +144,47 @@ export default function Genetics() {
         description: `All offspring will be visual ${parent1.name}`,
       });
     } else if (
-      parent1.genetics === "Dominant" &&
-      parent2.genetics === "Recessive"
+      (parent1.genetics === "Dominant" && parent2.genetics === "Recessive") ||
+      (parent1.genetics === "Recessive" && parent2.genetics === "Dominant")
     ) {
+      // Normal x Recessive morph (e.g., Normal x Diablo)
+      const recessiveParent =
+        parent1.genetics === "Recessive" ? parent1 : parent2;
       results.push({
-        genotype: `N${parent2.symbol}`,
-        phenotype: "Normal (Het " + parent2.name + ")",
+        genotype: `N${recessiveParent.symbol}`,
+        phenotype: `Normal (Het ${recessiveParent.name})`,
         percentage: 100,
-        description: "All offspring normal, carrying recessive gene",
+        description: `All offspring will appear normal but carry the ${recessiveParent.name} gene`,
+      });
+    } else if (
+      parent1.genetics === "Recessive" &&
+      parent2.genetics === "Recessive" &&
+      parent1.name !== parent2.name
+    ) {
+      // Different recessive morphs (e.g., Diablo x Luna)
+      results.push({
+        genotype: `N${parent1.symbol} N${parent2.symbol}`,
+        phenotype: `Normal (Het ${parent1.name}, Het ${parent2.name})`,
+        percentage: 100,
+        description: `All offspring will appear normal but carry both recessive genes`,
       });
     } else if (
       parent1.genetics === "Co-dominant" &&
       parent2.genetics === "Dominant"
     ) {
+      // Co-dominant x Normal (e.g., Super Red x Normal)
       results.push(
         {
           genotype: `${parent1.symbol}N`,
           phenotype: parent1.name,
           percentage: 50,
-          description: `50% chance of ${parent1.name}`,
+          description: `50% ${parent1.name}`,
         },
         {
           genotype: "NN",
           phenotype: "Normal",
           percentage: 50,
-          description: "50% chance of normal",
+          description: "50% normal",
         },
       );
     } else if (
@@ -174,10 +192,11 @@ export default function Genetics() {
       parent2.genetics === "Co-dominant" &&
       parent1.name === parent2.name
     ) {
+      // Same co-dominant x Same co-dominant (e.g., Super Red x Super Red)
       results.push(
         {
           genotype: `${parent1.symbol}${parent1.symbol}`,
-          phenotype: "Enhanced " + parent1.name,
+          phenotype: `Enhanced ${parent1.name}`,
           percentage: 25,
           description: `25% Enhanced ${parent1.name} (homozygous)`,
         },
@@ -195,9 +214,29 @@ export default function Genetics() {
         },
       );
     } else if (
+      parent1.genetics === "Co-dominant" &&
+      parent2.genetics === "Recessive"
+    ) {
+      // Co-dominant x Recessive (e.g., Super Red x Diablo)
+      results.push(
+        {
+          genotype: `${parent1.symbol}${parent2.symbol}`,
+          phenotype: `${parent1.name} Het ${parent2.name}`,
+          percentage: 50,
+          description: `50% ${parent1.name} carrying ${parent2.name} gene`,
+        },
+        {
+          genotype: `N${parent2.symbol}`,
+          phenotype: `Normal (Het ${parent2.name})`,
+          percentage: 50,
+          description: `50% normal carrying ${parent2.name} gene`,
+        },
+      );
+    } else if (
       parent1.genetics === "Incomplete Dominant" &&
       parent2.genetics === "Dominant"
     ) {
+      // Incomplete dominant x Normal (e.g., Reduced Pattern x Normal)
       results.push(
         {
           genotype: `${parent1.symbol}N`,
@@ -217,10 +256,11 @@ export default function Genetics() {
       parent2.genetics === "Incomplete Dominant" &&
       parent1.name === parent2.name
     ) {
+      // Same incomplete dominant x Same incomplete dominant
       results.push(
         {
           genotype: `${parent1.symbol}${parent1.symbol}`,
-          phenotype: "Enhanced " + parent1.name,
+          phenotype: `Enhanced ${parent1.name}`,
           percentage: 25,
           description: `25% Enhanced ${parent1.name} (homozygous - more dramatic expression)`,
         },
@@ -237,14 +277,33 @@ export default function Genetics() {
           description: "25% normal",
         },
       );
+    } else if (
+      parent1.genetics === "Incomplete Dominant" &&
+      parent2.genetics === "Recessive"
+    ) {
+      // Incomplete dominant x Recessive
+      results.push(
+        {
+          genotype: `${parent1.symbol}${parent2.symbol}`,
+          phenotype: `${parent1.name} Het ${parent2.name}`,
+          percentage: 50,
+          description: `50% ${parent1.name} carrying ${parent2.name} gene`,
+        },
+        {
+          genotype: `N${parent2.symbol}`,
+          phenotype: `Normal (Het ${parent2.name})`,
+          percentage: 50,
+          description: `50% normal carrying ${parent2.name} gene`,
+        },
+      );
     } else {
-      // Default case for mixed genetics
+      // Default case for complex genetics
       results.push({
         genotype: "Variable",
-        phenotype: "Mixed outcomes",
+        phenotype: "Complex genetics",
         percentage: 100,
         description:
-          "Complex genetics - consult detailed breeding charts for specific outcomes",
+          "Complex inheritance pattern - consult detailed breeding charts for specific outcomes",
       });
     }
 
