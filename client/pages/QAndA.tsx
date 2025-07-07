@@ -146,14 +146,9 @@ export default function QAndA() {
             "Ask about genetics, parents' lineage, feeding schedule, health history, and breeding goals. Reputable breeders will be happy to share information and educate buyers about proper care.",
         },
         {
-          question: "Do I need any permits to own a Tokay gecko?",
+          question: "What questions should I ask a breeder?",
           answer:
-            "Check local and state regulations. Most areas don't require permits for captive-bred Tokays, but some cities ban exotic pets. Wild-caught imports may have different regulations.",
-        },
-        {
-          question: "What's included when buying from a breeder?",
-          answer:
-            "Most breeders include the gecko, basic care sheet, feeding records, and genetic information. Some offer health guarantees. Ask what's included and if ongoing support is available.",
+            "Ask about genetics, parents' lineage, feeding schedule, health history, and breeding goals. Reputable breeders will be happy to share information and educate buyers about proper care.",
         },
       ],
     },
