@@ -321,10 +321,19 @@ export default function MorphGuide() {
 
         {/* Morphs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredMorphs.map((morph, index) => (
+          {filteredMorphs.map((morph, index) => {
+            // Custom slug mapping for specific morphs
+            let slug = morph.name.toLowerCase().replace(/\s+/g, "-");
+            if (morph.name === "Normal (Wild-type)") {
+              slug = "normal";
+            } else if (morph.name === "Patternless (BHG)") {
+              slug = "patternless-bhg";
+            }
+
+            return (
             <Link
               key={index}
-              to={`/morphs/${morph.name.toLowerCase().replace(/\s+/g, "-")}`}
+              to={`/morphs/${slug}`}
               className="group"
             >
               <GeckoCard
