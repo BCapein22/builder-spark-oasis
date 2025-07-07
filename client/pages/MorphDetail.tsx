@@ -360,9 +360,9 @@ export default function MorphDetail() {
     },
     nightmare: {
       name: "Nightmare",
-      genetics: "Line-bred",
+      genetics: "Recessive",
       description:
-        "A distinctive morph featuring a dark base color (black or deep brown) with contrasting light spots or patterns, creating a striking 'nightmarish' appearance. May be line-bred rather than a single gene trait.",
+        "A distinctive recessive morph featuring a dark base color (black or deep brown) with contrasting light spots or patterns, creating a striking 'nightmarish' appearance.",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fd7aadac7b8ce4e2aaf388671a89e5b32",
       traits: [
