@@ -59,7 +59,8 @@ export default function MorphGuide() {
         "Striking appearance",
       ],
       rarity: "Rare" as const,
-      image: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc1f66d00582145faa715a74535e01788",
     },
     {
       name: "Granite",
