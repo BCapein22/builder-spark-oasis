@@ -110,6 +110,12 @@ export default function Genetics() {
       symbol: "ss",
       description: "Linear spot alignment resembling shooting stars",
     },
+    {
+      name: "Nightmare",
+      genetics: "Recessive",
+      symbol: "nm",
+      description: "Dark base with contrasting light spots",
+    },
   ];
 
   const calculateBreeding = useMemo((): BreedingResult[] => {
