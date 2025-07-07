@@ -636,13 +636,6 @@ export default function MorphDetail() {
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
-                <h4 className="font-semibold mb-2">Price Range</h4>
-                <p className="text-sm text-muted-foreground">
-                  {morph.detailed.price}
-                </p>
-              </div>
-              <Separator />
-              <div>
                 <h4 className="font-semibold mb-2">Availability</h4>
                 <p className="text-sm text-muted-foreground">
                   {morph.detailed.availability}
