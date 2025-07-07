@@ -92,7 +92,6 @@ export default function MorphDetail() {
         size: "Slightly smaller than normals on average - males 10-13 inches, females 9-11 inches",
         temperament:
           "Generally calmer than wild-types, though still capable of defensive behavior.",
-        price: "$400-$800",
         availability: "Limited availability from specialized breeders only.",
         history:
           "Developed through selective breeding programs focusing on pattern reduction, representing a significant breakthrough in tokay genetics.",
