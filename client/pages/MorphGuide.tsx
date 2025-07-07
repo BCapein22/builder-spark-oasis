@@ -119,7 +119,7 @@ export default function MorphGuide() {
       ],
       rarity: "Rare" as const,
       image:
-        "https://images.pexels.com/photos/1875923/pexels-photo-1875923.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1486ff8f3dc449ec8843041f426a36b2",
     },
     {
       name: "Diablo",
