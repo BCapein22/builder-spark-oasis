@@ -35,7 +35,7 @@ export default function MorphGuide() {
       traits: ["Blue head", "Green body", "Reduced spots", "White baring"],
       rarity: "Uncommon" as const,
       image:
-        "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1aed7186737543d29a875edc372db330",
     },
     {
       name: "Patternless (BHG)",
