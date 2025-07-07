@@ -162,29 +162,14 @@ export default function QAndA() {
             "Common issues include metabolic bone disease (MBD), respiratory infections, parasites, stuck shed, and stress-related problems. Proper husbandry prevents most health issues.",
         },
         {
-          question: "How do I find a reptile veterinarian?",
-          answer:
-            "Search for exotic or reptile veterinarians in your area. The Association of Reptilian and Amphibian Veterinarians (ARAV) has a directory. Establish care before you need it for emergencies.",
-        },
-        {
           question: "What are signs of illness in Tokay geckos?",
           answer:
             "Watch for lethargy, loss of appetite, weight loss, difficulty shedding, mouth rot, mites, labored breathing, or changes in behavior. Early intervention is key to successful treatment.",
         },
         {
-          question: "How often should I weigh my gecko?",
-          answer:
-            "Weigh adult geckos monthly, juveniles weekly. Sudden weight loss (10%+) indicates a problem. Keep records to track trends. A healthy adult male weighs 60-100g, females 50-80g.",
-        },
-        {
           question: "What should I do if my gecko stops eating?",
           answer:
             "Check temperatures, humidity, and stress factors first. Ensure proper heating and lighting cycles. If the gecko continues refusing food for more than 2 weeks, consult a veterinarian.",
-        },
-        {
-          question: "How do I treat stuck shed?",
-          answer:
-            "Increase humidity with a humid hide. For minor stuck shed, a warm, damp cotton swab can help. Never pull stuck shed forcefully - this can damage skin. Severe cases need veterinary attention.",
         },
       ],
     },
