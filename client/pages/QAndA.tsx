@@ -102,7 +102,7 @@ export default function QAndA() {
         {
           question: "At what age do Tokay geckos reach sexual maturity?",
           answer:
-            "Tokay geckos typically reach sexual maturity at 12-18 months of age. Weight is more important than age - females should be at least 60-70 grams before breeding, males slightly less.",
+            "Tokay geckos typically reach sexual maturity at 12-18 months of age. Proper development and overall health are more important indicators than just age alone.",
         },
         {
           question: "How do dominant and recessive genes work?",
