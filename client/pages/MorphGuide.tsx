@@ -104,8 +104,7 @@ export default function MorphGuide() {
         "Metallic appearance",
       ],
       rarity: "Super Rare" as const,
-      image:
-        "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
+      image: "",
     },
     {
       name: "Candy Dot",
