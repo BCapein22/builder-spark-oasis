@@ -42,7 +42,7 @@ export default function MorphDetail() {
         size: "Adult males: 12-14 inches (30-36 cm), Adult females: 10-12 inches (25-30 cm)",
         temperament:
           "Known for their defensive nature and loud vocalizations. Can become tame with patient handling but are naturally territorial.",
-        price: "$50-$150",
+
         availability:
           "Widely available from most reptile breeders and pet stores.",
         history:
