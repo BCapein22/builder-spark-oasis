@@ -104,6 +104,12 @@ export default function Genetics() {
       symbol: "l",
       description: "White coloration with blue eyes",
     },
+    {
+      name: "Shooting Star",
+      genetics: "Recessive",
+      symbol: "ss",
+      description: "Linear spot alignment resembling shooting stars",
+    },
   ];
 
   const calculateBreeding = useMemo((): BreedingResult[] => {
