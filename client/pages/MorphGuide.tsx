@@ -75,7 +75,7 @@ export default function MorphGuide() {
       ],
       rarity: "Super Rare" as const,
       image:
-        "https://images.pexels.com/photos/6788326/pexels-photo-6788326.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F5e1bda61479e478eaff84daaa180614a",
     },
     {
       name: "Super Red",
