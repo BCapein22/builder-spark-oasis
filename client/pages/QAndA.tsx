@@ -66,7 +66,7 @@ export default function QAndA() {
         {
           question: "What substrate should I use?",
           answer:
-            "Paper towels, reptile carpet, or cypress mulch work well. Avoid loose substrates like sand or wood chips that can cause impaction if ingested. For bioactive setups, use organic topsoil mixed with play sand.",
+            "Paper towels, topsoil mix, or cypress mulch work well. Avoid loose substrates like sand or wood chips that can cause impaction if ingested. For bioactive setups, use organic topsoil mixed with play sand.",
         },
         {
           question: "What decorations should I include?",
