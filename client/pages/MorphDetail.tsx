@@ -120,7 +120,6 @@ export default function MorphDetail() {
         size: "Often slightly smaller than normals, males 10-12 inches, females 9-10 inches",
         temperament:
           "Reported to be among the calmest tokay morphs, with reduced defensive behavior.",
-        price: "$500-$1000",
         availability:
           "Very limited, mostly from specialized collectors and breeders.",
         history:
@@ -150,7 +149,6 @@ export default function MorphDetail() {
         size: "Normal size range, though development may be slightly slower",
         temperament:
           "No significant temperament differences reported from normal tokays.",
-        price: "$800-$2000+",
         availability:
           "Extremely rare, only available from a few specialized breeders worldwide.",
         history:
@@ -180,7 +178,6 @@ export default function MorphDetail() {
         size: "Normal size range for tokays",
         temperament:
           "No significant behavioral differences from normal tokays.",
-        price: "$300-$700",
         availability:
           "Available from several breeders but still considered uncommon.",
         history:
@@ -210,7 +207,6 @@ export default function MorphDetail() {
         size: "Often slightly smaller than normals, particularly females",
         temperament:
           "Generally calmer than wild-types, though individual variation exists.",
-        price: "$600-$1200",
         availability:
           "Very limited, available only from a few specialized breeders.",
         history:
@@ -239,7 +235,6 @@ export default function MorphDetail() {
         care: "Standard tokay care, though the dark eyes may indicate slightly different light sensitivity.",
         size: "Normal size range",
         temperament: "No significant temperament differences reported.",
-        price: "$400-$800",
         availability: "Limited availability from specialized breeders.",
         history:
           "Named for the distinctive uniform spot pattern that resembles candy dots arranged in rows.",
@@ -267,7 +262,6 @@ export default function MorphDetail() {
         care: "Standard tokay care with attention to maintaining proper humidity for color development.",
         size: "Normal size range",
         temperament: "Limited data due to rarity, but similar to other morphs.",
-        price: "$1000-$2500+",
         availability:
           "Extremely rare, only available from a few breeders worldwide.",
         history:
@@ -292,7 +286,6 @@ export default function MorphDetail() {
         size: "Normal size range",
         temperament:
           "No specific temperament traits associated with this combination.",
-        price: "$200-$400",
         availability:
           "Occasionally available from breeders working with multiple morph lines.",
         history:
@@ -322,7 +315,6 @@ export default function MorphDetail() {
         size: "Often smaller than normals due to genetic factors",
         temperament:
           "Generally calmer, possibly due to vision differences caused by the mutation.",
-        price: "$1500-$3000+",
         availability:
           "Extremely rare, only available from a few specialized breeders.",
         history:
@@ -351,7 +343,6 @@ export default function MorphDetail() {
         care: "Standard tokay care, though some report increased light sensitivity due to reduced pigmentation.",
         size: "Normal size range",
         temperament: "Often reported as calmer than normal tokays.",
-        price: "$250-$500",
         availability: "Moderately available from gecko breeders.",
         history:
           "A morph that demonstrates how pigmentation genes can create subtle but striking visual effects.",
@@ -379,7 +370,6 @@ export default function MorphDetail() {
         care: "Standard tokay care requirements.",
         size: "Normal size range",
         temperament: "No specific temperament traits reported for this morph.",
-        price: "$400-$800",
         availability: "Limited availability from specialized breeders.",
         history:
           "Named for its dramatic dark appearance, this morph showcases the potential for line breeding to establish unique traits.",
@@ -407,7 +397,6 @@ export default function MorphDetail() {
         care: "Standard tokay care requirements with no special considerations needed.",
         size: "Normal tokay size range",
         temperament: "No specific temperament differences from other morphs.",
-        price: "$800-$1500+",
         availability:
           "Rare, available from specialized breeders working with this unique morph.",
         history:
@@ -437,7 +426,6 @@ export default function MorphDetail() {
         size: "Normal size range",
         temperament:
           "No significant temperament differences from normal tokays.",
-        price: "$350-$700",
         availability: "Limited availability from specialized gecko breeders.",
         history:
           "A classic color mutation that demonstrates how individual pigment cell types can be selectively affected by genetic changes.",
@@ -466,7 +454,6 @@ export default function MorphDetail() {
         size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
         temperament:
           "Typical tokay temperament - territorial and vocal but can become manageable with patient handling.",
-        price: "$800-$1,500",
         availability:
           "Very limited availability from specialized morph breeders. Long waiting lists are common.",
         history:
