@@ -122,8 +122,98 @@ export default function Genetics() {
 
     const results: BreedingResult[] = [];
 
-    // Handle breeding based on genetics types
-    if (parent1.genetics === "Dominant" && parent2.genetics === "Dominant") {
+    // Check if either parent is a patternless morph
+    const isPatternless = (morph: Morph) =>
+      morph.name === "Patternless (BHG)" ||
+      morph.name === "Powder Blue Patternless";
+
+    // Special handling for patternless morphs
+    if (isPatternless(parent1) && parent2.genetics === "Dominant") {
+      // Patternless x Normal = 50/50 split
+      results.push(
+        {
+          genotype: parent1.symbol,
+          phenotype: parent1.name,
+          percentage: 50,
+          description: `50% ${parent1.name}`,
+        },
+        {
+          genotype: "N",
+          phenotype: "Normal",
+          percentage: 50,
+          description: "50% normal",
+        },
+      );
+    } else if (isPatternless(parent2) && parent1.genetics === "Dominant") {
+      // Normal x Patternless = 50/50 split
+      results.push(
+        {
+          genotype: parent2.symbol,
+          phenotype: parent2.name,
+          percentage: 50,
+          description: `50% ${parent2.name}`,
+        },
+        {
+          genotype: "N",
+          phenotype: "Normal",
+          percentage: 50,
+          description: "50% normal",
+        },
+      );
+    } else if (
+      parent1.name === "Patternless (BHG)" &&
+      parent2.name === "Powder Blue Patternless"
+    ) {
+      // BHG x Powder Blue = 75% BHG, 25% Powder Blue
+      results.push(
+        {
+          genotype: "p",
+          phenotype: "Patternless (BHG)",
+          percentage: 75,
+          description: "75% BHG Patternless",
+        },
+        {
+          genotype: "pb",
+          phenotype: "Powder Blue Patternless",
+          percentage: 25,
+          description: "25% Powder Blue Patternless",
+        },
+      );
+    } else if (
+      parent1.name === "Powder Blue Patternless" &&
+      parent2.name === "Patternless (BHG)"
+    ) {
+      // Powder Blue x BHG = 75% BHG, 25% Powder Blue
+      results.push(
+        {
+          genotype: "p",
+          phenotype: "Patternless (BHG)",
+          percentage: 75,
+          description: "75% BHG Patternless",
+        },
+        {
+          genotype: "pb",
+          phenotype: "Powder Blue Patternless",
+          percentage: 25,
+          description: "25% Powder Blue Patternless",
+        },
+      );
+    } else if (
+      isPatternless(parent1) &&
+      isPatternless(parent2) &&
+      parent1.name === parent2.name
+    ) {
+      // Same patternless x Same patternless
+      results.push({
+        genotype: parent1.symbol,
+        phenotype: parent1.name,
+        percentage: 100,
+        description: `All offspring will be ${parent1.name}`,
+      });
+    } else if (
+      parent1.genetics === "Dominant" &&
+      parent2.genetics === "Dominant"
+    ) {
       // Normal x Normal
       results.push({
         genotype: "NN",
@@ -134,9 +224,10 @@ export default function Genetics() {
     } else if (
       parent1.genetics === "Recessive" &&
       parent2.genetics === "Recessive" &&
-      parent1.name === parent2.name
+      parent1.name === parent2.name &&
+      !isPatternless(parent1)
     ) {
-      // Same recessive x Same recessive (e.g., Diablo x Diablo)
+      // Same recessive x Same recessive (non-patternless)
       results.push({
         genotype: `${parent1.symbol}${parent1.symbol}`,
         phenotype: parent1.name,
@@ -144,10 +235,14 @@ export default function Genetics() {
         description: `All offspring will be visual ${parent1.name}`,
       });
     } else if (
-      (parent1.genetics === "Dominant" && parent2.genetics === "Recessive") ||
-      (parent1.genetics === "Recessive" && parent2.genetics === "Dominant")
+      (parent1.genetics === "Dominant" &&
+        parent2.genetics === "Recessive" &&
+        !isPatternless(parent2)) ||
+      (parent1.genetics === "Recessive" &&
+        parent2.genetics === "Dominant" &&
+        !isPatternless(parent1))
     ) {
-      // Normal x Recessive morph (e.g., Normal x Diablo)
+      // Normal x Recessive morph (non-patternless)
       const recessiveParent =
         parent1.genetics === "Recessive" ? parent1 : parent2;
       results.push({
@@ -159,9 +254,11 @@ export default function Genetics() {
     } else if (
       parent1.genetics === "Recessive" &&
       parent2.genetics === "Recessive" &&
-      parent1.name !== parent2.name
+      parent1.name !== parent2.name &&
+      !isPatternless(parent1) &&
+      !isPatternless(parent2)
     ) {
-      // Different recessive morphs (e.g., Diablo x Luna)
+      // Different recessive morphs (non-patternless)
       results.push({
         genotype: `N${parent1.symbol} N${parent2.symbol}`,
         phenotype: `Normal (Het ${parent1.name}, Het ${parent2.name})`,
@@ -172,7 +269,7 @@ export default function Genetics() {
       parent1.genetics === "Co-dominant" &&
       parent2.genetics === "Dominant"
     ) {
-      // Co-dominant x Normal (e.g., Super Red x Normal)
+      // Co-dominant x Normal
       results.push(
         {
           genotype: `${parent1.symbol}N`,
@@ -192,13 +289,13 @@ export default function Genetics() {
       parent2.genetics === "Co-dominant" &&
       parent1.name === parent2.name
     ) {
-      // Same co-dominant x Same co-dominant (e.g., Super Red x Super Red)
+      // Same co-dominant x Same co-dominant
       results.push(
         {
           genotype: `${parent1.symbol}${parent1.symbol}`,
-          phenotype: `Enhanced ${parent1.name}`,
+          phenotype: parent1.name,
           percentage: 25,
-          description: `25% Enhanced ${parent1.name} (homozygous)`,
+          description: `25% ${parent1.name} (homozygous)`,
         },
         {
           genotype: `${parent1.symbol}N`,
@@ -214,29 +311,10 @@ export default function Genetics() {
         },
       );
     } else if (
-      parent1.genetics === "Co-dominant" &&
-      parent2.genetics === "Recessive"
-    ) {
-      // Co-dominant x Recessive (e.g., Super Red x Diablo)
-      results.push(
-        {
-          genotype: `${parent1.symbol}${parent2.symbol}`,
-          phenotype: `${parent1.name} Het ${parent2.name}`,
-          percentage: 50,
-          description: `50% ${parent1.name} carrying ${parent2.name} gene`,
-        },
-        {
-          genotype: `N${parent2.symbol}`,
-          phenotype: `Normal (Het ${parent2.name})`,
-          percentage: 50,
-          description: `50% normal carrying ${parent2.name} gene`,
-        },
-      );
-    } else if (
       parent1.genetics === "Incomplete Dominant" &&
       parent2.genetics === "Dominant"
     ) {
-      // Incomplete dominant x Normal (e.g., Reduced Pattern x Normal)
+      // Incomplete dominant x Normal
       results.push(
         {
           genotype: `${parent1.symbol}N`,
@@ -260,9 +338,9 @@ export default function Genetics() {
       results.push(
         {
           genotype: `${parent1.symbol}${parent1.symbol}`,
-          phenotype: `Enhanced ${parent1.name}`,
+          phenotype: parent1.name,
           percentage: 25,
-          description: `25% Enhanced ${parent1.name} (homozygous - more dramatic expression)`,
+          description: `25% ${parent1.name} (homozygous - more dramatic expression)`,
         },
         {
           genotype: `${parent1.symbol}N`,
@@ -275,25 +353,6 @@ export default function Genetics() {
           phenotype: "Normal",
           percentage: 25,
           description: "25% normal",
-        },
-      );
-    } else if (
-      parent1.genetics === "Incomplete Dominant" &&
-      parent2.genetics === "Recessive"
-    ) {
-      // Incomplete dominant x Recessive
-      results.push(
-        {
-          genotype: `${parent1.symbol}${parent2.symbol}`,
-          phenotype: `${parent1.name} Het ${parent2.name}`,
-          percentage: 50,
-          description: `50% ${parent1.name} carrying ${parent2.name} gene`,
-        },
-        {
-          genotype: `N${parent2.symbol}`,
-          phenotype: `Normal (Het ${parent2.name})`,
-          percentage: 50,
-          description: `50% normal carrying ${parent2.name} gene`,
         },
       );
     } else {
