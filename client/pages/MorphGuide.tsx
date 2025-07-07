@@ -45,7 +45,7 @@ export default function MorphGuide() {
       traits: ["Blue head", "Green body", "No spots", "Solid coloration"],
       rarity: "Rare" as const,
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fb9ea5c5cb49545ac97b5732581ab813d",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdc77533129d0486d824831476e243821",
     },
     {
       name: "Powder Blue Patternless",
