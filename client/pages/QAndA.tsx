@@ -112,7 +112,7 @@ export default function QAndA() {
         {
           question: "What does 'het' mean in gecko breeding?",
           answer:
-            "'Het' means heterozygous - carrying one copy of a recessive gene without showing it visually. A 'het Patternless' gecko looks normal but carries the Patternless gene and can produce Patternless offspring.",
+            "'Het' means heterozygous - carrying one copy of a recessive gene without showing it visually. A 'het Granite' gecko looks normal but carries the Granite gene and can produce Granite offspring.",
         },
         {
           question: "How many eggs do Tokay geckos lay?",
