@@ -67,7 +67,7 @@ export default function MorphDetail() {
         size: "Similar to normal tokays - males 12-14 inches, females 10-12 inches",
         temperament:
           "Often reported to be calmer than normal tokays, though individual variation exists.",
-        price: "$200-$500",
+
         availability:
           "Available from specialized gecko breeders, more common than rare morphs but less available than normals.",
         history:
