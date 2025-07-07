@@ -58,6 +58,13 @@ export default function Breeders() {
               key={index}
               className="hover:shadow-lg transition-all duration-300"
             >
+              <div className="relative h-48 overflow-hidden rounded-t-lg">
+                <img
+                  src={breeder.image}
+                  alt={breeder.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div>
@@ -84,9 +91,6 @@ export default function Breeders() {
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm text-muted-foreground">
-                  {breeder.description}
-                </p>
                 <Button variant="outline" size="sm" disabled className="w-full">
                   <ExternalLink className="h-4 w-4 mr-2" />
                   Visit Website
