@@ -165,10 +165,6 @@ export default function BreederDetail() {
             </p>
             <div className="flex items-center gap-4 text-sm text-muted-foreground">
               <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                Est. {breeder.established}
-              </div>
-              <div className="flex items-center gap-2">
                 <Globe className="h-4 w-4" />
                 {breeder.specialization}
               </div>
