@@ -1,44 +1,44 @@
-import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useToast } from "@/hooks/use-toast";
-import { useAuth } from "@/contexts/AuthContext";
-import { useForumData } from "@/hooks/useLocalStorage";
-import {
-  ChevronLeft,
-  Users,
-  MessageSquare,
-  TrendingUp,
-  Clock,
-  Search,
-  PlusCircle,
-  Eye,
-  MessageCircle,
-  User,
-  ChevronDown,
-  ChevronRight,
-  LogOut,
-} from "lucide-react";
 
 export default function Community() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-  const [signupUsername, setSignupUsername] = useState("");
-  const [signupEmail, setSignupEmail] = useState("");
-  const [signupPassword, setSignupPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const { user, login, signup, logout, isAuthenticated, memberCount } =
-    useAuth();
-  const { getTopicsByCategory } = useForumData();
-  const { toast } = useToast();
-  const navigate = useNavigate();
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/5">
+      <Navigation />
+      <div className="container py-8">
+        <div className="mb-6">
+          <Button variant="ghost" asChild>
+            <Link to="/qa" className="flex items-center gap-2">
+              ← Back to Q&A
+            </Link>
+          </Button>
+        </div>
+
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            Community Forum
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Connect with fellow tokay gecko enthusiasts, share knowledge, and
+            grow together as a community
+          </p>
+        </div>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Forum Categories</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p>Forum is loading...</p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
 
   const forumCategories = [
     {
@@ -58,8 +58,7 @@ export default function Community() {
     {
       id: "breeding",
       name: "Breeding & Genetics",
-      description:
-        "Breeding projects, genetics questions, and morph discussions",
+      description: "Breeding projects, genetics questions, and morph discussions",
       icon: TrendingUp,
       color: "bg-purple-100 text-purple-600",
     },
@@ -80,10 +79,10 @@ export default function Community() {
   ];
 
   const toggleCategory = (categoryId: string) => {
-    setExpandedCategories((prev) =>
+    setExpandedCategories(prev =>
       prev.includes(categoryId)
-        ? prev.filter((id) => id !== categoryId)
-        : [...prev, categoryId],
+        ? prev.filter(id => id !== categoryId)
+        : [...prev, categoryId]
     );
   };
 
@@ -117,12 +116,7 @@ export default function Community() {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (
-      !signupUsername ||
-      !signupEmail ||
-      !signupPassword ||
-      !confirmPassword
-    ) {
+    if (!signupUsername || !signupEmail || !signupPassword || !confirmPassword) {
       toast({
         title: "Error",
         description: "Please fill in all fields",
@@ -192,9 +186,7 @@ export default function Community() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-primary">
-                {memberCount}
-              </div>
+              <div className="text-2xl font-bold text-primary">{memberCount}</div>
               <div className="text-sm text-muted-foreground">Members</div>
             </CardContent>
           </Card>
@@ -212,9 +204,7 @@ export default function Community() {
           </Card>
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-green-600">
-                {isAuthenticated ? 1 : 0}
-              </div>
+              <div className="text-2xl font-bold text-green-600">{isAuthenticated ? 1 : 0}</div>
               <div className="text-sm text-muted-foreground">Online Now</div>
             </CardContent>
           </Card>
@@ -286,9 +276,7 @@ export default function Community() {
                                       {categoryTopics[0].title}
                                     </div>
                                     <div className="text-muted-foreground">
-                                      {new Date(
-                                        categoryTopics[0].lastActivity,
-                                      ).toLocaleDateString()}
+                                      {new Date(categoryTopics[0].lastActivity).toLocaleDateString()}
                                     </div>
                                   </div>
                                 )}
@@ -303,8 +291,7 @@ export default function Community() {
                           {categoryTopics.length === 0 ? (
                             <Card className="border-l-4 border-l-primary/20">
                               <CardContent className="p-4 text-center text-muted-foreground">
-                                No topics yet. Be the first to start a
-                                discussion!
+                                No topics yet. Be the first to start a discussion!
                               </CardContent>
                             </Card>
                           ) : (
@@ -312,38 +299,26 @@ export default function Community() {
                               <Card
                                 key={topic.id}
                                 className="hover:shadow-sm transition-shadow cursor-pointer border-l-4 border-l-primary/20"
-                                onClick={() =>
-                                  handleTopicClick(topic.id, category.id)
-                                }
+                                onClick={() => handleTopicClick(topic.id, category.id)}
                               >
                                 <CardContent className="p-4">
                                   <div className="flex items-start justify-between">
                                     <div className="flex-1">
                                       <div className="flex items-center gap-2 mb-1">
                                         {topic.isPinned && (
-                                          <Badge
-                                            variant="secondary"
-                                            className="text-xs"
-                                          >
+                                          <Badge variant="secondary" className="text-xs">
                                             Pinned
                                           </Badge>
                                         )}
                                         {topic.isHot && (
-                                          <Badge
-                                            variant="destructive"
-                                            className="text-xs"
-                                          >
+                                          <Badge variant="destructive" className="text-xs">
                                             Hot
                                           </Badge>
                                         )}
-                                        <h4 className="font-medium text-sm">
-                                          {topic.title}
-                                        </h4>
+                                        <h4 className="font-medium text-sm">{topic.title}</h4>
                                       </div>
                                       <div className="text-xs text-muted-foreground">
-                                        {new Date(
-                                          topic.lastActivity,
-                                        ).toLocaleDateString()}
+                                        {new Date(topic.lastActivity).toLocaleDateString()}
                                       </div>
                                     </div>
                                     <div className="flex items-center gap-3 text-xs text-muted-foreground">
@@ -367,6 +342,7 @@ export default function Community() {
                   );
                 })}
               </TabsContent>
+
             </div>
           </div>
 
@@ -384,14 +360,9 @@ export default function Community() {
                 <CardContent className="space-y-4">
                   <div className="text-center">
                     <p className="font-semibold">{user?.username}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {user?.role}
-                    </p>
+                    <p className="text-sm text-muted-foreground">{user?.role}</p>
                     <p className="text-xs text-muted-foreground">
-                      Joined{" "}
-                      {user?.joinDate
-                        ? new Date(user.joinDate).toLocaleDateString()
-                        : "Recently"}
+                      Joined {user?.joinDate ? new Date(user.joinDate).toLocaleDateString() : 'Recently'}
                     </p>
                   </div>
                   <Button
@@ -434,9 +405,7 @@ export default function Community() {
                           onChange={(e) => setLoginPassword(e.target.value)}
                           required
                         />
-                        <Button type="submit" className="w-full">
-                          Sign In
-                        </Button>
+                        <Button type="submit" className="w-full">Sign In</Button>
                       </form>
                     </TabsContent>
                     <TabsContent value="signup" className="space-y-3 mt-4">
@@ -468,9 +437,7 @@ export default function Community() {
                           onChange={(e) => setConfirmPassword(e.target.value)}
                           required
                         />
-                        <Button type="submit" className="w-full">
-                          Create Account
-                        </Button>
+                        <Button type="submit" className="w-full">Create Account</Button>
                         <p className="text-xs text-muted-foreground text-center">
                           By signing up, you agree to our Terms of Service
                         </p>
