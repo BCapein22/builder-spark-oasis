@@ -209,7 +209,6 @@ export default function Community() {
       });
 
       // Add initial post
-      const { addPost } = useForumData();
       addPost({
         content: newTopicContent.trim(),
         author: user.username,
