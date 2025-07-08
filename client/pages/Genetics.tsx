@@ -52,13 +52,13 @@ export default function Genetics() {
     },
     {
       name: "Reduced Pattern",
-      genetics: "Recessive",
+      genetics: "Co-dominant",
       symbol: "rp",
       description: "Blue head, green body, reduced spots",
     },
     {
       name: "Patternless (BHG)",
-      genetics: "Recessive",
+      genetics: "Co-dominant",
       symbol: "p",
       description: "Blue head, green body, no spots",
     },
