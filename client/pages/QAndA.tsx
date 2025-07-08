@@ -55,11 +55,6 @@ export default function QAndA() {
           answer:
             "Spot clean waste immediately. Replace water every few days or when dirty. Deep clean the entire enclosure monthly, replacing substrate and disinfecting decorations. Regular maintenance prevents bacterial and fungal issues.",
         },
-        {
-          question: "Can I handle my Tokay gecko?",
-          answer:
-            "Tokay geckos are known for being defensive and can deliver a strong bite. Handle minimally and only when necessary. If you must handle them, use gloves and approach slowly from the side. Many Tokays never become truly tame.",
-        },
       ],
     },
     housing: {
@@ -86,11 +81,7 @@ export default function QAndA() {
           answer:
             "Provide at least 2-3 hiding spots: one on the warm side, one on the cool side, and one humid hide. This allows the gecko to thermoregulate while feeling secure. More hiding spots are always better.",
         },
-        {
-          question: "Can I keep live plants in the enclosure?",
-          answer:
-            "Yes! Live plants help maintain humidity and provide natural beauty. Safe options include pothos, sansevieria (snake plant), bromeliads, and ficus. Ensure plants are pesticide-free and properly rooted.",
-        },
+
         {
           question: "What heating equipment do I need?",
           answer:
@@ -255,21 +246,6 @@ export default function QAndA() {
             </TabsContent>
           ))}
         </Tabs>
-
-        {/* Contact Info */}
-        <Card className="mt-12 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 border-0">
-          <CardContent className="p-8 text-center">
-            <h2 className="text-2xl font-bold mb-4">Still Have Questions?</h2>
-            <p className="text-muted-foreground mb-6">
-              Can't find what you're looking for? Feel free to reach out to our
-              community or submit your question for future FAQ updates.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="outline">Join Community Forum</Button>
-              <Button>Submit a Question</Button>
-            </div>
-          </CardContent>
-        </Card>
 
         {/* Quick Tips */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">

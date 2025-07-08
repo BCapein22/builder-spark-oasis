@@ -29,7 +29,7 @@ export default function Community() {
       name: "General Discussion",
       description: "General tokay gecko topics and casual conversation",
       topics: 156,
-      posts: 2341,
+      posts: 0,
       icon: MessageSquare,
       color: "bg-blue-100 text-blue-600",
       latestPost: {
@@ -43,7 +43,7 @@ export default function Community() {
       name: "Care & Husbandry",
       description: "Housing, feeding, temperature, humidity, and health",
       topics: 243,
-      posts: 3892,
+      posts: 0,
       icon: Users,
       color: "bg-green-100 text-green-600",
       latestPost: {
@@ -58,7 +58,7 @@ export default function Community() {
       description:
         "Breeding projects, genetics questions, and morph discussions",
       topics: 189,
-      posts: 1876,
+      posts: 0,
       icon: TrendingUp,
       color: "bg-purple-100 text-purple-600",
       latestPost: {
@@ -72,7 +72,7 @@ export default function Community() {
       name: "Marketplace",
       description: "Buy, sell, and trade tokay geckos and supplies",
       topics: 98,
-      posts: 567,
+      posts: 0,
       icon: Star,
       color: "bg-orange-100 text-orange-600",
       latestPost: {
@@ -86,7 +86,7 @@ export default function Community() {
       name: "Photos & Videos",
       description: "Show off your geckos and share amazing photos",
       topics: 321,
-      posts: 1234,
+      posts: 0,
       icon: Eye,
       color: "bg-pink-100 text-pink-600",
       latestPost: {
@@ -100,7 +100,7 @@ export default function Community() {
       name: "Breeding Projects",
       description: "Long-term breeding goals and project updates",
       topics: 67,
-      posts: 445,
+      posts: 0,
       icon: TrendingUp,
       color: "bg-indigo-100 text-indigo-600",
       latestPost: {
@@ -164,14 +164,6 @@ export default function Community() {
     },
   ];
 
-  const onlineUsers = [
-    { name: "GeckoMaster", status: "Active", role: "Breeder" },
-    { name: "TokayExpert", status: "Active", role: "Moderator" },
-    { name: "NewbieLearner", status: "Active", role: "Member" },
-    { name: "MorphHunter", status: "Away", role: "Member" },
-    { name: "VetAdvice", status: "Active", role: "Expert" },
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/5">
       <Navigation />
@@ -207,7 +199,7 @@ export default function Community() {
           </Card>
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-secondary">8,355</div>
+              <div className="text-2xl font-bold text-secondary">0</div>
               <div className="text-sm text-muted-foreground">Posts</div>
             </CardContent>
           </Card>
@@ -219,9 +211,7 @@ export default function Community() {
           </Card>
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-green-600">
-                {onlineUsers.filter((u) => u.status === "Active").length}
-              </div>
+              <div className="text-2xl font-bold text-green-600">0</div>
               <div className="text-sm text-muted-foreground">Online Now</div>
             </CardContent>
           </Card>
@@ -348,32 +338,39 @@ export default function Community() {
 
           {/* Sidebar */}
           <div className="space-y-6">
-            {/* Online Users */}
+            {/* Authentication */}
             <Card>
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Users className="h-5 w-5" />
-                  Who's Online
+                  <User className="h-5 w-5" />
+                  Join the Community
                 </CardTitle>
               </CardHeader>
-              <CardContent className="space-y-3">
-                {onlineUsers.map((user, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div
-                      className={`w-2 h-2 rounded-full ${
-                        user.status === "Active"
-                          ? "bg-green-500"
-                          : "bg-yellow-500"
-                      }`}
-                    />
-                    <div className="flex-1">
-                      <div className="font-medium text-sm">{user.name}</div>
-                      <div className="text-xs text-muted-foreground">
-                        {user.role}
-                      </div>
-                    </div>
-                  </div>
-                ))}
+              <CardContent>
+                <Tabs defaultValue="login" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="login">Login</TabsTrigger>
+                    <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="login" className="space-y-3 mt-4">
+                    <Input placeholder="Username or Email" />
+                    <Input type="password" placeholder="Password" />
+                    <Button className="w-full">Sign In</Button>
+                    <p className="text-xs text-muted-foreground text-center">
+                      Forgot your password?
+                    </p>
+                  </TabsContent>
+                  <TabsContent value="signup" className="space-y-3 mt-4">
+                    <Input placeholder="Username" />
+                    <Input type="email" placeholder="Email" />
+                    <Input type="password" placeholder="Password" />
+                    <Input type="password" placeholder="Confirm Password" />
+                    <Button className="w-full">Create Account</Button>
+                    <p className="text-xs text-muted-foreground text-center">
+                      By signing up, you agree to our Terms of Service
+                    </p>
+                  </TabsContent>
+                </Tabs>
               </CardContent>
             </Card>
 
