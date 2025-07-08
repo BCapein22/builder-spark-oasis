@@ -52,8 +52,8 @@ export default function Genetics() {
     },
     {
       name: "Reduced Pattern",
-      genetics: "Incomplete Dominant",
-      symbol: "RP",
+      genetics: "Recessive",
+      symbol: "rp",
       description: "Blue head, green body, reduced spots",
     },
     {
