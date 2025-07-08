@@ -102,7 +102,7 @@ export default function Genetics() {
       name: "Luna",
       genetics: "Recessive",
       symbol: "l",
-      description: "White coloration with blue eyes",
+      description: "White coloration from melanin absence",
     },
     {
       name: "Shooting Star",
