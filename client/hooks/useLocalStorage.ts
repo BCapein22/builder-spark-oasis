@@ -159,6 +159,11 @@ export const useForumData = () => {
     return topics.find((topic) => topic.id === topicId);
   };
 
+  const clearAllTopics = () => {
+    setTopics([]);
+    setPosts([]);
+  };
+
   return {
     topics,
     posts,
@@ -169,5 +174,6 @@ export const useForumData = () => {
     incrementViews,
     deleteTopic,
     getTopic,
+    clearAllTopics,
   };
 };
