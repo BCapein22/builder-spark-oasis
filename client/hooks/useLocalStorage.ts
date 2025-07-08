@@ -147,6 +147,18 @@ export const useForumData = () => {
     );
   };
 
+  const deleteTopic = (topicId: string) => {
+    // Remove the topic
+    setTopics((prev) => prev.filter((topic) => topic.id !== topicId));
+
+    // Remove all posts related to this topic
+    setPosts((prev) => prev.filter((post) => post.topicId !== topicId));
+  };
+
+  const getTopic = (topicId: string) => {
+    return topics.find((topic) => topic.id === topicId);
+  };
+
   return {
     topics,
     posts,
@@ -155,5 +167,7 @@ export const useForumData = () => {
     getTopicPosts,
     getTopicsByCategory,
     incrementViews,
+    deleteTopic,
+    getTopic,
   };
 };
