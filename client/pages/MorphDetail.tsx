@@ -460,6 +460,35 @@ export default function MorphDetail() {
           "A relatively recent morph discovery in the tokay gecko breeding community. The linear pattern formation represents a unique genetic expression affecting spot placement and alignment.",
       },
     },
+    blueberry: {
+      name: "Blueberry",
+      genetics: "Recessive",
+      description:
+        "A distinctive recessive morph confirmed by Max Ong in Malaysia, characterized by black splotches on their feet and lacking the typical large red spots found in normal tokays.",
+      image:
+        "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
+      traits: [
+        "Black foot splotches",
+        "No large red spots",
+        "Unique coloration",
+        "Recessive trait",
+      ],
+      rarity: "Rare",
+      detailed: {
+        genetics:
+          "Simple recessive trait first confirmed by Max Ong in Malaysia. Both parents must carry the gene for offspring to display the Blueberry characteristics.",
+        breeding:
+          "Standard recessive breeding applies - breeding two Blueberry geckos produces 100% Blueberry offspring. Het x Het breeding yields 25% visual Blueberry offspring.",
+        care: "Standard tokay gecko care requirements. The foot coloration and reduced red spotting do not affect their care needs.",
+        size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
+        temperament:
+          "No specific temperament differences from normal tokays. Typical territorial and vocal behavior.",
+        availability:
+          "Limited availability from specialized breeders, particularly those working with Asian bloodlines.",
+        history:
+          "Confirmed and documented by Max Ong in Malaysia. Represents one of the distinctive morphs originating from Southeast Asian breeding programs.",
+      },
+    },
   };
 
   const slug = morphName?.toLowerCase().replace(/\s+/g, "-");
