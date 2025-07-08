@@ -85,7 +85,10 @@ export default function Navigation() {
                     ? "text-primary bg-primary/10 rounded-md"
                     : "text-muted-foreground"
                 }`}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               >
                 {item.name}
               </Link>
