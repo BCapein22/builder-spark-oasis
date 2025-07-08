@@ -73,17 +73,13 @@ export const useForumData = () => {
   const [posts, setPosts] = useLocalStorage<ForumPost[]>("forumPosts", []);
 
   const addTopic = (
-    topic: Omit<
-      ForumTopic,
-      "id" | "createdAt" | "lastActivity" | "views" | "replies"
-    >,
+    topic: Omit<ForumTopic, "id" | "createdAt" | "lastActivity" | "replies">,
   ) => {
     const newTopic: ForumTopic = {
       ...topic,
       id: Date.now().toString(),
       createdAt: new Date().toISOString(),
       lastActivity: new Date().toISOString(),
-      views: 0,
       replies: 0,
       posts: [],
     };
