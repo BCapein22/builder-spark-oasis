@@ -116,6 +116,12 @@ export default function Genetics() {
       symbol: "nm",
       description: "Dark base with contrasting light spots",
     },
+    {
+      name: "Blueberry",
+      genetics: "Recessive",
+      symbol: "bb",
+      description: "Black foot splotches without large red spots",
+    },
   ];
 
   const calculateBreeding = useMemo((): BreedingResult[] => {
