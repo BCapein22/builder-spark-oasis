@@ -350,9 +350,9 @@ export default function Genetics() {
       results.push(
         {
           genotype: `${parent1.symbol}${parent1.symbol}`,
-          phenotype: parent1.name,
+          phenotype: "Patternless (BHG)",
           percentage: 25,
-          description: `25% ${parent1.name} (homozygous - more dramatic expression)`,
+          description: `25% Patternless (BHG)`,
         },
         {
           genotype: `${parent1.symbol}N`,
