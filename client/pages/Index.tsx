@@ -205,8 +205,11 @@ export default function Index() {
           <p className="text-muted-foreground mb-4">
             Your trusted source for Tokay gecko morph information and genetics
           </p>
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm text-muted-foreground mb-2">
             Built with data from leading breeders and the reptile community
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Made by <strong>Brian.Capien</strong>
           </p>
         </div>
       </footer>
