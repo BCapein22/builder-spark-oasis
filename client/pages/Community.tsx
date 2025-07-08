@@ -18,7 +18,6 @@ import {
   TrendingUp,
   Search,
   PlusCircle,
-  Eye,
   MessageCircle,
   User,
   ChevronDown,
