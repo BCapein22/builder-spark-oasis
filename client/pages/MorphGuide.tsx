@@ -234,6 +234,21 @@ export default function MorphGuide() {
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F37141c9fc5cb437eb952e4cc6e4e1dab",
     },
+    {
+      name: "Blueberry",
+      genetics: "Recessive",
+      description:
+        "A distinctive recessive morph confirmed by Max Ong in Malaysia, characterized by black splotches on their feet and lacking the typical large red spots found in normal tokays.",
+      traits: [
+        "Black foot splotches",
+        "No large red spots",
+        "Unique coloration",
+        "Recessive trait",
+      ],
+      rarity: "Rare" as const,
+      image:
+        "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
+    },
   ];
 
   const geneticsTypes = [
