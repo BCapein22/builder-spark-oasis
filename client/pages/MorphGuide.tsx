@@ -204,7 +204,7 @@ export default function MorphGuide() {
       ],
       rarity: "Super Rare" as const,
       image:
-        "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F0c8db1cd12134dc8a042d5978f3fe16b",
     },
     {
       name: "Axanthic",
