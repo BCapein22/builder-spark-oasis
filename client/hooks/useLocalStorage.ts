@@ -65,7 +65,6 @@ export interface ForumTopic {
   lastActivity: string;
   isPinned: boolean;
   isHot: boolean;
-  views: number;
   replies: number;
 }
 
