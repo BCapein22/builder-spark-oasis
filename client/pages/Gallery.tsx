@@ -113,6 +113,13 @@ export default function Gallery() {
       morph: "Shooting Star",
       photographer: "Breeder Submission",
     },
+    {
+      id: 15,
+      url: "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
+      title: "Blueberry Morph",
+      morph: "Blueberry",
+      photographer: "Max Ong (Malaysia)",
+    },
   ];
 
   // Only use the actual tokay gecko morph images - no placeholders
