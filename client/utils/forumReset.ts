@@ -5,5 +5,7 @@ export const resetForumData = () => {
   console.log("Forum data reset - all topics and posts cleared");
 };
 
-// Call this immediately to reset forum data
-resetForumData();
+// Execute reset immediately for this deployment
+if (typeof window !== "undefined") {
+  resetForumData();
+}
