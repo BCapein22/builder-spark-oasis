@@ -150,12 +150,12 @@ export default function MorphGuide() {
       name: "Luna",
       genetics: "Recessive",
       description:
-        "A stunning morph characterized by solid white coloration with distinctive sapphire blue eyes, resulting from a complete absence of melanin. Both parents must carry the gene to produce Luna offspring.",
+        "A stunning morph characterized by solid white coloration resulting from a complete absence of melanin. Both parents must carry the gene to produce Luna offspring.",
       traits: [
         "Solid white coloration",
-        "Sapphire blue eyes",
         "No melanin",
         "Extremely rare",
+        "Striking appearance",
       ],
       rarity: "Super Rare" as const,
       image:
