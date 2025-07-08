@@ -155,7 +155,6 @@ export const useForumData = () => {
     addPost,
     getTopicPosts,
     getTopicsByCategory,
-    incrementViews,
     deleteTopic,
     getTopic,
     clearAllTopics,
