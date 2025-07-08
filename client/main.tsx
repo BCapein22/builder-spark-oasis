@@ -19,38 +19,44 @@ import Community from "./pages/Community";
 import TopicDetail from "./pages/TopicDetail";
 import NotFound from "./pages/NotFound";
 import EmailDebugPanel from "./components/EmailDebugPanel";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/morphs" element={<MorphGuide />} />
-            <Route path="/morphs/:morphName" element={<MorphDetail />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/genetics" element={<Genetics />} />
-            <Route path="/qa" element={<QAndA />} />
-            <Route path="/breeders" element={<Breeders />} />
-            <Route path="/breeders/:breederName" element={<BreederDetail />} />
-            <Route path="/community" element={<Community />} />
-            <Route
-              path="/community/:categoryId/:topicId"
-              element={<TopicDetail />}
-            />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-          <EmailDebugPanel />
-        </BrowserRouter>
-      </TooltipProvider>
-    </AuthProvider>
-  </QueryClientProvider>
+  <ErrorBoundary>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/morphs" element={<MorphGuide />} />
+              <Route path="/morphs/:morphName" element={<MorphDetail />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/genetics" element={<Genetics />} />
+              <Route path="/qa" element={<QAndA />} />
+              <Route path="/breeders" element={<Breeders />} />
+              <Route
+                path="/breeders/:breederName"
+                element={<BreederDetail />}
+              />
+              <Route path="/community" element={<Community />} />
+              <Route
+                path="/community/:categoryId/:topicId"
+                element={<TopicDetail />}
+              />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+            <EmailDebugPanel />
+          </BrowserRouter>
+        </TooltipProvider>
+      </AuthProvider>
+    </QueryClientProvider>
+  </ErrorBoundary>
 );
 
 createRoot(document.getElementById("root")!).render(<App />);
