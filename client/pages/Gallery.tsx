@@ -13,41 +13,41 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<any>(null);
   const imagesPerPage = 25;
 
-  // Sample gallery images - in production these would come from a database or API
+  // Gallery images with all morphs from the guide
   const galleryImages = [
     {
       id: 1,
-      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdb47718a45a84a57888fb732572b0b29",
-      title: "Super Red Male",
-      morph: "Super Red",
+      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F6d0d3ee54f3c412f9928072512e55cb2",
+      title: "Normal Wild-type",
+      morph: "Normal (Wild-type)",
       photographer: "Breeder Submission",
     },
     {
       id: 2,
-      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1f2646c07ddf4895a97aed2a00605a86",
-      title: "Green Galaxy Female",
-      morph: "Green Galaxy",
+      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1aed7186737543d29a875edc372db330",
+      title: "Reduced Pattern",
+      morph: "Reduced Pattern",
       photographer: "Community Member",
     },
     {
       id: 3,
-      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fa1bfad9d36894dcdb5777d16e36d8178",
-      title: "Luna Morph",
-      morph: "Luna",
+      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdc77533129d0486d824831476e243821",
+      title: "Patternless BHG",
+      morph: "Patternless (BHG)",
       photographer: "Professional",
     },
     {
       id: 4,
-      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1dad7f014b544e299a1c73a0dd4d40af",
-      title: "Diablo Pattern",
-      morph: "Diablo",
+      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc1f66d00582145faa715a74535e01788",
+      title: "Powder Blue Patternless",
+      morph: "Powder Blue Patternless",
       photographer: "Breeder Submission",
     },
     {
       id: 5,
-      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F62f46a51c9f248dd8fb3ff292311d9b4",
-      title: "Patternless BHG",
-      morph: "Patternless (BHG)",
+      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F5e1bda61479e478eaff84daaa180614a",
+      title: "Granite Morph",
+      morph: "Granite",
       photographer: "Community Member",
     },
   ];
