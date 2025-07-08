@@ -200,7 +200,8 @@ export default function Gallery() {
           {currentImages.map((image) => (
             <Card
               key={image.id}
-              className="group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-white/80 backdrop-blur-sm"
+              className="group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 bg-white/80 backdrop-blur-sm cursor-pointer"
+              onClick={() => setSelectedImage(image)}
             >
               <div className="aspect-square relative overflow-hidden">
                 <img
