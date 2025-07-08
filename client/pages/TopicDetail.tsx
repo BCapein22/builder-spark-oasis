@@ -12,7 +12,6 @@ import { useToast } from "@/hooks/use-toast";
 import {
   ChevronLeft,
   MessageSquare,
-  Eye,
   Clock,
   Send,
   Pin,
