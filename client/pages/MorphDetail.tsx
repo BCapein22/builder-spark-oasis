@@ -296,7 +296,7 @@ export default function MorphDetail() {
       name: "Luna",
       genetics: "Recessive",
       description:
-        "A stunning morph characterized by solid white coloration with distinctive sapphire blue eyes, resulting from a complete absence of melanin. Both parents must carry the gene to produce Luna offspring.",
+        "A stunning morph characterized by solid white coloration resulting from a complete absence of melanin. Both parents must carry the gene to produce Luna offspring.",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F14bfc223d5a44b5fbd6755237a2abc58",
       traits: [
