@@ -13,6 +13,7 @@ import Gallery from "./pages/Gallery";
 import Genetics from "./pages/Genetics";
 import QAndA from "./pages/QAndA";
 import Breeders from "./pages/Breeders";
+import BreederDetail from "./pages/BreederDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
