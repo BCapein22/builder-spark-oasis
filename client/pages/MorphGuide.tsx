@@ -225,16 +225,15 @@ export default function MorphGuide() {
       name: "Shooting Star",
       genetics: "Recessive",
       description:
-        "A distinctive recessive morph where spots align in a straight line down the gecko's back, resembling shooting stars or candy dots. Features solid black eyes and a unique linear pattern that sets it apart from other morphs.",
+        "A distinctive recessive morph where spots align in a straight line down the gecko's back, resembling shooting stars. A unique linear pattern that sets it apart from other morphs.",
       traits: [
         "Linear spot alignment",
-        "Solid black eyes",
         "Straight-line pattern",
         "Distinctive appearance",
       ],
       rarity: "Super Rare" as const,
       image:
-        "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F37141c9fc5cb437eb952e4cc6e4e1dab",
     },
   ];
 
