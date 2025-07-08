@@ -193,8 +193,26 @@ export default function TopicDetail() {
                     <Clock className="h-4 w-4" />
                     Created {formatDate(topic.createdAt)}
                   </div>
+                  {topic.author && (
+                    <div className="flex items-center gap-1">
+                      <User className="h-4 w-4" />
+                      by {topic.author}
+                    </div>
+                  )}
                 </div>
               </div>
+              {/* Delete button - only show to topic author */}
+              {isAuthenticated && user && topic.author === user.username && (
+                <Button
+                  variant="destructive"
+                  size="sm"
+                  onClick={handleDeleteTopic}
+                  className="flex items-center gap-2"
+                >
+                  <Trash2 className="h-4 w-4" />
+                  Delete Topic
+                </Button>
+              )}
             </div>
           </CardHeader>
         </Card>
