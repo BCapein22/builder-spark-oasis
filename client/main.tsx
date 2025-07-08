@@ -18,6 +18,7 @@ import BreederDetail from "./pages/BreederDetail";
 import Community from "./pages/Community";
 import TopicDetail from "./pages/TopicDetail";
 import NotFound from "./pages/NotFound";
+import EmailDebugPanel from "./components/EmailDebugPanel";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          <EmailDebugPanel />
         </BrowserRouter>
       </TooltipProvider>
     </AuthProvider>
