@@ -36,22 +36,26 @@ export default function Index() {
     {
       name: "Reduced Pattern",
       rarity: "Uncommon",
-      color: "bg-gradient-to-r from-gecko-blue to-gecko-green",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1aed7186737543d29a875edc372db330",
     },
     {
       name: "Patternless",
       rarity: "Rare",
-      color: "bg-gradient-to-r from-gecko-green to-gecko-blue",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdc77533129d0486d824831476e243821",
     },
     {
       name: "Granite",
       rarity: "Super Rare",
-      color: "bg-gradient-to-r from-gray-600 to-gray-800",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F5e1bda61479e478eaff84daaa180614a",
     },
     {
       name: "Super Red",
       rarity: "Rare",
-      color: "bg-gradient-to-r from-gecko-orange to-red-500",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc9bc22750446420397a738136f74bed8",
     },
   ];
 
