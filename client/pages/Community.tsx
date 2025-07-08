@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { useForumData } from "@/hooks/useLocalStorage";
+import { EmailService } from "@/services/emailService";
 import {
   ChevronLeft,
   Users,
@@ -155,8 +156,10 @@ export default function Community() {
 
       // Send email notification about new member
       try {
-        const emailBody = `New member signup:\n\nUsername: ${signupUsername}\nEmail: ${signupEmail}\nJoined: ${new Date().toLocaleString()}`;
-        console.log("Sending email to brian@royalunionpets.com:", emailBody);
+        await EmailService.sendNewMemberNotification(
+          signupUsername,
+          signupEmail,
+        );
       } catch (error) {
         console.error("Failed to send email notification:", error);
       }
@@ -215,6 +218,20 @@ export default function Community() {
         topicId: topic.id,
         categoryId: newTopicCategory,
       });
+
+      // Send email notification about new topic
+      try {
+        await EmailService.sendForumTopicNotification(
+          {
+            title: newTopicTitle.trim(),
+            categoryId: newTopicCategory,
+            content: newTopicContent.trim(),
+          },
+          user.username,
+        );
+      } catch (error) {
+        console.error("Failed to send topic notification:", error);
+      }
 
       toast({
         title: "Success",
