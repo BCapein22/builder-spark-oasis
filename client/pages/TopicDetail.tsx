@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from "@/contexts/AuthContext";
 import { useForumData, ForumTopic } from "@/hooks/useLocalStorage";
+import { useToast } from "@/hooks/use-toast";
 import {
   ChevronLeft,
   MessageSquare,
@@ -17,6 +18,7 @@ import {
   Pin,
   Flame,
   User,
+  Trash2,
 } from "lucide-react";
 
 export default function TopicDetail() {
@@ -26,7 +28,9 @@ export default function TopicDetail() {
   }>();
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
-  const { topics, getTopicPosts, addPost, incrementViews } = useForumData();
+  const { topics, getTopicPosts, addPost, incrementViews, deleteTopic } =
+    useForumData();
+  const { toast } = useToast();
 
   const [topic, setTopic] = useState<ForumTopic | null>(null);
   const [posts, setPosts] = useState<any[]>([]);
