@@ -275,7 +275,7 @@ export default function MorphDetail() {
       description:
         "Not a true morph but an 'odd ball' resulting from specific breeding combinations. Displays a green body, blue head, and notably reduced spot size creating a unique appearance.",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1f2646c07ddf4895a97aed2a00605a86",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdc56379e226949a18315bd69b0030b1b",
       traits: ["Green body", "Blue head", "Reduced spot size", "Combo result"],
       rarity: "Uncommon",
       detailed: {
