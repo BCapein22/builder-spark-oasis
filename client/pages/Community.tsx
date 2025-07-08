@@ -3,42 +3,32 @@ import { Link } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import {
+  ChevronLeft,
+  Users,
+  MessageSquare,
+  TrendingUp,
+  Search,
+  PlusCircle,
+  Eye,
+  MessageCircle,
+  User,
+  ChevronDown,
+  ChevronRight,
+} from "lucide-react";
 
 export default function Community() {
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/5">
-      <Navigation />
-      <div className="container py-8">
-        <div className="mb-6">
-          <Button variant="ghost" asChild>
-            <Link to="/qa" className="flex items-center gap-2">
-              ← Back to Q&A
-            </Link>
-          </Button>
-        </div>
-
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
-            Community Forum
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Connect with fellow tokay gecko enthusiasts, share knowledge, and
-            grow together as a community
-          </p>
-        </div>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Forum Categories</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p>Forum is loading...</p>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
-  );
-}
+  const [searchTerm, setSearchTerm] = useState("");
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [signupUsername, setSignupUsername] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const forumCategories = [
     {
@@ -58,7 +48,8 @@ export default function Community() {
     {
       id: "breeding",
       name: "Breeding & Genetics",
-      description: "Breeding projects, genetics questions, and morph discussions",
+      description:
+        "Breeding projects, genetics questions, and morph discussions",
       icon: TrendingUp,
       color: "bg-purple-100 text-purple-600",
     },
@@ -79,82 +70,21 @@ export default function Community() {
   ];
 
   const toggleCategory = (categoryId: string) => {
-    setExpandedCategories(prev =>
+    setExpandedCategories((prev) =>
       prev.includes(categoryId)
-        ? prev.filter(id => id !== categoryId)
-        : [...prev, categoryId]
+        ? prev.filter((id) => id !== categoryId)
+        : [...prev, categoryId],
     );
   };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!loginEmail || !loginPassword) {
-      toast({
-        title: "Error",
-        description: "Please fill in all fields",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    const success = await login(loginEmail, loginPassword);
-    if (success) {
-      toast({
-        title: "Success",
-        description: "Logged in successfully!",
-      });
-      setLoginEmail("");
-      setLoginPassword("");
-    } else {
-      toast({
-        title: "Error",
-        description: "Invalid email or password",
-        variant: "destructive",
-      });
-    }
+    console.log("Login attempt:", loginEmail);
   };
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!signupUsername || !signupEmail || !signupPassword || !confirmPassword) {
-      toast({
-        title: "Error",
-        description: "Please fill in all fields",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (signupPassword !== confirmPassword) {
-      toast({
-        title: "Error",
-        description: "Passwords do not match",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    const success = await signup(signupUsername, signupEmail, signupPassword);
-    if (success) {
-      toast({
-        title: "Success",
-        description: "Account created successfully!",
-      });
-      setSignupUsername("");
-      setSignupEmail("");
-      setSignupPassword("");
-      setConfirmPassword("");
-    } else {
-      toast({
-        title: "Error",
-        description: "Username or email already exists",
-        variant: "destructive",
-      });
-    }
-  };
-
-  const handleTopicClick = (topicId: string, categoryId: string) => {
-    navigate(`/community/${categoryId}/${topicId}`);
+    console.log("Signup attempt:", signupUsername, signupEmail);
   };
 
   return (
@@ -186,7 +116,7 @@ export default function Community() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-primary">{memberCount}</div>
+              <div className="text-2xl font-bold text-primary">0</div>
               <div className="text-sm text-muted-foreground">Members</div>
             </CardContent>
           </Card>
@@ -204,7 +134,7 @@ export default function Community() {
           </Card>
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-green-600">{isAuthenticated ? 1 : 0}</div>
+              <div className="text-2xl font-bold text-green-600">0</div>
               <div className="text-sm text-muted-foreground">Online Now</div>
             </CardContent>
           </Card>
@@ -226,21 +156,18 @@ export default function Community() {
                       className="pl-10 w-64"
                     />
                   </div>
-                  {isAuthenticated && (
-                    <Button className="flex items-center gap-2">
-                      <PlusCircle className="h-4 w-4" />
-                      New Topic
-                    </Button>
-                  )}
+                  <Button className="flex items-center gap-2">
+                    <PlusCircle className="h-4 w-4" />
+                    New Topic
+                  </Button>
                 </div>
               </div>
 
-              <TabsContent value="categories" className="space-y-4">
+              <div className="space-y-4">
                 {forumCategories.map((category) => {
                   const IconComponent = category.icon;
                   const isExpanded = expandedCategories.includes(category.id);
                   const ChevronIcon = isExpanded ? ChevronDown : ChevronRight;
-                  const categoryTopics = getTopicsByCategory(category.id);
 
                   return (
                     <div key={category.id}>
@@ -266,20 +193,10 @@ export default function Community() {
                                     {category.description}
                                   </p>
                                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                                    <span>{categoryTopics.length} topics</span>
+                                    <span>0 topics</span>
                                     <span>0 posts</span>
                                   </div>
                                 </div>
-                                {categoryTopics.length > 0 && (
-                                  <div className="text-right text-sm">
-                                    <div className="font-medium">
-                                      {categoryTopics[0].title}
-                                    </div>
-                                    <div className="text-muted-foreground">
-                                      {new Date(categoryTopics[0].lastActivity).toLocaleDateString()}
-                                    </div>
-                                  </div>
-                                )}
                               </div>
                             </div>
                           </div>
@@ -288,165 +205,97 @@ export default function Community() {
 
                       {isExpanded && (
                         <div className="ml-6 mt-2 space-y-2">
-                          {categoryTopics.length === 0 ? (
-                            <Card className="border-l-4 border-l-primary/20">
-                              <CardContent className="p-4 text-center text-muted-foreground">
-                                No topics yet. Be the first to start a discussion!
-                              </CardContent>
-                            </Card>
-                          ) : (
-                            categoryTopics.map((topic) => (
-                              <Card
-                                key={topic.id}
-                                className="hover:shadow-sm transition-shadow cursor-pointer border-l-4 border-l-primary/20"
-                                onClick={() => handleTopicClick(topic.id, category.id)}
-                              >
-                                <CardContent className="p-4">
-                                  <div className="flex items-start justify-between">
-                                    <div className="flex-1">
-                                      <div className="flex items-center gap-2 mb-1">
-                                        {topic.isPinned && (
-                                          <Badge variant="secondary" className="text-xs">
-                                            Pinned
-                                          </Badge>
-                                        )}
-                                        {topic.isHot && (
-                                          <Badge variant="destructive" className="text-xs">
-                                            Hot
-                                          </Badge>
-                                        )}
-                                        <h4 className="font-medium text-sm">{topic.title}</h4>
-                                      </div>
-                                      <div className="text-xs text-muted-foreground">
-                                        {new Date(topic.lastActivity).toLocaleDateString()}
-                                      </div>
-                                    </div>
-                                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                                      <div className="flex items-center gap-1">
-                                        <MessageCircle className="h-3 w-3" />
-                                        {topic.replies}
-                                      </div>
-                                      <div className="flex items-center gap-1">
-                                        <Eye className="h-3 w-3" />
-                                        {topic.views}
-                                      </div>
-                                    </div>
-                                  </div>
-                                </CardContent>
-                              </Card>
-                            ))
-                          )}
+                          <Card className="border-l-4 border-l-primary/20">
+                            <CardContent className="p-4 text-center text-muted-foreground">
+                              No topics yet. Be the first to start a discussion!
+                            </CardContent>
+                          </Card>
                         </div>
                       )}
                     </div>
                   );
                 })}
-              </TabsContent>
-
+              </div>
             </div>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Authentication */}
-            {isAuthenticated ? (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <User className="h-5 w-5" />
-                    Welcome Back!
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="text-center">
-                    <p className="font-semibold">{user?.username}</p>
-                    <p className="text-sm text-muted-foreground">{user?.role}</p>
-                    <p className="text-xs text-muted-foreground">
-                      Joined {user?.joinDate ? new Date(user.joinDate).toLocaleDateString() : 'Recently'}
-                    </p>
-                  </div>
-                  <Button
-                    variant="outline"
-                    className="w-full flex items-center gap-2"
-                    onClick={logout}
-                  >
-                    <LogOut className="h-4 w-4" />
-                    Sign Out
-                  </Button>
-                </CardContent>
-              </Card>
-            ) : (
-              <Card>
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2">
-                    <User className="h-5 w-5" />
-                    Join the Community
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <Tabs defaultValue="login" className="w-full">
-                    <TabsList className="grid w-full grid-cols-2">
-                      <TabsTrigger value="login">Login</TabsTrigger>
-                      <TabsTrigger value="signup">Sign Up</TabsTrigger>
-                    </TabsList>
-                    <TabsContent value="login" className="space-y-3 mt-4">
-                      <form onSubmit={handleLogin} className="space-y-3">
-                        <Input
-                          placeholder="Email"
-                          type="email"
-                          value={loginEmail}
-                          onChange={(e) => setLoginEmail(e.target.value)}
-                          required
-                        />
-                        <Input
-                          type="password"
-                          placeholder="Password"
-                          value={loginPassword}
-                          onChange={(e) => setLoginPassword(e.target.value)}
-                          required
-                        />
-                        <Button type="submit" className="w-full">Sign In</Button>
-                      </form>
-                    </TabsContent>
-                    <TabsContent value="signup" className="space-y-3 mt-4">
-                      <form onSubmit={handleSignup} className="space-y-3">
-                        <Input
-                          placeholder="Username"
-                          value={signupUsername}
-                          onChange={(e) => setSignupUsername(e.target.value)}
-                          required
-                        />
-                        <Input
-                          type="email"
-                          placeholder="Email"
-                          value={signupEmail}
-                          onChange={(e) => setSignupEmail(e.target.value)}
-                          required
-                        />
-                        <Input
-                          type="password"
-                          placeholder="Password"
-                          value={signupPassword}
-                          onChange={(e) => setSignupPassword(e.target.value)}
-                          required
-                        />
-                        <Input
-                          type="password"
-                          placeholder="Confirm Password"
-                          value={confirmPassword}
-                          onChange={(e) => setConfirmPassword(e.target.value)}
-                          required
-                        />
-                        <Button type="submit" className="w-full">Create Account</Button>
-                        <p className="text-xs text-muted-foreground text-center">
-                          By signing up, you agree to our Terms of Service
-                        </p>
-                      </form>
-                    </TabsContent>
-                  </Tabs>
-                </CardContent>
-              </Card>
-            )}
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <User className="h-5 w-5" />
+                  Join the Community
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <Tabs defaultValue="login" className="w-full">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="login">Login</TabsTrigger>
+                    <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="login" className="space-y-3 mt-4">
+                    <form onSubmit={handleLogin} className="space-y-3">
+                      <Input
+                        placeholder="Email"
+                        type="email"
+                        value={loginEmail}
+                        onChange={(e) => setLoginEmail(e.target.value)}
+                        required
+                      />
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        value={loginPassword}
+                        onChange={(e) => setLoginPassword(e.target.value)}
+                        required
+                      />
+                      <Button type="submit" className="w-full">
+                        Sign In
+                      </Button>
+                    </form>
+                  </TabsContent>
+                  <TabsContent value="signup" className="space-y-3 mt-4">
+                    <form onSubmit={handleSignup} className="space-y-3">
+                      <Input
+                        placeholder="Username"
+                        value={signupUsername}
+                        onChange={(e) => setSignupUsername(e.target.value)}
+                        required
+                      />
+                      <Input
+                        type="email"
+                        placeholder="Email"
+                        value={signupEmail}
+                        onChange={(e) => setSignupEmail(e.target.value)}
+                        required
+                      />
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        value={signupPassword}
+                        onChange={(e) => setSignupPassword(e.target.value)}
+                        required
+                      />
+                      <Input
+                        type="password"
+                        placeholder="Confirm Password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        required
+                      />
+                      <Button type="submit" className="w-full">
+                        Create Account
+                      </Button>
+                      <p className="text-xs text-muted-foreground text-center">
+                        By signing up, you agree to our Terms of Service
+                      </p>
+                    </form>
+                  </TabsContent>
+                </Tabs>
+              </CardContent>
+            </Card>
 
             {/* Forum Rules */}
             <Card>
