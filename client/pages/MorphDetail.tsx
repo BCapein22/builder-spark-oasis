@@ -52,7 +52,7 @@ export default function MorphDetail() {
     },
     "reduced-pattern": {
       name: "Reduced Pattern",
-      genetics: "Incomplete Dominant",
+      genetics: "Co-dominant",
       description:
         "An incomplete dominant morph characterized by a blue head, green body, and significantly reduced spotting. Often displays minimal to no spots with prominent white baring.",
       image:
@@ -77,7 +77,7 @@ export default function MorphDetail() {
     },
     "patternless-bhg": {
       name: "Patternless (BHG)",
-      genetics: "Recessive",
+      genetics: "Co-dominant",
       description:
         "Blue Headed Green Patternless results in a solid-colored gecko with a distinctive blue head and green body, completely lacking the typical spot pattern.",
       image:
