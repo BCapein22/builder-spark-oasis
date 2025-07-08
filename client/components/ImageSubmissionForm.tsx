@@ -27,6 +27,7 @@ import {
   Download,
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { EmailService } from "@/services/emailService";
 import ReactCrop, {
   centerCrop,
   makeAspectCrop,
@@ -221,34 +222,11 @@ export default function ImageSubmissionForm({
     setIsSubmitting(true);
 
     try {
-      // Create email content
-      const emailSubject = `New Tokay Gecko Image Submission from ${formData.name}`;
-      const emailBody = `
-New image submission for GekkoGuide Gallery:
-
-Submitter Information:
-- Name: ${formData.name}
-- Email: ${formData.email}
-
-Gecko Information:
-- Gecko Name: ${formData.geckoName}
-- Morph: ${formData.morph}
-- Description: ${formData.description}
-
-Please check the attached image file.
-
----
-Submitted via GekkoGuide Gallery
-      `.trim();
-
-      // Log email notification (in production, this would send via email service)
-      console.log("📧 Email notification to brian@royalunionpets.com:");
-      console.log("Subject:", emailSubject);
-      console.log("Body:", emailBody);
-      console.log("Image file:", formData.imageFile?.name);
-
-      // Simulate API call delay
-      await new Promise((resolve) => setTimeout(resolve, 2000));
+      // Send email using EmailService
+      await EmailService.sendPhotoSubmission(
+        formData,
+        formData.imageFile || undefined,
+      );
 
       toast({
         title: "Submission sent!",
