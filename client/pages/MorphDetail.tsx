@@ -490,6 +490,92 @@ export default function MorphDetail() {
           "Confirmed and documented by Max Ong in Malaysia. Represents one of the distinctive morphs originating from Southeast Asian breeding programs.",
       },
     },
+    "carmel-albino": {
+      name: "Carmel Albino",
+      genetics: "Recessive",
+      description:
+        "A distinctive albino morph with reduced melanistic pigmentation displaying a beautiful caramel hue. This recessive trait requires both parents to carry the gene for expression.",
+      image:
+        "https://images.pexels.com/photos/2968965/pexels-photo-2968965.jpeg",
+      traits: [
+        "Caramel coloration",
+        "Reduced melanin",
+        "Light pigmentation",
+        "Recessive trait",
+      ],
+      rarity: "Super Rare",
+      detailed: {
+        genetics:
+          "Simple recessive mutation affecting melanin production, resulting in reduced dark pigmentation and characteristic caramel coloration. Both parents must carry the albino gene.",
+        breeding:
+          "Standard recessive breeding - both parents must be homozygous recessive or heterozygous carriers. Breeding two Carmel Albinos produces 100% Carmel Albino offspring.",
+        care: "Requires specialized care due to reduced melanin protection. UV lighting must be carefully managed and temperature regulation is critical for health.",
+        size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
+        temperament:
+          "No specific temperament differences from normal tokays, though may be slightly more sensitive to bright lighting.",
+        availability:
+          "Very limited availability from specialized albino breeders. Long waiting lists common.",
+        history:
+          "Represents one of the classic albino mutations in tokay geckos, prized for its warm caramel coloration and rarity.",
+      },
+    },
+    "t-plus-albino": {
+      name: "T+ Albino",
+      genetics: "Recessive",
+      description:
+        "Tyrosinase-positive albino with partial melanin production resulting in pale caramel coloration. The tyrosinase enzyme is present but functions incompletely.",
+      image: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
+      traits: [
+        "Caramel background",
+        "Partial melanin production",
+        "Brown/gray tones",
+        "Reduced black pigmentation",
+      ],
+      rarity: "Super Rare",
+      detailed: {
+        genetics:
+          "Recessive mutation affecting tyrosinase enzyme activity. Unlike T- albinos, T+ retains some melanin production capability, resulting in lighter but not completely absent pigmentation.",
+        breeding:
+          "Must avoid crossing with T- albinos as this produces double heterozygous offspring that appear normal. Breed T+ with T+ for consistent results.",
+        care: "Requires careful lighting management due to reduced pigmentation. Standard tokay temperatures but monitor for light sensitivity.",
+        size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
+        temperament:
+          "Typical tokay behavior, though may show increased light sensitivity affecting activity patterns.",
+        availability:
+          "Extremely rare, available only from specialized albino breeding programs.",
+        history:
+          "Distinguished from T- albinos by partial tyrosinase function, representing a unique genetic pathway in tokay gecko albinism.",
+      },
+    },
+    "t-minus-albino": {
+      name: "T- Albino",
+      genetics: "Recessive",
+      description:
+        "Tyrosinase-negative albino with complete lack of melanin production due to non-functional tyrosinase enzyme. Features pale coloration and distinctive red irises.",
+      image:
+        "https://images.pexels.com/photos/6788326/pexels-photo-6788326.jpeg",
+      traits: [
+        "No melanin production",
+        "Pale coloration",
+        "Red irises",
+        "Non-functional tyrosinase",
+      ],
+      rarity: "Super Rare",
+      detailed: {
+        genetics:
+          "Complete recessive mutation resulting in non-functional tyrosinase enzyme and total absence of melanin production. Most extreme form of albinism in tokay geckos.",
+        breeding:
+          "Must breed T- with T- only. Crossing with T+ albinos produces normal-appearing double heterozygous offspring, diluting the bloodline.",
+        care: "Requires most intensive care of all morphs due to complete melanin absence. Specialized UV filtering and temperature control essential.",
+        size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
+        temperament:
+          "May be more docile due to light sensitivity. Require low-light environments and careful handling.",
+        availability:
+          "Rarest of all tokay morphs. Available only from dedicated T- albino breeding programs.",
+        history:
+          "Represents the most extreme albino mutation in tokay geckos. Critical to maintain pure T- lines without T+ contamination.",
+      },
+    },
   };
 
   const slug = morphName?.toLowerCase().replace(/\s+/g, "-");
