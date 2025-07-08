@@ -95,6 +95,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       // Update member count
       setMemberCount(users.length);
 
+      // Send email notification about new member signup
+      try {
+        const emailBody = `New member signup:\n\nUsername: ${username}\nEmail: ${email}\nJoined: ${new Date().toLocaleString()}\nTotal Members: ${users.length}`;
+        console.log(
+          "📧 Email notification to brian@royalunionpets.com:",
+          emailBody,
+        );
+        // In production, this would be an actual email service call
+      } catch (emailError) {
+        console.error("Failed to send email notification:", emailError);
+      }
+
       // Auto-login the new user
       setUser(newUser);
       localStorage.setItem("currentUser", JSON.stringify(newUser));

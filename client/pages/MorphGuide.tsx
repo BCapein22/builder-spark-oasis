@@ -29,7 +29,7 @@ export default function MorphGuide() {
     },
     {
       name: "Reduced Pattern",
-      genetics: "Incomplete Dominant",
+      genetics: "Recessive",
       description:
         "An incomplete dominant morph characterized by a blue head, green body, and significantly reduced spotting. Often displays minimal to no spots with prominent white baring.",
       traits: ["Blue head", "Green body", "Reduced spots", "White baring"],
