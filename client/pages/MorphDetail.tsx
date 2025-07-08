@@ -25,7 +25,8 @@ export default function MorphDetail() {
       genetics: "Dominant",
       description:
         "The natural appearance of Tokay geckos featuring a vibrant blue base color with distinctive red or orange spots. This is the foundation morph from which all others derive.",
-      image: "https://images.pexels.com/photos/751689/pexels-photo-751689.jpeg",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F6d0d3ee54f3c412f9928072512e55cb2",
       traits: [
         "Blue base",
         "Red/orange spots",
