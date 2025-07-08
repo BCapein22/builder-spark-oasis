@@ -159,18 +159,6 @@ export default function BreederDetail() {
                 <MapPin className="h-4 w-4" />
                 {breeder.location}
               </Badge>
-              <div className="flex items-center gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className={`h-5 w-5 ${
-                      i < breeder.rating
-                        ? "fill-yellow-400 text-yellow-400"
-                        : "text-gray-300"
-                    }`}
-                  />
-                ))}
-              </div>
             </div>
             <p className="text-xl text-muted-foreground leading-relaxed mb-6">
               {breeder.description}
