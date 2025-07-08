@@ -120,6 +120,27 @@ export default function Gallery() {
       morph: "Blueberry",
       photographer: "Max Ong (Malaysia)",
     },
+    {
+      id: 16,
+      url: "https://images.pexels.com/photos/2968965/pexels-photo-2968965.jpeg",
+      title: "Carmel Albino",
+      morph: "Carmel Albino",
+      photographer: "Albino Specialist",
+    },
+    {
+      id: 17,
+      url: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
+      title: "T+ Albino",
+      morph: "T+ Albino",
+      photographer: "Tyrosinase Research",
+    },
+    {
+      id: 18,
+      url: "https://images.pexels.com/photos/6788326/pexels-photo-6788326.jpeg",
+      title: "T- Albino",
+      morph: "T- Albino",
+      photographer: "Pure Albino Lines",
+    },
   ];
 
   // Only use the actual tokay gecko morph images - no placeholders
