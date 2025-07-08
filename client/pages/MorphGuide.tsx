@@ -385,6 +385,10 @@ export default function MorphGuide() {
               slug = "normal";
             } else if (morph.name === "Patternless (BHG)") {
               slug = "patternless-bhg";
+            } else if (morph.name === "T+ Albino") {
+              slug = "t-plus-albino";
+            } else if (morph.name === "T- Albino") {
+              slug = "t-minus-albino";
             }
 
             return (
