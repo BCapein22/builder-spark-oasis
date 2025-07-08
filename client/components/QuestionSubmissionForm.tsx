@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { X, Send, AlertCircle, CheckCircle } from "lucide-react";
+import { EmailService } from "@/services/emailService";
 
 interface QuestionSubmissionFormProps {
   isOpen: boolean;
@@ -53,11 +54,8 @@ export default function QuestionSubmissionForm({
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      // In a real application, you would send this to your backend
-      console.log("Question submitted:", formData);
+      // Send question via EmailService
+      await EmailService.sendQuestionSubmission(formData);
 
       setSubmitStatus("success");
       setTimeout(() => {
