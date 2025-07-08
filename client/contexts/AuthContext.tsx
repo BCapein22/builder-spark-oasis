@@ -5,6 +5,7 @@ import React, {
   useEffect,
   ReactNode,
 } from "react";
+import { EmailService } from "@/services/emailService";
 
 export interface User {
   id: string;
@@ -97,12 +98,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       // Send email notification about new member signup
       try {
-        const emailBody = `New member signup:\n\nUsername: ${username}\nEmail: ${email}\nJoined: ${new Date().toLocaleString()}\nTotal Members: ${users.length}`;
-        console.log(
-          "📧 Email notification to brian@royalunionpets.com:",
-          emailBody,
-        );
-        // In production, this would be an actual email service call
+        await EmailService.sendNewMemberNotification(username, email);
       } catch (emailError) {
         console.error("Failed to send email notification:", emailError);
       }
