@@ -104,7 +104,7 @@ export default function MorphDetail() {
       description:
         "A stunning recessive morph displaying an ice blue coloration across both head and body, creating a uniform, ethereal appearance without any pattern.",
       image:
-        "https://images.pexels.com/photos/2096622/pexels-photo-2096622.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc1f66d00582145faa715a74535e01788",
       traits: [
         "Ice blue coloration",
         "No pattern",
