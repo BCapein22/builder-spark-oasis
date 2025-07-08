@@ -21,23 +21,24 @@ export default function BreederDetail() {
     "bledsoe-exotics": {
       name: "Bledsoe Exotics",
       location: "USA",
-      rating: 5,
       website: "https://bledsoeexotics.com",
-      established: "2015",
       specialization: "High-quality morphs and genetic diversity",
       image:
         "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
       description:
-        "Bledsoe Exotics is a premier tokay gecko breeding facility located in the United States, specializing in producing high-quality morphs with exceptional genetic diversity. Known for their commitment to animal health and ethical breeding practices.",
+        "Bledsoe Exotics is a premier tokay gecko breeder located in the United States, specializing in producing high-quality morphs with exceptional genetic diversity. Known for their commitment to animal health and ethical breeding practices.",
       morphsWorkedWith: [
         "Normal (Wild-type)",
-        "Reduced Pattern",
         "Patternless (BHG)",
         "Granite",
         "Super Red",
-        "Platinum",
         "Candy Dot",
-        "Diablo",
+        "Ghost",
+        "Shooting Star",
+        "Blueberry",
+        "Carmel Albino",
+        "T+ Albino",
+        "T- Albino",
       ],
       breedingFocus: [
         "Genetic diversity maintenance",
@@ -46,7 +47,6 @@ export default function BreederDetail() {
         "Line breeding for consistency",
       ],
       achievements: [
-        "Produced first documented Granite morph in the US",
         "Established stable breeding lines for multiple morphs",
         "Known for exceptional animal health records",
         "Active in tokay gecko community education",
