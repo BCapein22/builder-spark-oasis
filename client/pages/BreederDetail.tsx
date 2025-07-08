@@ -62,7 +62,8 @@ export default function BreederDetail() {
       location: "South Korea",
       website: "https://cocoatokay.com",
       specialization: "Asian bloodlines and rare morphs",
-      image: "https://images.pexels.com/photos/751689/pexels-photo-751689.jpeg",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fcc148cf109ff41c2b37de36a4bb77d21",
       description:
         "Cocoa Tokay is a leading tokay gecko breeder based in South Korea, specializing in maintaining pure Asian bloodlines and developing rare morphs. They are particularly known for their work with Luna and Ghost morphs.",
       morphsWorkedWith: [
@@ -85,9 +86,9 @@ export default function BreederDetail() {
         "Pioneer in tokay gecko genetics",
       ],
       gallery: [
-        "https://images.pexels.com/photos/751689/pexels-photo-751689.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F97430dd350ff4aa78ca7a799eb483bb8",
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fa1bfad9d36894dcdb5777d16e36d8178",
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F4ea564ada4694527851cc7854af0c657",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F37141c9fc5cb437eb952e4cc6e4e1dab",
       ],
     },
     "gekko-and-gecko": {
