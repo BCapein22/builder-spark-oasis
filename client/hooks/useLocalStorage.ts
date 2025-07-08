@@ -36,9 +36,6 @@ export const sendEmail = async (
 ): Promise<boolean> => {
   try {
     // In a real application, this would connect to an email service
-    // For now, we'll simulate the email and log it
-    console.log("Email would be sent:", { to, subject, body });
-
     // Simulate API call delay
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
