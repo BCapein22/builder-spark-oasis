@@ -50,8 +50,7 @@ export default function TopicDetail() {
 
     setTopic(foundTopic);
     setPosts(getTopicPosts(topicId));
-    incrementViews(topicId);
-  }, [topicId, categoryId, topics, navigate, getTopicPosts, incrementViews]);
+  }, [topicId, categoryId, topics, navigate, getTopicPosts]);
 
   const handleSubmitMessage = async () => {
     if (!newMessage.trim() || !isAuthenticated || !user || !topic) return;
