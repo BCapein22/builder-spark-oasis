@@ -292,6 +292,45 @@ export default function Gallery() {
           isOpen={showSubmissionForm}
           onClose={() => setShowSubmissionForm(false)}
         />
+
+        {/* Full-size Image Modal */}
+        {selectedImage && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="relative max-w-[90vw] max-h-[90vh] p-4">
+              <Button
+                variant="outline"
+                size="sm"
+                className="absolute top-2 right-2 z-10 bg-white/90 hover:bg-white"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setSelectedImage(null);
+                }}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+              <img
+                src={selectedImage.url}
+                alt={selectedImage.title}
+                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              />
+              <div className="absolute bottom-2 left-2 right-2 bg-black/70 text-white p-3 rounded-lg backdrop-blur-sm">
+                <h3 className="font-semibold mb-1">{selectedImage.title}</h3>
+                <div className="flex items-center gap-2">
+                  <Badge variant="secondary" className="text-xs">
+                    {selectedImage.morph}
+                  </Badge>
+                  <span className="text-xs opacity-75">
+                    by {selectedImage.photographer}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
