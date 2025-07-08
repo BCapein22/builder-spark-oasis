@@ -218,8 +218,7 @@ export default function MorphGuide() {
         "Monochrome appearance",
       ],
       rarity: "Rare" as const,
-      image:
-        "https://images.pexels.com/photos/2968965/pexels-photo-2968965.jpeg",
+      image: "",
     },
     {
       name: "Shooting Star",
