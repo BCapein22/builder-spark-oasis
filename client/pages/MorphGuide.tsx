@@ -79,9 +79,9 @@ export default function MorphGuide() {
     },
     {
       name: "Super Red",
-      genetics: "Co-dominant",
+      genetics: "Dominant",
       description:
-        "A co-dominant morph producing geckos with intensely vibrant red coloration, ranging from deep crimson to bright orange-red spots with enhanced color saturation.",
+        "A dominant morph producing geckos with intensely vibrant red coloration, ranging from deep crimson to bright orange-red spots with enhanced color saturation.",
       traits: [
         "Intense red spots",
         "Enhanced saturation",
