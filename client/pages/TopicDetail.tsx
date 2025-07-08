@@ -182,10 +182,6 @@ export default function TopicDetail() {
                 <CardTitle className="text-2xl">{topic.title}</CardTitle>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground mt-2">
                   <div className="flex items-center gap-1">
-                    <Eye className="h-4 w-4" />
-                    {topic.views} views
-                  </div>
-                  <div className="flex items-center gap-1">
                     <MessageSquare className="h-4 w-4" />
                     {topic.replies} replies
                   </div>
