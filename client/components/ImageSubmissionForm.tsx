@@ -241,24 +241,14 @@ Please check the attached image file.
 Submitted via GekkoGuide Gallery
       `.trim();
 
-      // Create FormData for the submission
-      const formDataToSend = new FormData();
-      formDataToSend.append("to", "Brian@royalunionpets");
-      formDataToSend.append("subject", emailSubject);
-      formDataToSend.append("body", emailBody);
-      formDataToSend.append("name", formData.name);
-      formDataToSend.append("email", formData.email);
-      formDataToSend.append("geckoName", formData.geckoName);
-      formDataToSend.append("morph", formData.morph);
-      formDataToSend.append("description", formData.description);
+      // Log email notification (in production, this would send via email service)
+      console.log("📧 Email notification to brian@royalunionpets.com:");
+      console.log("Subject:", emailSubject);
+      console.log("Body:", emailBody);
+      console.log("Image file:", formData.imageFile?.name);
 
-      if (formData.imageFile) {
-        formDataToSend.append("image", formData.imageFile);
-      }
-
-      // For now, we'll simulate the submission since we need a backend for actual email sending
-      // In production, this would send to your API endpoint
-      await new Promise((resolve) => setTimeout(resolve, 2000)); // Simulate API call
+      // Simulate API call delay
+      await new Promise((resolve) => setTimeout(resolve, 2000));
 
       toast({
         title: "Submission sent!",
