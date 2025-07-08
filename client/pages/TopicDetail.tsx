@@ -95,6 +95,32 @@ export default function TopicDetail() {
     });
   };
 
+  const handleDeleteTopic = () => {
+    if (!topic || !user) return;
+
+    // Confirm deletion
+    if (
+      window.confirm(
+        "Are you sure you want to delete this topic? This action cannot be undone.",
+      )
+    ) {
+      try {
+        deleteTopic(topic.id);
+        toast({
+          title: "Topic deleted",
+          description: "The topic has been successfully deleted.",
+        });
+        navigate("/community");
+      } catch (error) {
+        toast({
+          title: "Error",
+          description: "Failed to delete the topic. Please try again.",
+          variant: "destructive",
+        });
+      }
+    }
+  };
+
   if (!topic) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/5">
