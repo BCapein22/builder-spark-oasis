@@ -392,7 +392,12 @@ export default function MorphGuide() {
             }
 
             return (
-              <Link key={index} to={`/morphs/${slug}`} className="group">
+              <Link
+                key={index}
+                to={`/morphs/${slug}`}
+                className="group"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              >
                 <GeckoCard
                   name={morph.name}
                   genetics={morph.genetics}
