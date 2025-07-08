@@ -33,7 +33,11 @@ export default function Navigation() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center space-x-2">
+        <Link
+          to="/"
+          className="flex items-center space-x-2"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
           <div className="text-2xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
             GekkoGuide
           </div>
@@ -45,6 +49,7 @@ export default function Navigation() {
             <Link
               key={item.href}
               to={item.href}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               className={`px-3 py-2 text-sm font-medium transition-colors hover:text-primary ${
                 isActive(item.href)
                   ? "text-primary border-b-2 border-primary"
