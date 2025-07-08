@@ -93,37 +93,27 @@ export default function BreederDetail() {
     "gekko-and-gecko": {
       name: "Gekko and Gecko",
       location: "USA",
-      rating: 5,
       website: "https://gekkoandgecko.com",
-      established: "2018",
       specialization:
         "Innovative breeding techniques and new morph development",
       image:
         "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
       description:
-        "Gekko and Gecko is an innovative breeding facility in the USA focused on developing new morphs and refining breeding techniques. They are known for their scientific approach to genetics and commitment to advancing the tokay gecko hobby.",
+        "Gekko and Gecko is an innovative breeding facility in the USA focused on developing new morphs.",
       morphsWorkedWith: [
         "Paradox",
         "Candy Dot",
-        "Reduced Pattern",
         "Super Red",
         "Granite",
-        "Diablo",
         "Green Galaxy",
         "Normal (Wild-type)",
       ],
       breedingFocus: [
         "New morph development",
         "Genetic research and innovation",
-        "Breeding technique refinement",
         "Education and community outreach",
       ],
-      achievements: [
-        "Developed innovative breeding protocols",
-        "First to document Paradox genetics",
-        "Published breeding guides for hobbyists",
-        "Mentor to emerging tokay breeders",
-      ],
+      achievements: ["Developed innovative breeding protocols"],
       gallery: [
         "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F0c8db1cd12134dc8a042d5978f3fe16b",
