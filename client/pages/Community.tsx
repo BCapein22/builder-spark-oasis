@@ -505,10 +505,6 @@ export default function Community() {
                                         <MessageCircle className="h-3 w-3" />
                                         {topic.replies}
                                       </div>
-                                      <div className="flex items-center gap-1">
-                                        <Eye className="h-3 w-3" />
-                                        {topic.views}
-                                      </div>
                                     </div>
                                   </div>
                                 </CardContent>
