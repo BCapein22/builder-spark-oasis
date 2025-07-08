@@ -10,6 +10,7 @@ import { ChevronLeft, ChevronRight, Plus, X } from "lucide-react";
 export default function Gallery() {
   const [currentPage, setCurrentPage] = useState(1);
   const [showSubmissionForm, setShowSubmissionForm] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<any>(null);
   const imagesPerPage = 25;
 
   // Sample gallery images - in production these would come from a database or API
