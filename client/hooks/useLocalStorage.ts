@@ -62,6 +62,7 @@ export interface ForumTopic {
   id: string;
   title: string;
   categoryId: string;
+  author: string;
   posts: ForumPost[];
   createdAt: string;
   lastActivity: string;
