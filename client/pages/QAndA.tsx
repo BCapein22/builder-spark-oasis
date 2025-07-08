@@ -298,6 +298,46 @@ export default function QAndA() {
             </p>
           </Card>
         </div>
+
+        {/* Still Have Questions Section */}
+        <Card className="mt-12 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
+          <CardContent className="p-8 text-center">
+            <MessageSquare className="h-12 w-12 mx-auto mb-4 text-primary" />
+            <h2 className="text-2xl font-bold mb-4">Still Have Questions?</h2>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Can't find the answer you're looking for? Submit your question and
+              our community of experienced breeders and enthusiasts will help
+              you out!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => setShowQuestionForm(true)}
+                className="flex items-center gap-2"
+                size="lg"
+              >
+                <MessageSquare className="h-4 w-4" />
+                Ask a Question
+              </Button>
+              <Button
+                variant="outline"
+                size="lg"
+                asChild
+                className="flex items-center gap-2"
+              >
+                <Link to="/community">
+                  <Users className="h-4 w-4" />
+                  Join Community Forum
+                </Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Question Submission Form */}
+        <QuestionSubmissionForm
+          isOpen={showQuestionForm}
+          onClose={() => setShowQuestionForm(false)}
+        />
       </div>
     </div>
   );
