@@ -238,7 +238,7 @@ export default function MorphGuide() {
       name: "Blueberry",
       genetics: "Recessive",
       description:
-        "A distinctive recessive morph confirmed by Max Ong in Malaysia, characterized by black splotches on their feet and lacking the typical large red spots found in normal tokays.",
+        "A distinctive recessive morph characterized by black splotches on their feet and lacking the typical large red spots found in normal tokays.",
       traits: [
         "Black foot splotches",
         "No large red spots",

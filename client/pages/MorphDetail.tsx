@@ -257,7 +257,7 @@ export default function MorphDetail() {
       rarity: "Super Rare",
       detailed: {
         genetics:
-          "First confirmed as recessive in Indonesia (2018), developed by Max Ong in Malaysia (2019), and first captive-bred in US by Logan Barret of M95 Genetics (2022).",
+          "Simple recessive trait requiring both parents to carry the gene for offspring to display the distinctive characteristics.",
         breeding:
           "Simple recessive requiring both parents to carry the gene. Still very limited breeding stock available.",
         care: "Standard tokay care with attention to maintaining proper humidity for color development.",
@@ -465,7 +465,7 @@ export default function MorphDetail() {
       name: "Blueberry",
       genetics: "Recessive",
       description:
-        "A distinctive recessive morph confirmed by Max Ong in Malaysia, characterized by black splotches on their feet and lacking the typical large red spots found in normal tokays.",
+        "A distinctive recessive morph characterized by black splotches on their feet and lacking the typical large red spots found in normal tokays.",
       image:
         "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
       traits: [
@@ -477,7 +477,7 @@ export default function MorphDetail() {
       rarity: "Rare",
       detailed: {
         genetics:
-          "Simple recessive trait first confirmed by Max Ong in Malaysia. Both parents must carry the gene for offspring to display the Blueberry characteristics.",
+          "Simple recessive trait. Both parents must carry the gene for offspring to display the Blueberry characteristics.",
         breeding:
           "Standard recessive breeding applies - breeding two Blueberry geckos produces 100% Blueberry offspring.",
         care: "Standard tokay gecko care requirements. The foot coloration and reduced red spotting do not affect their care needs.",
@@ -487,7 +487,7 @@ export default function MorphDetail() {
         availability:
           "Limited availability from specialized breeders, particularly those working with Asian bloodlines.",
         history:
-          "Confirmed and documented by Max Ong in Malaysia. Represents one of the distinctive morphs originating from Southeast Asian breeding programs.",
+          "Represents one of the distinctive morphs originating from Southeast Asian breeding programs with unique foot coloration patterns.",
       },
     },
     "carmel-albino": {
