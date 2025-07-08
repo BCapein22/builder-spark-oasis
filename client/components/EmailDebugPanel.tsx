@@ -6,7 +6,16 @@ import { EmailService } from "@/services/emailService";
 import { Mail, Trash2, RefreshCw } from "lucide-react";
 
 export default function EmailDebugPanel() {
-  const [emails, setEmails] = useState<any[]>([]);
+  const [emails, setEmails] = useState<
+    Array<{
+      from: string;
+      to: string;
+      subject: string;
+      body: string;
+      timestamp: string;
+      attachmentCount?: number;
+    }>
+  >([]);
   const [isVisible, setIsVisible] = useState(false);
 
   const refreshEmails = () => {
