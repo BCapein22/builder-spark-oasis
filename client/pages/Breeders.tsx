@@ -16,7 +16,8 @@ export default function Breeders() {
     {
       name: "Cocoa Tokay",
       location: "South Korea",
-      image: "https://images.pexels.com/photos/751689/pexels-photo-751689.jpeg",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fcc148cf109ff41c2b37de36a4bb77d21",
     },
     {
       name: "Gekko and Gecko",
