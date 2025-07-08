@@ -76,7 +76,7 @@ export default function Genetics() {
     },
     {
       name: "Super Red",
-      genetics: "Co-dominant",
+      genetics: "Dominant",
       symbol: "SR",
       description: "Enhanced red coloration",
     },
