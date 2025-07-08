@@ -10,20 +10,17 @@ export default function Breeders() {
     {
       name: "Bledsoe Exotics",
       location: "USA",
-      rating: 5,
       image:
         "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
     },
     {
       name: "Cocoa Tokay",
       location: "South Korea",
-      rating: 5,
       image: "https://images.pexels.com/photos/751689/pexels-photo-751689.jpeg",
     },
     {
       name: "Gekko and Gecko",
       location: "USA",
-      rating: 5,
       image:
         "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
     },
