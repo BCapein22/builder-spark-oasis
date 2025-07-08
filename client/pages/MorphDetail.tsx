@@ -56,7 +56,7 @@ export default function MorphDetail() {
       description:
         "An incomplete dominant morph characterized by a blue head, green body, and significantly reduced spotting. Often displays minimal to no spots with prominent white baring.",
       image:
-        "https://images.pexels.com/photos/19945875/pexels-photo-19945875.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1aed7186737543d29a875edc372db330",
       traits: ["Blue head", "Green body", "Reduced spots", "White baring"],
       rarity: "Uncommon",
       detailed: {
