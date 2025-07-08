@@ -31,9 +31,29 @@ export default function QAndA() {
       icon: Heart,
       questions: [
         {
+          question: "What size enclosure does a Tokay gecko need?",
+          answer:
+            "Adult Tokay geckos need a minimum of 40-gallon tall terrarium (18x18x24 inches), but larger is always better. They are arboreal and need vertical space for climbing. A 4-foot tall enclosure is ideal.",
+        },
+        {
+          question: "What temperature and humidity do Tokay geckos require?",
+          answer:
+            "Daytime temperatures should be 78-82°F (26-28°C) with a basking spot of 85-88°F (29-31°C). Nighttime temperatures can drop to 72-75°F (22-24°C). Humidity should be maintained at 60-80%. Use a hygrometer to monitor levels.",
+        },
+        {
           question: "What do Tokay geckos eat?",
           answer:
             "Tokay geckos are insectivores. Feed them crickets, roaches, mealworms, waxworms, and silkworms. Adults should eat every 2-3 days, juveniles every day. Dust insects with calcium powder and use calcium with D3 once per week.",
+        },
+        {
+          question: "Do Tokay geckos need UVB lighting?",
+          answer:
+            "While not strictly required since they're nocturnal, low-level UVB lighting (5-7%) can be beneficial for calcium absorption and overall health. Provide a 12-hour light cycle and ensure they have hiding spots to escape the light.",
+        },
+        {
+          question: "How often should I clean the enclosure?",
+          answer:
+            "Spot clean waste immediately. Replace water every few days or when dirty. Deep clean the entire enclosure monthly, replacing substrate and disinfecting decorations. Regular maintenance prevents bacterial and fungal issues.",
         },
       ],
     },
