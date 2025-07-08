@@ -18,10 +18,13 @@ import {
   Eye,
   MessageCircle,
   User,
+  ChevronDown,
+  ChevronRight,
 } from "lucide-react";
 
 export default function Community() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
 
   const forumCategories = [
     {
@@ -34,9 +37,34 @@ export default function Community() {
       color: "bg-blue-100 text-blue-600",
       latestPost: {
         title: "New to tokay geckos - advice needed!",
-        author: "GeckoNewbie",
         time: "2 hours ago",
       },
+      categoryTopics: [
+        {
+          title: "New to tokay geckos - advice needed!",
+          replies: 0,
+          views: 0,
+          time: "2 hours ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Welcome new members!",
+          replies: 0,
+          views: 0,
+          time: "1 day ago",
+          isPinned: true,
+          isHot: false,
+        },
+        {
+          title: "Share your gecko stories",
+          replies: 0,
+          views: 0,
+          time: "3 days ago",
+          isPinned: false,
+          isHot: false,
+        },
+      ],
     },
     {
       id: "care",
@@ -48,9 +76,34 @@ export default function Community() {
       color: "bg-green-100 text-green-600",
       latestPost: {
         title: "Best substrate for bioactive setup?",
-        author: "BioacticeFan",
         time: "4 hours ago",
       },
+      categoryTopics: [
+        {
+          title: "Best substrate for bioactive setup?",
+          replies: 0,
+          views: 0,
+          time: "4 hours ago",
+          isPinned: false,
+          isHot: true,
+        },
+        {
+          title: "Temperature requirements help",
+          replies: 0,
+          views: 0,
+          time: "6 hours ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Feeding schedule questions",
+          replies: 0,
+          views: 0,
+          time: "1 day ago",
+          isPinned: false,
+          isHot: false,
+        },
+      ],
     },
     {
       id: "breeding",
@@ -63,9 +116,34 @@ export default function Community() {
       color: "bg-purple-100 text-purple-600",
       latestPost: {
         title: "Reduced Pattern x Reduced Pattern results",
-        author: "MorphBreeder",
         time: "6 hours ago",
       },
+      categoryTopics: [
+        {
+          title: "Reduced Pattern x Reduced Pattern results",
+          replies: 0,
+          views: 0,
+          time: "6 hours ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Understanding genetics basics",
+          replies: 0,
+          views: 0,
+          time: "12 hours ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Morph identification help",
+          replies: 0,
+          views: 0,
+          time: "2 days ago",
+          isPinned: false,
+          isHot: false,
+        },
+      ],
     },
     {
       id: "marketplace",
@@ -77,9 +155,34 @@ export default function Community() {
       color: "bg-orange-100 text-orange-600",
       latestPost: {
         title: "WTS: Het Luna female",
-        author: "LunaBreeder",
         time: "1 day ago",
       },
+      categoryTopics: [
+        {
+          title: "WTS: Het Luna female",
+          replies: 0,
+          views: 0,
+          time: "1 day ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Looking for breeding pairs",
+          replies: 0,
+          views: 0,
+          time: "2 days ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Equipment for sale",
+          replies: 0,
+          views: 0,
+          time: "3 days ago",
+          isPinned: false,
+          isHot: false,
+        },
+      ],
     },
     {
       id: "photos",
@@ -91,9 +194,34 @@ export default function Community() {
       color: "bg-pink-100 text-pink-600",
       latestPost: {
         title: "My new Granite finally showing colors!",
-        author: "GraniteGuy",
         time: "3 hours ago",
       },
+      categoryTopics: [
+        {
+          title: "My new Granite finally showing colors!",
+          replies: 0,
+          views: 0,
+          time: "3 hours ago",
+          isPinned: false,
+          isHot: true,
+        },
+        {
+          title: "Beautiful morph collection",
+          replies: 0,
+          views: 0,
+          time: "8 hours ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Setup photos showcase",
+          replies: 0,
+          views: 0,
+          time: "1 day ago",
+          isPinned: false,
+          isHot: false,
+        },
+      ],
     },
     {
       id: "projects",
@@ -105,64 +233,92 @@ export default function Community() {
       color: "bg-indigo-100 text-indigo-600",
       latestPost: {
         title: "Year 3 of my Albino project update",
-        author: "AlbinoChaser",
         time: "12 hours ago",
       },
+      categoryTopics: [
+        {
+          title: "Year 3 of my Albino project update",
+          replies: 0,
+          views: 0,
+          time: "12 hours ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Luna breeding project goals",
+          replies: 0,
+          views: 0,
+          time: "1 day ago",
+          isPinned: false,
+          isHot: false,
+        },
+        {
+          title: "Long-term breeding strategies",
+          replies: 0,
+          views: 0,
+          time: "2 days ago",
+          isPinned: false,
+          isHot: false,
+        },
+      ],
     },
   ];
 
   const recentTopics = [
     {
       title: "Help! My tokay hasn't eaten in a week",
-      author: "WorriedOwner",
       category: "Care & Husbandry",
-      replies: 23,
-      views: 156,
+      replies: 0,
+      views: 0,
       lastActivity: "1 hour ago",
       isPinned: false,
       isHot: true,
     },
     {
       title: "📌 Welcome to the Tokay Gecko Community!",
-      author: "ModeratorTeam",
       category: "General Discussion",
-      replies: 45,
-      views: 892,
+      replies: 0,
+      views: 0,
       lastActivity: "2 days ago",
       isPinned: true,
       isHot: false,
     },
     {
       title: "Amazing Luna morph photos - check this out!",
-      author: "PhotoPro",
       category: "Photos & Videos",
-      replies: 18,
-      views: 234,
+      replies: 0,
+      views: 0,
       lastActivity: "3 hours ago",
       isPinned: false,
       isHot: true,
     },
     {
       title: "Breeding calculator accuracy question",
-      author: "GeneticsNerd",
       category: "Breeding & Genetics",
-      replies: 12,
-      views: 89,
+      replies: 0,
+      views: 0,
       lastActivity: "5 hours ago",
       isPinned: false,
       isHot: false,
     },
     {
       title: "ISO: Carmel Albino het",
-      author: "AlbinoCollector",
       category: "Marketplace",
-      replies: 5,
-      views: 67,
+      replies: 0,
+      views: 0,
       lastActivity: "8 hours ago",
       isPinned: false,
       isHot: false,
     },
   ];
+
+  const toggleCategory = (categoryId: string) => {
+    setExpandedCategories((prev) =>
+      prev.includes(categoryId)
+        ? prev.filter((id) => id !== categoryId)
+        : [...prev, categoryId],
+    );
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/5">
@@ -246,46 +402,103 @@ export default function Community() {
               <TabsContent value="categories" className="space-y-4">
                 {forumCategories.map((category) => {
                   const IconComponent = category.icon;
+                  const isExpanded = expandedCategories.includes(category.id);
+                  const ChevronIcon = isExpanded ? ChevronDown : ChevronRight;
+
                   return (
-                    <Card
-                      key={category.id}
-                      className="hover:shadow-md transition-shadow cursor-pointer"
-                    >
-                      <CardContent className="p-6">
-                        <div className="flex items-start gap-4">
-                          <div className={`p-3 rounded-lg ${category.color}`}>
-                            <IconComponent className="h-6 w-6" />
-                          </div>
-                          <div className="flex-1">
-                            <div className="flex items-start justify-between">
-                              <div>
-                                <h3 className="font-semibold text-lg mb-1">
-                                  {category.name}
-                                </h3>
-                                <p className="text-muted-foreground text-sm mb-3">
-                                  {category.description}
-                                </p>
-                                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                                  <span>{category.topics} topics</span>
-                                  <span>{category.posts} posts</span>
+                    <div key={category.id}>
+                      <Card className="hover:shadow-md transition-shadow">
+                        <CardContent className="p-6">
+                          <div
+                            className="flex items-start gap-4 cursor-pointer"
+                            onClick={() => toggleCategory(category.id)}
+                          >
+                            <div className={`p-3 rounded-lg ${category.color}`}>
+                              <IconComponent className="h-6 w-6" />
+                            </div>
+                            <div className="flex-1">
+                              <div className="flex items-start justify-between">
+                                <div className="flex-1">
+                                  <div className="flex items-center gap-2 mb-1">
+                                    <h3 className="font-semibold text-lg">
+                                      {category.name}
+                                    </h3>
+                                    <ChevronIcon className="h-5 w-5 text-muted-foreground" />
+                                  </div>
+                                  <p className="text-muted-foreground text-sm mb-3">
+                                    {category.description}
+                                  </p>
+                                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                    <span>{category.topics} topics</span>
+                                    <span>{category.posts} posts</span>
+                                  </div>
                                 </div>
-                              </div>
-                              <div className="text-right text-sm">
-                                <div className="font-medium">
-                                  {category.latestPost.title}
-                                </div>
-                                <div className="text-muted-foreground">
-                                  by {category.latestPost.author}
-                                </div>
-                                <div className="text-muted-foreground">
-                                  {category.latestPost.time}
+                                <div className="text-right text-sm">
+                                  <div className="font-medium">
+                                    {category.latestPost.title}
+                                  </div>
+                                  <div className="text-muted-foreground">
+                                    {category.latestPost.time}
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
+                        </CardContent>
+                      </Card>
+
+                      {isExpanded && (
+                        <div className="ml-6 mt-2 space-y-2">
+                          {category.categoryTopics.map((topic, index) => (
+                            <Card
+                              key={index}
+                              className="hover:shadow-sm transition-shadow cursor-pointer border-l-4 border-l-primary/20"
+                            >
+                              <CardContent className="p-4">
+                                <div className="flex items-start justify-between">
+                                  <div className="flex-1">
+                                    <div className="flex items-center gap-2 mb-1">
+                                      {topic.isPinned && (
+                                        <Badge
+                                          variant="secondary"
+                                          className="text-xs"
+                                        >
+                                          Pinned
+                                        </Badge>
+                                      )}
+                                      {topic.isHot && (
+                                        <Badge
+                                          variant="destructive"
+                                          className="text-xs"
+                                        >
+                                          Hot
+                                        </Badge>
+                                      )}
+                                      <h4 className="font-medium text-sm">
+                                        {topic.title}
+                                      </h4>
+                                    </div>
+                                    <div className="text-xs text-muted-foreground">
+                                      {topic.time}
+                                    </div>
+                                  </div>
+                                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                                    <div className="flex items-center gap-1">
+                                      <MessageCircle className="h-3 w-3" />
+                                      {topic.replies}
+                                    </div>
+                                    <div className="flex items-center gap-1">
+                                      <Eye className="h-3 w-3" />
+                                      {topic.views}
+                                    </div>
+                                  </div>
+                                </div>
+                              </CardContent>
+                            </Card>
+                          ))}
                         </div>
-                      </CardContent>
-                    </Card>
+                      )}
+                    </div>
                   );
                 })}
               </TabsContent>
@@ -313,7 +526,6 @@ export default function Community() {
                             <h4 className="font-medium">{topic.title}</h4>
                           </div>
                           <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                            <span>by {topic.author}</span>
                             <span>{topic.category}</span>
                             <span>{topic.lastActivity}</span>
                           </div>
