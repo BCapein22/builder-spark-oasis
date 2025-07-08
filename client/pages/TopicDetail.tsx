@@ -28,8 +28,7 @@ export default function TopicDetail() {
   }>();
   const navigate = useNavigate();
   const { user, isAuthenticated } = useAuth();
-  const { topics, getTopicPosts, addPost, incrementViews, deleteTopic } =
-    useForumData();
+  const { topics, getTopicPosts, addPost, deleteTopic } = useForumData();
   const { toast } = useToast();
 
   const [topic, setTopic] = useState<ForumTopic | null>(null);
