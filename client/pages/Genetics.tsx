@@ -122,6 +122,24 @@ export default function Genetics() {
       symbol: "bb",
       description: "Black foot splotches without large red spots",
     },
+    {
+      name: "Carmel Albino",
+      genetics: "Recessive",
+      symbol: "ca",
+      description: "Caramel hue with reduced melanin",
+    },
+    {
+      name: "T+ Albino",
+      genetics: "Recessive",
+      symbol: "t+",
+      description: "Partial melanin production with caramel tones",
+    },
+    {
+      name: "T- Albino",
+      genetics: "Recessive",
+      symbol: "t-",
+      description: "Complete melanin absence with red irises",
+    },
   ];
 
   const calculateBreeding = useMemo((): BreedingResult[] => {
