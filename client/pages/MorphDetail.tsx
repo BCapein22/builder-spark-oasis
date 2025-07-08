@@ -133,7 +133,7 @@ export default function MorphDetail() {
       description:
         "Features a dark gray or charcoal base with black spots resembling granite stone. This is a progressive trait where offspring may appear normal at hatching and develop the granite appearance over time.",
       image:
-        "https://images.pexels.com/photos/6788326/pexels-photo-6788326.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F5e1bda61479e478eaff84daaa180614a",
       traits: [
         "Dark gray base",
         "Black spots",
