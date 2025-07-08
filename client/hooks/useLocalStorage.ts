@@ -28,6 +28,27 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
   return [storedValue, setValue] as const;
 }
 
+// Email notification service
+export const sendEmail = async (
+  to: string,
+  subject: string,
+  body: string,
+): Promise<boolean> => {
+  try {
+    // In a real application, this would connect to an email service
+    // For now, we'll simulate the email and log it
+    console.log("Email would be sent:", { to, subject, body });
+
+    // Simulate API call delay
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    return true;
+  } catch (error) {
+    console.error("Email sending failed:", error);
+    return false;
+  }
+};
+
 export interface ForumPost {
   id: string;
   content: string;

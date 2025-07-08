@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
+import { useForumData } from "@/hooks/useLocalStorage";
 import {
   ChevronLeft,
   Users,
@@ -18,6 +22,7 @@ import {
   User,
   ChevronDown,
   ChevronRight,
+  LogOut,
 } from "lucide-react";
 
 export default function Community() {
@@ -29,6 +34,16 @@ export default function Community() {
   const [signupEmail, setSignupEmail] = useState("");
   const [signupPassword, setSignupPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [showNewTopic, setShowNewTopic] = useState(false);
+  const [newTopicTitle, setNewTopicTitle] = useState("");
+  const [newTopicContent, setNewTopicContent] = useState("");
+  const [newTopicCategory, setNewTopicCategory] = useState("general");
+
+  const { user, login, signup, logout, isAuthenticated, memberCount } =
+    useAuth();
+  const { getTopicsByCategory, addTopic } = useForumData();
+  const { toast } = useToast();
+  const navigate = useNavigate();
 
   const forumCategories = [
     {
@@ -79,12 +94,145 @@ export default function Community() {
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Login attempt:", loginEmail);
+    if (!loginEmail || !loginPassword) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const success = await login(loginEmail, loginPassword);
+    if (success) {
+      toast({
+        title: "Success",
+        description: "Logged in successfully!",
+      });
+      setLoginEmail("");
+      setLoginPassword("");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      toast({
+        title: "Error",
+        description: "Invalid email or password",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Signup attempt:", signupUsername, signupEmail);
+    if (
+      !signupUsername ||
+      !signupEmail ||
+      !signupPassword ||
+      !confirmPassword
+    ) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (signupPassword !== confirmPassword) {
+      toast({
+        title: "Error",
+        description: "Passwords do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const success = await signup(signupUsername, signupEmail, signupPassword);
+    if (success) {
+      toast({
+        title: "Success",
+        description: "Account created successfully!",
+      });
+
+      // Send email notification about new member
+      try {
+        const emailBody = `New member signup:\n\nUsername: ${signupUsername}\nEmail: ${signupEmail}\nJoined: ${new Date().toLocaleString()}`;
+        console.log("Sending email to brian@royalunionpets.com:", emailBody);
+      } catch (error) {
+        console.error("Failed to send email notification:", error);
+      }
+
+      setSignupUsername("");
+      setSignupEmail("");
+      setSignupPassword("");
+      setConfirmPassword("");
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      toast({
+        title: "Error",
+        description: "Username or email already exists",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleTopicClick = (topicId: string, categoryId: string) => {
+    navigate(`/community/${categoryId}/${topicId}`);
+  };
+
+  const handleCreateTopic = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newTopicTitle.trim() || !newTopicContent.trim()) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (!isAuthenticated || !user) {
+      toast({
+        title: "Error",
+        description: "You must be logged in to create topics",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    try {
+      const topic = addTopic({
+        title: newTopicTitle.trim(),
+        categoryId: newTopicCategory,
+        posts: [],
+        isPinned: false,
+        isHot: false,
+      });
+
+      // Add initial post
+      const { addPost } = useForumData();
+      addPost({
+        content: newTopicContent.trim(),
+        author: user.username,
+        topicId: topic.id,
+        categoryId: newTopicCategory,
+      });
+
+      toast({
+        title: "Success",
+        description: "Topic created successfully!",
+      });
+
+      setNewTopicTitle("");
+      setNewTopicContent("");
+      setShowNewTopic(false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to create topic",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -116,7 +264,9 @@ export default function Community() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-primary">0</div>
+              <div className="text-2xl font-bold text-primary">
+                {memberCount}
+              </div>
               <div className="text-sm text-muted-foreground">Members</div>
             </CardContent>
           </Card>
@@ -134,7 +284,9 @@ export default function Community() {
           </Card>
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-green-600">0</div>
+              <div className="text-2xl font-bold text-green-600">
+                {isAuthenticated ? 1 : 0}
+              </div>
               <div className="text-sm text-muted-foreground">Online Now</div>
             </CardContent>
           </Card>
@@ -156,18 +308,93 @@ export default function Community() {
                       className="pl-10 w-64"
                     />
                   </div>
-                  <Button className="flex items-center gap-2">
-                    <PlusCircle className="h-4 w-4" />
-                    New Topic
-                  </Button>
+                  {isAuthenticated && (
+                    <Button
+                      className="flex items-center gap-2"
+                      onClick={() => {
+                        setShowNewTopic(true);
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
+                    >
+                      <PlusCircle className="h-4 w-4" />
+                      New Topic
+                    </Button>
+                  )}
                 </div>
               </div>
+
+              {/* New Topic Form */}
+              {showNewTopic && isAuthenticated && (
+                <Card className="mb-6">
+                  <CardHeader>
+                    <CardTitle>Create New Topic</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <form onSubmit={handleCreateTopic} className="space-y-4">
+                      <div>
+                        <label className="text-sm font-medium">Category</label>
+                        <select
+                          value={newTopicCategory}
+                          onChange={(e) => setNewTopicCategory(e.target.value)}
+                          className="w-full mt-1 p-2 border rounded-md"
+                        >
+                          {forumCategories.map((cat) => (
+                            <option key={cat.id} value={cat.id}>
+                              {cat.name}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label className="text-sm font-medium">
+                          Topic Title
+                        </label>
+                        <Input
+                          placeholder="Enter topic title..."
+                          value={newTopicTitle}
+                          onChange={(e) => setNewTopicTitle(e.target.value)}
+                          className="mt-1"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label className="text-sm font-medium">Content</label>
+                        <Textarea
+                          placeholder="Write your topic content..."
+                          value={newTopicContent}
+                          onChange={(e) => setNewTopicContent(e.target.value)}
+                          rows={4}
+                          className="mt-1"
+                          required
+                        />
+                      </div>
+                      <div className="flex gap-2">
+                        <Button
+                          type="submit"
+                          className="flex items-center gap-2"
+                        >
+                          <PlusCircle className="h-4 w-4" />
+                          Create Topic
+                        </Button>
+                        <Button
+                          type="button"
+                          variant="outline"
+                          onClick={() => setShowNewTopic(false)}
+                        >
+                          Cancel
+                        </Button>
+                      </div>
+                    </form>
+                  </CardContent>
+                </Card>
+              )}
 
               <div className="space-y-4">
                 {forumCategories.map((category) => {
                   const IconComponent = category.icon;
                   const isExpanded = expandedCategories.includes(category.id);
                   const ChevronIcon = isExpanded ? ChevronDown : ChevronRight;
+                  const categoryTopics = getTopicsByCategory(category.id);
 
                   return (
                     <div key={category.id}>
@@ -193,7 +420,7 @@ export default function Community() {
                                     {category.description}
                                   </p>
                                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                                    <span>0 topics</span>
+                                    <span>{categoryTopics.length} topics</span>
                                     <span>0 posts</span>
                                   </div>
                                 </div>
@@ -205,11 +432,67 @@ export default function Community() {
 
                       {isExpanded && (
                         <div className="ml-6 mt-2 space-y-2">
-                          <Card className="border-l-4 border-l-primary/20">
-                            <CardContent className="p-4 text-center text-muted-foreground">
-                              No topics yet. Be the first to start a discussion!
-                            </CardContent>
-                          </Card>
+                          {categoryTopics.length === 0 ? (
+                            <Card className="border-l-4 border-l-primary/20">
+                              <CardContent className="p-4 text-center text-muted-foreground">
+                                No topics yet. Be the first to start a
+                                discussion!
+                              </CardContent>
+                            </Card>
+                          ) : (
+                            categoryTopics.map((topic) => (
+                              <Card
+                                key={topic.id}
+                                className="hover:shadow-sm transition-shadow cursor-pointer border-l-4 border-l-primary/20"
+                                onClick={() =>
+                                  handleTopicClick(topic.id, category.id)
+                                }
+                              >
+                                <CardContent className="p-4">
+                                  <div className="flex items-start justify-between">
+                                    <div className="flex-1">
+                                      <div className="flex items-center gap-2 mb-1">
+                                        {topic.isPinned && (
+                                          <Badge
+                                            variant="secondary"
+                                            className="text-xs"
+                                          >
+                                            Pinned
+                                          </Badge>
+                                        )}
+                                        {topic.isHot && (
+                                          <Badge
+                                            variant="destructive"
+                                            className="text-xs"
+                                          >
+                                            Hot
+                                          </Badge>
+                                        )}
+                                        <h4 className="font-medium text-sm">
+                                          {topic.title}
+                                        </h4>
+                                      </div>
+                                      <div className="text-xs text-muted-foreground">
+                                        {new Date(
+                                          topic.lastActivity,
+                                        ).toLocaleDateString()}
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                                      <div className="flex items-center gap-1">
+                                        <MessageCircle className="h-3 w-3" />
+                                        {topic.replies}
+                                      </div>
+                                      <div className="flex items-center gap-1">
+                                        <Eye className="h-3 w-3" />
+                                        {topic.views}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            ))
+                          )}
                         </div>
                       )}
                     </div>
@@ -222,80 +505,116 @@ export default function Community() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Authentication */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <User className="h-5 w-5" />
-                  Join the Community
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Tabs defaultValue="login" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="login">Login</TabsTrigger>
-                    <TabsTrigger value="signup">Sign Up</TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="login" className="space-y-3 mt-4">
-                    <form onSubmit={handleLogin} className="space-y-3">
-                      <Input
-                        placeholder="Email"
-                        type="email"
-                        value={loginEmail}
-                        onChange={(e) => setLoginEmail(e.target.value)}
-                        required
-                      />
-                      <Input
-                        type="password"
-                        placeholder="Password"
-                        value={loginPassword}
-                        onChange={(e) => setLoginPassword(e.target.value)}
-                        required
-                      />
-                      <Button type="submit" className="w-full">
-                        Sign In
-                      </Button>
-                    </form>
-                  </TabsContent>
-                  <TabsContent value="signup" className="space-y-3 mt-4">
-                    <form onSubmit={handleSignup} className="space-y-3">
-                      <Input
-                        placeholder="Username"
-                        value={signupUsername}
-                        onChange={(e) => setSignupUsername(e.target.value)}
-                        required
-                      />
-                      <Input
-                        type="email"
-                        placeholder="Email"
-                        value={signupEmail}
-                        onChange={(e) => setSignupEmail(e.target.value)}
-                        required
-                      />
-                      <Input
-                        type="password"
-                        placeholder="Password"
-                        value={signupPassword}
-                        onChange={(e) => setSignupPassword(e.target.value)}
-                        required
-                      />
-                      <Input
-                        type="password"
-                        placeholder="Confirm Password"
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
-                        required
-                      />
-                      <Button type="submit" className="w-full">
-                        Create Account
-                      </Button>
-                      <p className="text-xs text-muted-foreground text-center">
-                        By signing up, you agree to our Terms of Service
-                      </p>
-                    </form>
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
+            {isAuthenticated ? (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <User className="h-5 w-5" />
+                    Welcome Back!
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="text-center">
+                    <p className="font-semibold">{user?.username}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {user?.role}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Joined{" "}
+                      {user?.joinDate
+                        ? new Date(user.joinDate).toLocaleDateString()
+                        : "Recently"}
+                    </p>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="w-full flex items-center gap-2"
+                    onClick={() => {
+                      logout();
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Sign Out
+                  </Button>
+                </CardContent>
+              </Card>
+            ) : (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <User className="h-5 w-5" />
+                    Join the Community
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Tabs defaultValue="login" className="w-full">
+                    <TabsList className="grid w-full grid-cols-2">
+                      <TabsTrigger value="login">Login</TabsTrigger>
+                      <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="login" className="space-y-3 mt-4">
+                      <form onSubmit={handleLogin} className="space-y-3">
+                        <Input
+                          placeholder="Email"
+                          type="email"
+                          value={loginEmail}
+                          onChange={(e) => setLoginEmail(e.target.value)}
+                          required
+                        />
+                        <Input
+                          type="password"
+                          placeholder="Password"
+                          value={loginPassword}
+                          onChange={(e) => setLoginPassword(e.target.value)}
+                          required
+                        />
+                        <Button type="submit" className="w-full">
+                          Sign In
+                        </Button>
+                      </form>
+                    </TabsContent>
+                    <TabsContent value="signup" className="space-y-3 mt-4">
+                      <form onSubmit={handleSignup} className="space-y-3">
+                        <Input
+                          placeholder="Username"
+                          value={signupUsername}
+                          onChange={(e) => setSignupUsername(e.target.value)}
+                          required
+                        />
+                        <Input
+                          type="email"
+                          placeholder="Email"
+                          value={signupEmail}
+                          onChange={(e) => setSignupEmail(e.target.value)}
+                          required
+                        />
+                        <Input
+                          type="password"
+                          placeholder="Password"
+                          value={signupPassword}
+                          onChange={(e) => setSignupPassword(e.target.value)}
+                          required
+                        />
+                        <Input
+                          type="password"
+                          placeholder="Confirm Password"
+                          value={confirmPassword}
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                          required
+                        />
+                        <Button type="submit" className="w-full">
+                          Create Account
+                        </Button>
+                        <p className="text-xs text-muted-foreground text-center">
+                          By signing up, you agree to our Terms of Service
+                        </p>
+                      </form>
+                    </TabsContent>
+                  </Tabs>
+                </CardContent>
+              </Card>
+            )}
 
             {/* Forum Rules */}
             <Card>
