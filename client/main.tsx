@@ -32,6 +32,7 @@ const App = () => (
           <Route path="/genetics" element={<Genetics />} />
           <Route path="/qa" element={<QAndA />} />
           <Route path="/breeders" element={<Breeders />} />
+          <Route path="/breeders/:breederName" element={<BreederDetail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
