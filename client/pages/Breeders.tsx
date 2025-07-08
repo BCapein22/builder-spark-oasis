@@ -53,51 +53,59 @@ export default function Breeders() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {featuredBreeders.map((breeder, index) => (
-            <Card
-              key={index}
-              className="hover:shadow-lg transition-all duration-300"
-            >
-              <div className="relative h-48 overflow-hidden rounded-t-lg">
-                <img
-                  src={breeder.image}
-                  alt={breeder.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div>
-                    <CardTitle className="text-lg">{breeder.name}</CardTitle>
-                    <div className="flex items-center gap-2 mt-2">
-                      <MapPin className="h-4 w-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">
-                        {breeder.location}
-                      </span>
+          {featuredBreeders.map((breeder, index) => {
+            const slug = breeder.name.toLowerCase().replace(/\s+/g, "-");
+            return (
+              <Link to={`/breeders/${slug}`} key={index}>
+                <Card className="hover:shadow-lg transition-all duration-300 cursor-pointer group">
+                  <div className="relative h-48 overflow-hidden rounded-t-lg">
+                    <img
+                      src={breeder.image}
+                      alt={breeder.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <CardHeader>
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <CardTitle className="text-lg group-hover:text-primary transition-colors">
+                          {breeder.name}
+                        </CardTitle>
+                        <div className="flex items-center gap-2 mt-2">
+                          <MapPin className="h-4 w-4 text-muted-foreground" />
+                          <span className="text-sm text-muted-foreground">
+                            {breeder.location}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        {[...Array(5)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`h-4 w-4 ${
+                              i < breeder.rating
+                                ? "fill-yellow-400 text-yellow-400"
+                                : "text-gray-300"
+                            }`}
+                          />
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star
-                        key={i}
-                        className={`h-4 w-4 ${
-                          i < breeder.rating
-                            ? "fill-yellow-400 text-yellow-400"
-                            : "text-gray-300"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <Button variant="outline" size="sm" disabled className="w-full">
-                  <ExternalLink className="h-4 w-4 mr-2" />
-                  Visit Website
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full group-hover:bg-primary group-hover:text-white transition-colors"
+                    >
+                      View Details
+                      <ChevronLeft className="h-4 w-4 ml-2 rotate-180" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
 
         <Card className="p-8 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10">
