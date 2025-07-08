@@ -206,6 +206,7 @@ export default function Community() {
       const topic = addTopic({
         title: newTopicTitle.trim(),
         categoryId: newTopicCategory,
+        author: user.username,
         posts: [],
         isPinned: false,
         isHot: false,
