@@ -301,9 +301,9 @@ export default function MorphDetail() {
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F14bfc223d5a44b5fbd6755237a2abc58",
       traits: [
         "Solid white coloration",
-        "Sapphire blue eyes",
         "No melanin",
         "Extremely rare",
+        "Striking appearance",
       ],
       rarity: "Super Rare",
       detailed: {
