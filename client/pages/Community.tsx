@@ -1,11 +1,14 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
+import { useForumData } from "@/hooks/useLocalStorage";
 import {
   ChevronLeft,
   Users,
@@ -14,301 +17,65 @@ import {
   Clock,
   Search,
   PlusCircle,
-  Star,
   Eye,
   MessageCircle,
   User,
   ChevronDown,
   ChevronRight,
+  LogOut,
 } from "lucide-react";
 
 export default function Community() {
   const [searchTerm, setSearchTerm] = useState("");
   const [expandedCategories, setExpandedCategories] = useState<string[]>([]);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [signupUsername, setSignupUsername] = useState("");
+  const [signupEmail, setSignupEmail] = useState("");
+  const [signupPassword, setSignupPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const { user, login, signup, logout, isAuthenticated, memberCount } =
+    useAuth();
+  const { getTopicsByCategory } = useForumData();
+  const { toast } = useToast();
+  const navigate = useNavigate();
 
   const forumCategories = [
     {
       id: "general",
       name: "General Discussion",
       description: "General tokay gecko topics and casual conversation",
-      topics: 156,
-      posts: 0,
       icon: MessageSquare,
       color: "bg-blue-100 text-blue-600",
-      latestPost: {
-        title: "New to tokay geckos - advice needed!",
-        time: "2 hours ago",
-      },
-      categoryTopics: [
-        {
-          title: "New to tokay geckos - advice needed!",
-          replies: 0,
-          views: 0,
-          time: "2 hours ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Welcome new members!",
-          replies: 0,
-          views: 0,
-          time: "1 day ago",
-          isPinned: true,
-          isHot: false,
-        },
-        {
-          title: "Share your gecko stories",
-          replies: 0,
-          views: 0,
-          time: "3 days ago",
-          isPinned: false,
-          isHot: false,
-        },
-      ],
     },
     {
       id: "care",
       name: "Care & Husbandry",
       description: "Housing, feeding, temperature, humidity, and health",
-      topics: 243,
-      posts: 0,
       icon: Users,
       color: "bg-green-100 text-green-600",
-      latestPost: {
-        title: "Best substrate for bioactive setup?",
-        time: "4 hours ago",
-      },
-      categoryTopics: [
-        {
-          title: "Best substrate for bioactive setup?",
-          replies: 0,
-          views: 0,
-          time: "4 hours ago",
-          isPinned: false,
-          isHot: true,
-        },
-        {
-          title: "Temperature requirements help",
-          replies: 0,
-          views: 0,
-          time: "6 hours ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Feeding schedule questions",
-          replies: 0,
-          views: 0,
-          time: "1 day ago",
-          isPinned: false,
-          isHot: false,
-        },
-      ],
     },
     {
       id: "breeding",
       name: "Breeding & Genetics",
       description:
         "Breeding projects, genetics questions, and morph discussions",
-      topics: 189,
-      posts: 0,
       icon: TrendingUp,
       color: "bg-purple-100 text-purple-600",
-      latestPost: {
-        title: "Reduced Pattern x Reduced Pattern results",
-        time: "6 hours ago",
-      },
-      categoryTopics: [
-        {
-          title: "Reduced Pattern x Reduced Pattern results",
-          replies: 0,
-          views: 0,
-          time: "6 hours ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Understanding genetics basics",
-          replies: 0,
-          views: 0,
-          time: "12 hours ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Morph identification help",
-          replies: 0,
-          views: 0,
-          time: "2 days ago",
-          isPinned: false,
-          isHot: false,
-        },
-      ],
-    },
-    {
-      id: "marketplace",
-      name: "Marketplace",
-      description: "Buy, sell, and trade tokay geckos and supplies",
-      topics: 98,
-      posts: 0,
-      icon: Star,
-      color: "bg-orange-100 text-orange-600",
-      latestPost: {
-        title: "WTS: Het Luna female",
-        time: "1 day ago",
-      },
-      categoryTopics: [
-        {
-          title: "WTS: Het Luna female",
-          replies: 0,
-          views: 0,
-          time: "1 day ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Looking for breeding pairs",
-          replies: 0,
-          views: 0,
-          time: "2 days ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Equipment for sale",
-          replies: 0,
-          views: 0,
-          time: "3 days ago",
-          isPinned: false,
-          isHot: false,
-        },
-      ],
     },
     {
       id: "photos",
       name: "Photos & Videos",
       description: "Show off your geckos and share amazing photos",
-      topics: 321,
-      posts: 0,
       icon: Eye,
       color: "bg-pink-100 text-pink-600",
-      latestPost: {
-        title: "My new Granite finally showing colors!",
-        time: "3 hours ago",
-      },
-      categoryTopics: [
-        {
-          title: "My new Granite finally showing colors!",
-          replies: 0,
-          views: 0,
-          time: "3 hours ago",
-          isPinned: false,
-          isHot: true,
-        },
-        {
-          title: "Beautiful morph collection",
-          replies: 0,
-          views: 0,
-          time: "8 hours ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Setup photos showcase",
-          replies: 0,
-          views: 0,
-          time: "1 day ago",
-          isPinned: false,
-          isHot: false,
-        },
-      ],
     },
     {
       id: "projects",
       name: "Breeding Projects",
       description: "Long-term breeding goals and project updates",
-      topics: 67,
-      posts: 0,
       icon: TrendingUp,
       color: "bg-indigo-100 text-indigo-600",
-      latestPost: {
-        title: "Year 3 of my Albino project update",
-        time: "12 hours ago",
-      },
-      categoryTopics: [
-        {
-          title: "Year 3 of my Albino project update",
-          replies: 0,
-          views: 0,
-          time: "12 hours ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Luna breeding project goals",
-          replies: 0,
-          views: 0,
-          time: "1 day ago",
-          isPinned: false,
-          isHot: false,
-        },
-        {
-          title: "Long-term breeding strategies",
-          replies: 0,
-          views: 0,
-          time: "2 days ago",
-          isPinned: false,
-          isHot: false,
-        },
-      ],
-    },
-  ];
-
-  const recentTopics = [
-    {
-      title: "Help! My tokay hasn't eaten in a week",
-      category: "Care & Husbandry",
-      replies: 0,
-      views: 0,
-      lastActivity: "1 hour ago",
-      isPinned: false,
-      isHot: true,
-    },
-    {
-      title: "📌 Welcome to the Tokay Gecko Community!",
-      category: "General Discussion",
-      replies: 0,
-      views: 0,
-      lastActivity: "2 days ago",
-      isPinned: true,
-      isHot: false,
-    },
-    {
-      title: "Amazing Luna morph photos - check this out!",
-      category: "Photos & Videos",
-      replies: 0,
-      views: 0,
-      lastActivity: "3 hours ago",
-      isPinned: false,
-      isHot: true,
-    },
-    {
-      title: "Breeding calculator accuracy question",
-      category: "Breeding & Genetics",
-      replies: 0,
-      views: 0,
-      lastActivity: "5 hours ago",
-      isPinned: false,
-      isHot: false,
-    },
-    {
-      title: "ISO: Carmel Albino het",
-      category: "Marketplace",
-      replies: 0,
-      views: 0,
-      lastActivity: "8 hours ago",
-      isPinned: false,
-      isHot: false,
     },
   ];
 
@@ -318,6 +85,82 @@ export default function Community() {
         ? prev.filter((id) => id !== categoryId)
         : [...prev, categoryId],
     );
+  };
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!loginEmail || !loginPassword) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const success = await login(loginEmail, loginPassword);
+    if (success) {
+      toast({
+        title: "Success",
+        description: "Logged in successfully!",
+      });
+      setLoginEmail("");
+      setLoginPassword("");
+    } else {
+      toast({
+        title: "Error",
+        description: "Invalid email or password",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleSignup = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (
+      !signupUsername ||
+      !signupEmail ||
+      !signupPassword ||
+      !confirmPassword
+    ) {
+      toast({
+        title: "Error",
+        description: "Please fill in all fields",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (signupPassword !== confirmPassword) {
+      toast({
+        title: "Error",
+        description: "Passwords do not match",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    const success = await signup(signupUsername, signupEmail, signupPassword);
+    if (success) {
+      toast({
+        title: "Success",
+        description: "Account created successfully!",
+      });
+      setSignupUsername("");
+      setSignupEmail("");
+      setSignupPassword("");
+      setConfirmPassword("");
+    } else {
+      toast({
+        title: "Error",
+        description: "Username or email already exists",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleTopicClick = (topicId: string, categoryId: string) => {
+    navigate(`/community/${categoryId}/${topicId}`);
   };
 
   return (
@@ -349,7 +192,9 @@ export default function Community() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-primary">1,274</div>
+              <div className="text-2xl font-bold text-primary">
+                {memberCount}
+              </div>
               <div className="text-sm text-muted-foreground">Members</div>
             </CardContent>
           </Card>
@@ -361,13 +206,15 @@ export default function Community() {
           </Card>
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-accent">1,074</div>
+              <div className="text-2xl font-bold text-accent">0</div>
               <div className="text-sm text-muted-foreground">Topics</div>
             </CardContent>
           </Card>
           <Card className="text-center">
             <CardContent className="p-4">
-              <div className="text-2xl font-bold text-green-600">0</div>
+              <div className="text-2xl font-bold text-green-600">
+                {isAuthenticated ? 1 : 0}
+              </div>
               <div className="text-sm text-muted-foreground">Online Now</div>
             </CardContent>
           </Card>
@@ -376,12 +223,9 @@ export default function Community() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Forum Content */}
           <div className="lg:col-span-2">
-            <Tabs defaultValue="categories" className="w-full">
+            <div className="w-full">
               <div className="flex items-center justify-between mb-6">
-                <TabsList>
-                  <TabsTrigger value="categories">Categories</TabsTrigger>
-                  <TabsTrigger value="recent">Recent Topics</TabsTrigger>
-                </TabsList>
+                <h2 className="text-2xl font-bold">Forum Categories</h2>
                 <div className="flex items-center gap-2">
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
@@ -392,10 +236,12 @@ export default function Community() {
                       className="pl-10 w-64"
                     />
                   </div>
-                  <Button className="flex items-center gap-2">
-                    <PlusCircle className="h-4 w-4" />
-                    New Topic
-                  </Button>
+                  {isAuthenticated && (
+                    <Button className="flex items-center gap-2">
+                      <PlusCircle className="h-4 w-4" />
+                      New Topic
+                    </Button>
+                  )}
                 </div>
               </div>
 
@@ -404,6 +250,7 @@ export default function Community() {
                   const IconComponent = category.icon;
                   const isExpanded = expandedCategories.includes(category.id);
                   const ChevronIcon = isExpanded ? ChevronDown : ChevronRight;
+                  const categoryTopics = getTopicsByCategory(category.id);
 
                   return (
                     <div key={category.id}>
@@ -429,18 +276,22 @@ export default function Community() {
                                     {category.description}
                                   </p>
                                   <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                                    <span>{category.topics} topics</span>
-                                    <span>{category.posts} posts</span>
+                                    <span>{categoryTopics.length} topics</span>
+                                    <span>0 posts</span>
                                   </div>
                                 </div>
-                                <div className="text-right text-sm">
-                                  <div className="font-medium">
-                                    {category.latestPost.title}
+                                {categoryTopics.length > 0 && (
+                                  <div className="text-right text-sm">
+                                    <div className="font-medium">
+                                      {categoryTopics[0].title}
+                                    </div>
+                                    <div className="text-muted-foreground">
+                                      {new Date(
+                                        categoryTopics[0].lastActivity,
+                                      ).toLocaleDateString()}
+                                    </div>
                                   </div>
-                                  <div className="text-muted-foreground">
-                                    {category.latestPost.time}
-                                  </div>
-                                </div>
+                                )}
                               </div>
                             </div>
                           </div>
@@ -449,142 +300,186 @@ export default function Community() {
 
                       {isExpanded && (
                         <div className="ml-6 mt-2 space-y-2">
-                          {category.categoryTopics.map((topic, index) => (
-                            <Card
-                              key={index}
-                              className="hover:shadow-sm transition-shadow cursor-pointer border-l-4 border-l-primary/20"
-                            >
-                              <CardContent className="p-4">
-                                <div className="flex items-start justify-between">
-                                  <div className="flex-1">
-                                    <div className="flex items-center gap-2 mb-1">
-                                      {topic.isPinned && (
-                                        <Badge
-                                          variant="secondary"
-                                          className="text-xs"
-                                        >
-                                          Pinned
-                                        </Badge>
-                                      )}
-                                      {topic.isHot && (
-                                        <Badge
-                                          variant="destructive"
-                                          className="text-xs"
-                                        >
-                                          Hot
-                                        </Badge>
-                                      )}
-                                      <h4 className="font-medium text-sm">
-                                        {topic.title}
-                                      </h4>
-                                    </div>
-                                    <div className="text-xs text-muted-foreground">
-                                      {topic.time}
-                                    </div>
-                                  </div>
-                                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                                    <div className="flex items-center gap-1">
-                                      <MessageCircle className="h-3 w-3" />
-                                      {topic.replies}
-                                    </div>
-                                    <div className="flex items-center gap-1">
-                                      <Eye className="h-3 w-3" />
-                                      {topic.views}
-                                    </div>
-                                  </div>
-                                </div>
+                          {categoryTopics.length === 0 ? (
+                            <Card className="border-l-4 border-l-primary/20">
+                              <CardContent className="p-4 text-center text-muted-foreground">
+                                No topics yet. Be the first to start a
+                                discussion!
                               </CardContent>
                             </Card>
-                          ))}
+                          ) : (
+                            categoryTopics.map((topic) => (
+                              <Card
+                                key={topic.id}
+                                className="hover:shadow-sm transition-shadow cursor-pointer border-l-4 border-l-primary/20"
+                                onClick={() =>
+                                  handleTopicClick(topic.id, category.id)
+                                }
+                              >
+                                <CardContent className="p-4">
+                                  <div className="flex items-start justify-between">
+                                    <div className="flex-1">
+                                      <div className="flex items-center gap-2 mb-1">
+                                        {topic.isPinned && (
+                                          <Badge
+                                            variant="secondary"
+                                            className="text-xs"
+                                          >
+                                            Pinned
+                                          </Badge>
+                                        )}
+                                        {topic.isHot && (
+                                          <Badge
+                                            variant="destructive"
+                                            className="text-xs"
+                                          >
+                                            Hot
+                                          </Badge>
+                                        )}
+                                        <h4 className="font-medium text-sm">
+                                          {topic.title}
+                                        </h4>
+                                      </div>
+                                      <div className="text-xs text-muted-foreground">
+                                        {new Date(
+                                          topic.lastActivity,
+                                        ).toLocaleDateString()}
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                                      <div className="flex items-center gap-1">
+                                        <MessageCircle className="h-3 w-3" />
+                                        {topic.replies}
+                                      </div>
+                                      <div className="flex items-center gap-1">
+                                        <Eye className="h-3 w-3" />
+                                        {topic.views}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            ))
+                          )}
                         </div>
                       )}
                     </div>
                   );
                 })}
               </TabsContent>
-
-              <TabsContent value="recent" className="space-y-3">
-                {recentTopics.map((topic, index) => (
-                  <Card
-                    key={index}
-                    className="hover:shadow-md transition-shadow cursor-pointer"
-                  >
-                    <CardContent className="p-4">
-                      <div className="flex items-start gap-3">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-2 mb-1">
-                            {topic.isPinned && (
-                              <Badge variant="secondary" className="text-xs">
-                                Pinned
-                              </Badge>
-                            )}
-                            {topic.isHot && (
-                              <Badge variant="destructive" className="text-xs">
-                                Hot
-                              </Badge>
-                            )}
-                            <h4 className="font-medium">{topic.title}</h4>
-                          </div>
-                          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                            <span>{topic.category}</span>
-                            <span>{topic.lastActivity}</span>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                          <div className="flex items-center gap-1">
-                            <MessageCircle className="h-4 w-4" />
-                            {topic.replies}
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <Eye className="h-4 w-4" />
-                            {topic.views}
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </TabsContent>
-            </Tabs>
+            </div>
           </div>
 
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Authentication */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <User className="h-5 w-5" />
-                  Join the Community
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <Tabs defaultValue="login" className="w-full">
-                  <TabsList className="grid w-full grid-cols-2">
-                    <TabsTrigger value="login">Login</TabsTrigger>
-                    <TabsTrigger value="signup">Sign Up</TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="login" className="space-y-3 mt-4">
-                    <Input placeholder="Username or Email" />
-                    <Input type="password" placeholder="Password" />
-                    <Button className="w-full">Sign In</Button>
-                    <p className="text-xs text-muted-foreground text-center">
-                      Forgot your password?
+            {isAuthenticated ? (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <User className="h-5 w-5" />
+                    Welcome Back!
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <div className="text-center">
+                    <p className="font-semibold">{user?.username}</p>
+                    <p className="text-sm text-muted-foreground">
+                      {user?.role}
                     </p>
-                  </TabsContent>
-                  <TabsContent value="signup" className="space-y-3 mt-4">
-                    <Input placeholder="Username" />
-                    <Input type="email" placeholder="Email" />
-                    <Input type="password" placeholder="Password" />
-                    <Input type="password" placeholder="Confirm Password" />
-                    <Button className="w-full">Create Account</Button>
-                    <p className="text-xs text-muted-foreground text-center">
-                      By signing up, you agree to our Terms of Service
+                    <p className="text-xs text-muted-foreground">
+                      Joined{" "}
+                      {user?.joinDate
+                        ? new Date(user.joinDate).toLocaleDateString()
+                        : "Recently"}
                     </p>
-                  </TabsContent>
-                </Tabs>
-              </CardContent>
-            </Card>
+                  </div>
+                  <Button
+                    variant="outline"
+                    className="w-full flex items-center gap-2"
+                    onClick={logout}
+                  >
+                    <LogOut className="h-4 w-4" />
+                    Sign Out
+                  </Button>
+                </CardContent>
+              </Card>
+            ) : (
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <User className="h-5 w-5" />
+                    Join the Community
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <Tabs defaultValue="login" className="w-full">
+                    <TabsList className="grid w-full grid-cols-2">
+                      <TabsTrigger value="login">Login</TabsTrigger>
+                      <TabsTrigger value="signup">Sign Up</TabsTrigger>
+                    </TabsList>
+                    <TabsContent value="login" className="space-y-3 mt-4">
+                      <form onSubmit={handleLogin} className="space-y-3">
+                        <Input
+                          placeholder="Email"
+                          type="email"
+                          value={loginEmail}
+                          onChange={(e) => setLoginEmail(e.target.value)}
+                          required
+                        />
+                        <Input
+                          type="password"
+                          placeholder="Password"
+                          value={loginPassword}
+                          onChange={(e) => setLoginPassword(e.target.value)}
+                          required
+                        />
+                        <Button type="submit" className="w-full">
+                          Sign In
+                        </Button>
+                      </form>
+                    </TabsContent>
+                    <TabsContent value="signup" className="space-y-3 mt-4">
+                      <form onSubmit={handleSignup} className="space-y-3">
+                        <Input
+                          placeholder="Username"
+                          value={signupUsername}
+                          onChange={(e) => setSignupUsername(e.target.value)}
+                          required
+                        />
+                        <Input
+                          type="email"
+                          placeholder="Email"
+                          value={signupEmail}
+                          onChange={(e) => setSignupEmail(e.target.value)}
+                          required
+                        />
+                        <Input
+                          type="password"
+                          placeholder="Password"
+                          value={signupPassword}
+                          onChange={(e) => setSignupPassword(e.target.value)}
+                          required
+                        />
+                        <Input
+                          type="password"
+                          placeholder="Confirm Password"
+                          value={confirmPassword}
+                          onChange={(e) => setConfirmPassword(e.target.value)}
+                          required
+                        />
+                        <Button type="submit" className="w-full">
+                          Create Account
+                        </Button>
+                        <p className="text-xs text-muted-foreground text-center">
+                          By signing up, you agree to our Terms of Service
+                        </p>
+                      </form>
+                    </TabsContent>
+                  </Tabs>
+                </CardContent>
+              </Card>
+            )}
 
             {/* Forum Rules */}
             <Card>
