@@ -162,7 +162,7 @@ export default function MorphDetail() {
       description:
         "A dominant morph producing geckos with intensely vibrant red coloration, ranging from deep crimson to bright orange-red spots with enhanced color saturation.",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdb47718a45a84a57888fb732572b0b29",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc9bc22750446420397a738136f74bed8",
       traits: [
         "Intense red spots",
         "Enhanced saturation",
