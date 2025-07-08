@@ -249,6 +249,50 @@ export default function MorphGuide() {
       image:
         "https://images.pexels.com/photos/5475192/pexels-photo-5475192.jpeg",
     },
+    {
+      name: "Carmel Albino",
+      genetics: "Recessive",
+      description:
+        "A distinctive albino morph with reduced melanistic pigmentation displaying a beautiful caramel hue. This recessive trait requires both parents to carry the gene for expression.",
+      traits: [
+        "Caramel coloration",
+        "Reduced melanin",
+        "Light pigmentation",
+        "Recessive trait",
+      ],
+      rarity: "Super Rare" as const,
+      image:
+        "https://images.pexels.com/photos/2968965/pexels-photo-2968965.jpeg",
+    },
+    {
+      name: "T+ Albino",
+      genetics: "Recessive",
+      description:
+        "Tyrosinase-positive albino with partial melanin production resulting in pale caramel coloration. The tyrosinase enzyme is present but functions incompletely.",
+      traits: [
+        "Caramel background",
+        "Partial melanin production",
+        "Brown/gray tones",
+        "Reduced black pigmentation",
+      ],
+      rarity: "Super Rare" as const,
+      image: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
+    },
+    {
+      name: "T- Albino",
+      genetics: "Recessive",
+      description:
+        "Tyrosinase-negative albino with complete lack of melanin production due to non-functional tyrosinase enzyme. Features pale coloration and distinctive red irises.",
+      traits: [
+        "No melanin production",
+        "Pale coloration",
+        "Red irises",
+        "Non-functional tyrosinase",
+      ],
+      rarity: "Super Rare" as const,
+      image:
+        "https://images.pexels.com/photos/6788326/pexels-photo-6788326.jpeg",
+    },
   ];
 
   const geneticsTypes = [
