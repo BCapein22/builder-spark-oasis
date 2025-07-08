@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Textarea } from "@/components/ui/textarea";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { useAuth } from "@/contexts/AuthContext";
-import { useForumData, ForumTopic } from "@/hooks/useLocalStorage";
+import { useForumData, ForumTopic, ForumPost } from "@/hooks/useLocalStorage";
 import { useToast } from "@/hooks/use-toast";
 import {
   ChevronLeft,
@@ -33,7 +33,7 @@ export default function TopicDetail() {
   const { toast } = useToast();
 
   const [topic, setTopic] = useState<ForumTopic | null>(null);
-  const [posts, setPosts] = useState<any[]>([]);
+  const [posts, setPosts] = useState<ForumPost[]>([]);
   const [newMessage, setNewMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
