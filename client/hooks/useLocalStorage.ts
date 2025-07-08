@@ -131,14 +131,6 @@ export const useForumData = () => {
       );
   };
 
-  const incrementViews = (topicId: string) => {
-    setTopics((prev) =>
-      prev.map((topic) =>
-        topic.id === topicId ? { ...topic, views: topic.views + 1 } : topic,
-      ),
-    );
-  };
-
   const deleteTopic = (topicId: string) => {
     // Remove the topic
     setTopics((prev) => prev.filter((topic) => topic.id !== topicId));
