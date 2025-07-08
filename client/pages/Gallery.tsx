@@ -5,7 +5,7 @@ import ImageSubmissionForm from "@/components/ImageSubmissionForm";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ChevronLeft, ChevronRight, Plus } from "lucide-react";
+import { ChevronLeft, ChevronRight, Plus, X } from "lucide-react";
 
 export default function Gallery() {
   const [currentPage, setCurrentPage] = useState(1);
