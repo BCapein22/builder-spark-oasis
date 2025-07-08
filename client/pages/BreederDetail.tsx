@@ -60,9 +60,7 @@ export default function BreederDetail() {
     "cocoa-tokay": {
       name: "Cocoa Tokay",
       location: "South Korea",
-      rating: 5,
       website: "https://cocoatokay.com",
-      established: "2012",
       specialization: "Asian bloodlines and rare morphs",
       image: "https://images.pexels.com/photos/751689/pexels-photo-751689.jpeg",
       description:
@@ -78,16 +76,13 @@ export default function BreederDetail() {
         "Shooting Star",
       ],
       breedingFocus: [
-        "Asian bloodline preservation",
         "Rare morph development",
         "Genetic research and documentation",
-        "International breeding collaboration",
       ],
       achievements: [
-        "First to establish Luna breeding program in Asia",
+        "First to establish Luna breeding program",
         "Documented multiple new morph discoveries",
-        "Maintains largest Ghost morph breeding colony",
-        "Pioneer in Asian tokay gecko genetics",
+        "Pioneer in tokay gecko genetics",
       ],
       gallery: [
         "https://images.pexels.com/photos/751689/pexels-photo-751689.jpeg",
