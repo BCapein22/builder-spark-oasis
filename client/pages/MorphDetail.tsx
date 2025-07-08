@@ -328,7 +328,7 @@ export default function MorphDetail() {
       description:
         "Features a faded, smoky appearance with reduced dark pigmentation. As a Recessive trait, Both parents needs to carry the gene for offspring to exhibit the ghostly coloration.",
       image:
-        "https://images.pexels.com/photos/14745753/pexels-photo-14745753.png",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F4ea564ada4694527851cc7854af0c657",
       traits: [
         "Faded appearance",
         "Reduced pigmentation",
