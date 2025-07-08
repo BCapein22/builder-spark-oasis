@@ -493,6 +493,11 @@ export default function Community() {
                                         {new Date(
                                           topic.lastActivity,
                                         ).toLocaleDateString()}
+                                        {topic.author && (
+                                          <span className="ml-2">
+                                            • by {topic.author}
+                                          </span>
+                                        )}
                                       </div>
                                     </div>
                                     <div className="flex items-center gap-3 text-xs text-muted-foreground">
