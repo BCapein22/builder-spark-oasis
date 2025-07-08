@@ -220,7 +220,7 @@ export default function MorphDetail() {
       description:
         "A recessive morph where spots align in uniform patterns resembling candy dots. Notable for the absence of white baring and eyes that range from dark to completely black.",
       image:
-        "https://images.pexels.com/photos/1875923/pexels-photo-1875923.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1486ff8f3dc449ec8843041f426a36b2",
       traits: [
         "Aligned spots",
         "No white baring",
