@@ -20,7 +20,6 @@ import TopicDetail from "./pages/TopicDetail";
 import NotFound from "./pages/NotFound";
 import EmailDebugPanel from "./components/EmailDebugPanel";
 import ErrorBoundary from "./components/ErrorBoundary";
-import "./utils/forumReset";
 
 const queryClient = new QueryClient();
 
