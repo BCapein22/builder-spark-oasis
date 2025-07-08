@@ -478,7 +478,7 @@ export default function MorphDetail() {
         genetics:
           "Simple recessive trait first confirmed by Max Ong in Malaysia. Both parents must carry the gene for offspring to display the Blueberry characteristics.",
         breeding:
-          "Standard recessive breeding applies - breeding two Blueberry geckos produces 100% Blueberry offspring. Het x Het breeding yields 25% visual Blueberry offspring.",
+          "Standard recessive breeding applies - breeding two Blueberry geckos produces 100% Blueberry offspring.",
         care: "Standard tokay gecko care requirements. The foot coloration and reduced red spotting do not affect their care needs.",
         size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
         temperament:
