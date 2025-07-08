@@ -145,7 +145,12 @@ export default function Index() {
             {popularMorphs.map((morph, index) => (
               <Link to="/morphs" key={index}>
                 <Card className="group hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden cursor-pointer">
-                  <div className={`h-32 ${morph.color} relative`}>
+                  <div className="h-32 relative overflow-hidden">
+                    <img
+                      src={morph.image}
+                      alt={morph.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                   </div>
                   <CardHeader className="text-center">
