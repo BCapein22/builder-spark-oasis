@@ -20,28 +20,24 @@ export default function Gallery() {
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F6d0d3ee54f3c412f9928072512e55cb2",
       title: "Normal Wild-type",
       morph: "Normal (Wild-type)",
-      photographer: "Breeder Submission",
     },
     {
       id: 2,
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1aed7186737543d29a875edc372db330",
       title: "Reduced Pattern",
       morph: "Reduced Pattern",
-      photographer: "Community Member",
     },
     {
       id: 3,
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdc77533129d0486d824831476e243821",
       title: "Patternless BHG",
       morph: "Patternless (BHG)",
-      photographer: "Professional",
     },
     {
       id: 4,
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc1f66d00582145faa715a74535e01788",
       title: "Powder Blue Patternless",
       morph: "Powder Blue Patternless",
-      photographer: "Breeder Submission",
     },
     {
       id: 5,
