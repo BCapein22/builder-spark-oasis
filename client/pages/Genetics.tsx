@@ -439,7 +439,118 @@ export default function Genetics() {
     setParent2Morph("");
     setParent1Het([]);
     setParent2Het([]);
+    setParent1Name("");
+    setParent2Name("");
+    setParent1Id("");
+    setParent2Id("");
   };
+
+  const saveBreedingRecord = () => {
+    if (!parent1Morph || !parent2Morph || !parent1Name || !parent2Name) return;
+
+    const newRecord: BreedingRecord = {
+      id: Date.now().toString(),
+      parent1: {
+        name: parent1Name,
+        morph: parent1Morph,
+        hets: parent1Het,
+      },
+      parent2: {
+        name: parent2Name,
+        morph: parent2Morph,
+        hets: parent2Het,
+      },
+      date: new Date().toLocaleDateString(),
+      generation: calculateGeneration(),
+    };
+
+    setBreedingRecords((prev) => [...prev, newRecord]);
+  };
+
+  const calculateGeneration = (): number => {
+    // Find the highest generation from parent lineages + 1
+    let maxGen = 0;
+
+    if (parent1Id) {
+      const parent1Record = breedingRecords.find((r) => r.id === parent1Id);
+      if (parent1Record) maxGen = Math.max(maxGen, parent1Record.generation);
+    }
+
+    if (parent2Id) {
+      const parent2Record = breedingRecords.find((r) => r.id === parent2Id);
+      if (parent2Record) maxGen = Math.max(maxGen, parent2Record.generation);
+    }
+
+    return maxGen + 1;
+  };
+
+  const analyzeLineBreeding = (): LineBreedingAnalysis | null => {
+    if (!parent1Id || !parent2Id) return null;
+
+    const parent1Record = breedingRecords.find((r) => r.id === parent1Id);
+    const parent2Record = breedingRecords.find((r) => r.id === parent2Id);
+
+    if (!parent1Record || !parent2Record) return null;
+
+    // Simple analysis - check for common ancestors
+    const commonAncestors = findCommonAncestors(parent1Record, parent2Record);
+    const generationsSeparated = Math.abs(
+      parent1Record.generation - parent2Record.generation,
+    );
+
+    let inbreedingCoefficient = 0;
+    let riskLevel: "Low" | "Moderate" | "High" | "Very High" = "Low";
+    let recommendations: string[] = [];
+
+    if (commonAncestors.length > 0) {
+      inbreedingCoefficient = 0.25 * commonAncestors.length; // Simplified calculation
+
+      if (generationsSeparated <= 1) {
+        riskLevel = "Very High";
+        recommendations.push("Not recommended - too closely related");
+        recommendations.push("Consider outcrossing to unrelated bloodlines");
+      } else if (generationsSeparated <= 2) {
+        riskLevel = "High";
+        recommendations.push("High risk - monitor offspring carefully");
+        recommendations.push("Consider genetic diversity in future pairings");
+      } else if (generationsSeparated <= 3) {
+        riskLevel = "Moderate";
+        recommendations.push("Moderate risk - acceptable with caution");
+        recommendations.push("Track health and fertility in offspring");
+      } else {
+        riskLevel = "Low";
+        recommendations.push("Low risk - good genetic diversity");
+      }
+    } else {
+      recommendations.push("No known common ancestors - excellent outcross");
+      recommendations.push("This pairing will increase genetic diversity");
+    }
+
+    return {
+      inbreedingCoefficient,
+      commonAncestors,
+      generationsSeparated,
+      riskLevel,
+      recommendations,
+    };
+  };
+
+  const findCommonAncestors = (
+    record1: BreedingRecord,
+    record2: BreedingRecord,
+  ): string[] => {
+    // Simplified ancestor tracking - in real implementation would trace full pedigree
+    const ancestors1 = [record1.parent1.name, record1.parent2.name];
+    const ancestors2 = [record2.parent1.name, record2.parent2.name];
+
+    return ancestors1.filter((ancestor) => ancestors2.includes(ancestor));
+  };
+
+  const availableParents = breedingRecords.map((record) => ({
+    id: record.id,
+    name: `${record.parent1.name} x ${record.parent2.name} offspring`,
+    generation: record.generation,
+  }));
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-primary/5 to-accent/5">
