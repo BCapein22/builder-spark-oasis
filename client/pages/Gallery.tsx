@@ -244,9 +244,11 @@ export default function Gallery() {
                 <h3 className="font-semibold text-sm mb-1 truncate">
                   {image.title}
                 </h3>
-                <p className="text-xs text-muted-foreground mb-2">
-                  by {image.photographer}
-                </p>
+                {image.author && (
+                  <p className="text-xs text-muted-foreground mb-2">
+                    by {image.author}
+                  </p>
+                )}
                 <Badge variant="outline" className="text-xs">
                   {image.morph}
                 </Badge>
