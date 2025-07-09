@@ -576,6 +576,18 @@ export default function Genetics() {
           </p>
         </div>
 
+        {/* Line Breeding Toggle */}
+        <div className="mb-6 text-center">
+          <Button
+            onClick={() => setShowLineBreeding(!showLineBreeding)}
+            variant={showLineBreeding ? "default" : "outline"}
+            className="flex items-center gap-2"
+          >
+            <Heart className="h-4 w-4" />
+            {showLineBreeding ? "Hide" : "Show"} Line Breeding Tracker
+          </Button>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
           {/* Breeding Calculator */}
           <div className="lg:col-span-2">
@@ -591,6 +603,18 @@ export default function Genetics() {
                   {/* Parent 1 */}
                   <div className="space-y-4">
                     <Label className="text-lg font-semibold">Parent 1</Label>
+                    {showLineBreeding && (
+                      <div>
+                        <Label htmlFor="parent1Name">Parent 1 Name</Label>
+                        <input
+                          type="text"
+                          value={parent1Name}
+                          onChange={(e) => setParent1Name(e.target.value)}
+                          className="w-full px-3 py-2 border rounded-md"
+                          placeholder="Enter parent name"
+                        />
+                      </div>
+                    )}
                     <div>
                       <Label htmlFor="parent1">Visual Morph</Label>
                       <Select
@@ -609,11 +633,43 @@ export default function Genetics() {
                         </SelectContent>
                       </Select>
                     </div>
+                    {showLineBreeding && availableParents.length > 0 && (
+                      <div>
+                        <Label htmlFor="parent1Lineage">
+                          Lineage (Optional)
+                        </Label>
+                        <Select value={parent1Id} onValueChange={setParent1Id}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select lineage" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="">No lineage</SelectItem>
+                            {availableParents.map((parent) => (
+                              <SelectItem key={parent.id} value={parent.id}>
+                                Gen {parent.generation}: {parent.name}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    )}
                   </div>
 
                   {/* Parent 2 */}
                   <div className="space-y-4">
                     <Label className="text-lg font-semibold">Parent 2</Label>
+                    {showLineBreeding && (
+                      <div>
+                        <Label htmlFor="parent2Name">Parent 2 Name</Label>
+                        <input
+                          type="text"
+                          value={parent2Name}
+                          onChange={(e) => setParent2Name(e.target.value)}
+                          className="w-full px-3 py-2 border rounded-md"
+                          placeholder="Enter parent name"
+                        />
+                      </div>
+                    )}
                     <div>
                       <Label htmlFor="parent2">Visual Morph</Label>
                       <Select
@@ -632,6 +688,26 @@ export default function Genetics() {
                         </SelectContent>
                       </Select>
                     </div>
+                    {showLineBreeding && availableParents.length > 0 && (
+                      <div>
+                        <Label htmlFor="parent2LineAge">
+                          Lineage (Optional)
+                        </Label>
+                        <Select value={parent2Id} onValueChange={setParent2Id}>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select lineage" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="">No lineage</SelectItem>
+                            {availableParents.map((parent) => (
+                              <SelectItem key={parent.id} value={parent.id}>
+                                Gen {parent.generation}: {parent.name}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    )}
                   </div>
                 </div>
 
@@ -643,7 +719,103 @@ export default function Genetics() {
                   >
                     Reset
                   </Button>
+                  {showLineBreeding && (
+                    <Button
+                      onClick={saveBreedingRecord}
+                      disabled={
+                        !parent1Morph ||
+                        !parent2Morph ||
+                        !parent1Name ||
+                        !parent2Name
+                      }
+                      className="flex items-center gap-2"
+                    >
+                      <Heart className="h-4 w-4" />
+                      Save Breeding Record
+                    </Button>
+                  )}
                 </div>
+
+                {/* Line Breeding Analysis */}
+                {showLineBreeding && analyzeLineBreeding() && (
+                  <div className="space-y-4">
+                    <Separator />
+                    <h3 className="text-lg font-semibold flex items-center gap-2">
+                      <Info className="h-5 w-5" />
+                      Line Breeding Analysis
+                    </h3>
+                    {(() => {
+                      const analysis = analyzeLineBreeding()!;
+                      return (
+                        <Card className="p-4">
+                          <div className="space-y-3">
+                            <div className="flex items-center justify-between">
+                              <span className="font-semibold">Risk Level:</span>
+                              <Badge
+                                variant={
+                                  analysis.riskLevel === "Low"
+                                    ? "default"
+                                    : analysis.riskLevel === "Moderate"
+                                      ? "secondary"
+                                      : analysis.riskLevel === "High"
+                                        ? "destructive"
+                                        : "destructive"
+                                }
+                              >
+                                {analysis.riskLevel}
+                              </Badge>
+                            </div>
+                            <div>
+                              <span className="font-semibold">
+                                Inbreeding Coefficient:
+                              </span>
+                              <span className="ml-2">
+                                {(analysis.inbreedingCoefficient * 100).toFixed(
+                                  1,
+                                )}
+                                %
+                              </span>
+                            </div>
+                            <div>
+                              <span className="font-semibold">
+                                Generations Separated:
+                              </span>
+                              <span className="ml-2">
+                                {analysis.generationsSeparated}
+                              </span>
+                            </div>
+                            {analysis.commonAncestors.length > 0 && (
+                              <div>
+                                <span className="font-semibold">
+                                  Common Ancestors:
+                                </span>
+                                <div className="ml-2 text-sm">
+                                  {analysis.commonAncestors.join(", ")}
+                                </div>
+                              </div>
+                            )}
+                            <div>
+                              <span className="font-semibold">
+                                Recommendations:
+                              </span>
+                              <ul className="ml-2 text-sm space-y-1">
+                                {analysis.recommendations.map((rec, index) => (
+                                  <li
+                                    key={index}
+                                    className="flex items-start gap-2"
+                                  >
+                                    <span className="text-primary">•</span>
+                                    {rec}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </Card>
+                      );
+                    })()}
+                  </div>
+                )}
 
                 {/* Results */}
                 {calculateBreeding.length > 0 && (
