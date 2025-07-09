@@ -44,6 +44,7 @@ export default function Gallery() {
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F5e1bda61479e478eaff84daaa180614a",
       title: "Granite Morph",
       morph: "Granite",
+      author: "LuckyFootGeckos",
     },
     {
       id: 6,
