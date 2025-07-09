@@ -32,6 +32,7 @@ export default function Gallery() {
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdc77533129d0486d824831476e243821",
       title: "Patternless BHG",
       morph: "Patternless (BHG)",
+      author: "Cocoa Tokay",
     },
     {
       id: 4,
