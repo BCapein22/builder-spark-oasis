@@ -338,7 +338,7 @@ export default function MorphDetail() {
       rarity: "Uncommon",
       detailed: {
         genetics:
-          "Recessive trait affecting melanin production, resulting in faded or washed-out appearance. Color intensity can vary between individuals.",
+          "Recessive trait resulting in faded or washed-out appearance. Color intensity can vary between individuals.",
         breeding:
           "Both parents must carry the gene for visual ghost offspring. Het x het produces 25% visual ghosts.",
         care: "Standard tokay care, though some report increased light sensitivity due to reduced pigmentation.",
@@ -499,17 +499,17 @@ export default function MorphDetail() {
         "https://images.pexels.com/photos/2968965/pexels-photo-2968965.jpeg",
       traits: [
         "Caramel coloration",
-        "Reduced melanin",
         "Light pigmentation",
         "Recessive trait",
+        "Pale appearance",
       ],
       rarity: "Super Rare",
       detailed: {
         genetics:
-          "Simple recessive mutation affecting melanin production, resulting in reduced dark pigmentation and characteristic caramel coloration. Both parents must carry the albino gene.",
+          "Simple recessive mutation resulting in reduced dark pigmentation and characteristic caramel coloration. Both parents must carry the albino gene.",
         breeding:
           "Standard recessive breeding - both parents must be homozygous recessive or heterozygous carriers. Breeding two Carmel Albinos produces 100% Carmel Albino offspring.",
-        care: "Requires specialized care due to reduced melanin protection. UV lighting must be carefully managed and temperature regulation is critical for health.",
+        care: "Requires specialized care. UV lighting must be carefully managed and temperature regulation is critical for health.",
         size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
         temperament:
           "No specific temperament differences from normal tokays, though may be slightly more sensitive to bright lighting.",
@@ -523,18 +523,18 @@ export default function MorphDetail() {
       name: "T+ Albino",
       genetics: "Recessive",
       description:
-        "Tyrosinase-positive albino with partial melanin production resulting in pale caramel coloration. The tyrosinase enzyme is present but functions incompletely.",
+        "A pale albino morph with caramel coloration and brown/gray tones.",
       image: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
       traits: [
         "Caramel background",
-        "Partial melanin production",
         "Brown/gray tones",
-        "Reduced black pigmentation",
+        "Pale coloration",
+        "Light pigmentation",
       ],
       rarity: "Super Rare",
       detailed: {
         genetics:
-          "Recessive mutation affecting tyrosinase enzyme activity. Unlike T- albinos, T+ retains some melanin production capability, resulting in lighter but not completely absent pigmentation.",
+          "Recessive albino mutation. Unlike T- albinos, T+ shows lighter but not completely absent pigmentation.",
         breeding:
           "Must avoid crossing with T- albinos as this produces double heterozygous offspring that appear normal. Breed T+ with T+ for consistent results.",
         care: "Requires careful lighting management due to reduced pigmentation. Standard tokay temperatures but monitor for light sensitivity.",
@@ -551,22 +551,22 @@ export default function MorphDetail() {
       name: "T- Albino",
       genetics: "Recessive",
       description:
-        "Tyrosinase-negative albino with complete lack of melanin production due to non-functional tyrosinase enzyme. Features pale coloration and distinctive red irises.",
+        "An extreme albino morph featuring pale coloration and distinctive red irises.",
       image:
         "https://images.pexels.com/photos/6788326/pexels-photo-6788326.jpeg",
       traits: [
-        "No melanin production",
         "Pale coloration",
         "Red irises",
-        "Non-functional tyrosinase",
+        "Light appearance",
+        "Extreme albinism",
       ],
       rarity: "Super Rare",
       detailed: {
         genetics:
-          "Complete recessive mutation resulting in non-functional tyrosinase enzyme and total absence of melanin production. Most extreme form of albinism in tokay geckos.",
+          "Complete recessive mutation. Most extreme form of albinism in tokay geckos.",
         breeding:
           "Must breed T- with T- only. Crossing with T+ albinos produces normal-appearing double heterozygous offspring, diluting the bloodline.",
-        care: "Requires most intensive care of all morphs due to complete melanin absence. Specialized UV filtering and temperature control essential.",
+        care: "Requires most intensive care of all morphs. Specialized UV filtering and temperature control essential.",
         size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
         temperament:
           "May be more docile due to light sensitivity. Require low-light environments and careful handling.",
