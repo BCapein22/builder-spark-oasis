@@ -18,12 +18,18 @@ export default function GeckoCard({
 }: GeckoCardProps) {
   return (
     <Card className="group hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden cursor-pointer">
-      <div className="aspect-[6/5] bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 relative overflow-hidden">
+      <div
+        className={`aspect-[6/5] bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 relative overflow-hidden ${
+          name === "Paradox" ? "flex flex-col" : ""
+        }`}
+      >
         {image ? (
           <img
             src={image}
             alt={name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ${
+              name === "Nightmare" ? "min-h-[500px]" : ""
+            } ${name === "Paradox" ? "pb-12 mx-auto" : ""}`}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
