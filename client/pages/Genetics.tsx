@@ -37,11 +37,46 @@ interface BreedingResult {
   description: string;
 }
 
+interface BreedingRecord {
+  id: string;
+  parent1: {
+    name: string;
+    morph: string;
+    hets: string[];
+  };
+  parent2: {
+    name: string;
+    morph: string;
+    hets: string[];
+  };
+  date: string;
+  generation: number;
+  offspring?: BreedingRecord[];
+  notes?: string;
+}
+
+interface LineBreedingAnalysis {
+  inbreedingCoefficient: number;
+  commonAncestors: string[];
+  generationsSeparated: number;
+  riskLevel: "Low" | "Moderate" | "High" | "Very High";
+  recommendations: string[];
+}
+
 export default function Genetics() {
   const [parent1Morph, setParent1Morph] = useState<string>("");
   const [parent2Morph, setParent2Morph] = useState<string>("");
   const [parent1Het, setParent1Het] = useState<string[]>([]);
   const [parent2Het, setParent2Het] = useState<string[]>([]);
+
+  // Line breeding tracking state
+  const [breedingRecords, setBreedingRecords] = useState<BreedingRecord[]>([]);
+  const [parent1Name, setParent1Name] = useState<string>("");
+  const [parent2Name, setParent2Name] = useState<string>("");
+  const [parent1Id, setParent1Id] = useState<string>("");
+  const [parent2Id, setParent2Id] = useState<string>("");
+  const [showLineBreeding, setShowLineBreeding] = useState<boolean>(false);
+  const [selectedRecord, setSelectedRecord] = useState<string>("");
 
   const morphs: Morph[] = [
     {
