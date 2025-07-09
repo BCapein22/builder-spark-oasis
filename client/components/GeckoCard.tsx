@@ -7,15 +7,7 @@ interface GeckoCardProps {
   description: string;
   traits: string[];
   image?: string;
-  rarity?: "Common" | "Uncommon" | "Rare" | "Super Rare";
 }
-
-const rarityColors = {
-  Common: "bg-gray-100 text-gray-800",
-  Uncommon: "bg-green-100 text-green-800",
-  Rare: "bg-blue-100 text-blue-800",
-  "Super Rare": "bg-purple-100 text-purple-800",
-};
 
 export default function GeckoCard({
   name,
@@ -23,7 +15,6 @@ export default function GeckoCard({
   description,
   traits,
   image,
-  rarity = "Common",
 }: GeckoCardProps) {
   return (
     <Card className="group hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden cursor-pointer">
@@ -39,9 +30,6 @@ export default function GeckoCard({
             <div className="w-24 h-24 bg-gradient-to-br from-primary via-secondary to-accent rounded-full opacity-60" />
           </div>
         )}
-        <div className="absolute top-3 right-3">
-          <Badge className={rarityColors[rarity]}>{rarity}</Badge>
-        </div>
       </div>
 
       <CardHeader className="space-y-2">
