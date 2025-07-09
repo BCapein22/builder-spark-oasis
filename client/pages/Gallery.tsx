@@ -57,12 +57,14 @@ export default function Gallery() {
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1486ff8f3dc449ec8843041f426a36b2",
       title: "Candy Dot Pattern",
       morph: "Candy Dot",
+      author: "Crystal Palace Reptiles",
     },
     {
       id: 8,
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1dad7f014b544e299a1c73a0dd4d40af",
       title: "Diablo Morph",
       morph: "Diablo",
+      author: "Crystal Palace Reptiles",
     },
     {
       id: 9,
@@ -75,6 +77,7 @@ export default function Gallery() {
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fa1bfad9d36894dcdb5777d16e36d8178",
       title: "Luna Morph",
       morph: "Luna",
+      author: "Cocoa Tokay",
     },
     {
       id: 11,
