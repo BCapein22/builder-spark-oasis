@@ -36,7 +36,7 @@ export default function MorphDetail() {
       rarity: "Common",
       detailed: {
         genetics:
-          "The normal tokay gecko displays the wild-type coloration that has evolved over millions of years. This dominant trait means that breeding a normal gecko with any morph will typically produce normal-appearing offspring, though they may be heterozygous for recessive traits.",
+          'The normal tokay gecko displays the wild-type coloration that has evolved over millions of years. This dominant trait means that breeding a normal gecko with any morph will typically produce normal-appearing offspring, though they may be "Het" for recessive traits.',
         breeding:
           "Normal tokays are excellent breeding stock and are often used to outcross with morphs to maintain genetic diversity. They typically reach sexual maturity at 12-18 months and can live 15-20 years in captivity.",
         care: "Hardy and adaptable, normal tokays require temperatures of 78-82°F (26-28°C) during the day with nighttime drops to 72-75°F (22-24°C). Humidity should be maintained at 60-80%.",
@@ -61,7 +61,7 @@ export default function MorphDetail() {
       rarity: "Uncommon",
       detailed: {
         genetics:
-          "Incomplete dominant inheritance means one copy produces a visible effect, while two copies (super form) may produce even more dramatic pattern reduction. Breeding two reduced patterns can yield super reduced patterns.",
+          "Incomplete dominant inheritance means one copy produces a visible effect, while two copies (super form) may produce even more dramatic pattern reduction. Breeding two reduced patterns can yield Patternless (BHG).",
         breeding:
           "When breeding reduced pattern to normal, expect 50% reduced pattern offspring. Reduced pattern to reduced pattern breeding can produce super reduced forms with even less pattern.",
         care: "Same care requirements as normal tokays, though some breeders report reduced pattern morphs may be slightly more docile.",
@@ -86,10 +86,10 @@ export default function MorphDetail() {
       rarity: "Rare",
       detailed: {
         genetics:
-          "Simple recessive trait requiring both parents to carry the gene. Breeding two BHG patternless will produce 100% patternless offspring.",
+          "Co-Dominant trait meaning only one copy of the morph needs to be present to yield visual outcome.",
         breeding:
-          "Challenging to produce as both parents must carry the recessive gene. Het x Het breeding yields 25% visual patternless offspring.",
-        care: "Standard tokay care with attention to UV lighting to maintain proper coloration. Some reports suggest slightly lower humidity tolerance.",
+          "Known to be easier to produce since they are more commonly available and only one parent needs to carry the trait.",
+        care: "Standard tokay care with attention to UV lighting to maintain proper Health and coloration.",
         size: "Slightly smaller than normals on average - males 10-13 inches, females 9-11 inches",
         temperament:
           "Generally calmer than wild-types, though still capable of defensive behavior.",
