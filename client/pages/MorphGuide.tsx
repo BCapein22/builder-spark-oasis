@@ -189,7 +189,7 @@ export default function MorphGuide() {
       ],
       rarity: "Rare" as const,
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F63fedf823f6d4427bb96d5d7b8daa666",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F97430dd350ff4aa78ca7a799eb483bb8",
     },
     {
       name: "Paradox",
