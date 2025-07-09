@@ -943,6 +943,80 @@ export default function Genetics() {
           </div>
         </div>
 
+        {/* Breeding Records History */}
+        {showLineBreeding && breedingRecords.length > 0 && (
+          <Card className="mb-8">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Heart className="h-5 w-5" />
+                Breeding Records ({breedingRecords.length})
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4 max-h-96 overflow-y-auto">
+                {breedingRecords.map((record) => (
+                  <Card
+                    key={record.id}
+                    className="p-4 bg-gradient-to-r from-primary/5 to-accent/5"
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline">Gen {record.generation}</Badge>
+                        <span className="font-semibold">
+                          {record.parent1.name} × {record.parent2.name}
+                        </span>
+                      </div>
+                      <span className="text-sm text-muted-foreground">
+                        {record.date}
+                      </span>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+                      <div>
+                        <span className="font-medium">
+                          ♂ {record.parent1.name}:
+                        </span>
+                        <div className="ml-2">
+                          <Badge variant="secondary" className="text-xs mr-1">
+                            {record.parent1.morph}
+                          </Badge>
+                          {record.parent1.hets.map((het, index) => (
+                            <Badge
+                              key={index}
+                              variant="outline"
+                              className="text-xs mr-1"
+                            >
+                              Het {het}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div>
+                        <span className="font-medium">
+                          ♀ {record.parent2.name}:
+                        </span>
+                        <div className="ml-2">
+                          <Badge variant="secondary" className="text-xs mr-1">
+                            {record.parent2.morph}
+                          </Badge>
+                          {record.parent2.hets.map((het, index) => (
+                            <Badge
+                              key={index}
+                              variant="outline"
+                              className="text-xs mr-1"
+                            >
+                              Het {het}
+                            </Badge>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {/* Morph Reference */}
         <Card>
           <CardHeader>
