@@ -102,7 +102,7 @@ export default function Genetics() {
       name: "Luna",
       genetics: "Recessive",
       symbol: "l",
-      description: "White coloration from melanin absence",
+      description: "Solid white coloration",
     },
     {
       name: "Shooting Star",
@@ -126,19 +126,19 @@ export default function Genetics() {
       name: "Carmel Albino",
       genetics: "Recessive",
       symbol: "ca",
-      description: "Caramel hue with reduced melanin",
+      description: "Caramel coloration",
     },
     {
       name: "T+ Albino",
       genetics: "Recessive",
       symbol: "t+",
-      description: "Partial melanin production with caramel tones",
+      description: "Pale caramel coloration",
     },
     {
       name: "T- Albino",
       genetics: "Recessive",
       symbol: "t-",
-      description: "Complete melanin absence with red irises",
+      description: "Pale coloration with red irises",
     },
   ];
 
