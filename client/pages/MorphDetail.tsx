@@ -297,22 +297,22 @@ export default function MorphDetail() {
       name: "Luna",
       genetics: "Recessive",
       description:
-        "A stunning morph characterized by solid white coloration resulting from a complete absence of melanin. Both parents must carry the gene to produce Luna offspring.",
+        "A stunning morph characterized by solid white coloration. Both parents must carry the gene to produce Luna offspring.",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F14bfc223d5a44b5fbd6755237a2abc58",
       traits: [
         "Solid white coloration",
-        "No melanin",
         "Extremely rare",
         "Striking appearance",
+        "Leucistic trait",
       ],
       rarity: "Super Rare",
       detailed: {
         genetics:
-          "Leucistic gene causing complete absence of melanin while retaining eye pigmentation. Different from albinism which affects all pigments.",
+          "Leucistic gene causing white coloration while retaining eye pigmentation. Different from albinism which affects all pigments.",
         breeding:
           "Simple recessive requiring both parents to carry the gene. Extremely limited breeding stock makes this one of the rarest morphs.",
-        care: "Requires specialized care due to lack of melanin protection. UV lighting must be carefully managed, and temperature regulation is critical.",
+        care: "Requires specialized care. UV lighting must be carefully managed, and temperature regulation is critical.",
         size: "Often smaller than normals due to genetic factors",
         temperament:
           "Generally calmer, possibly due to vision differences caused by the mutation.",
