@@ -52,7 +52,7 @@ export default function Genetics() {
     },
     {
       name: "Reduced Pattern",
-      genetics: "Co-dominant",
+      genetics: "Incomplete Dominant",
       symbol: "rp",
       description: "Blue head, green body, reduced spots",
     },
