@@ -84,6 +84,7 @@ export default function Gallery() {
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F4ea564ada4694527851cc7854af0c657",
       title: "Ghost Morph",
       morph: "Ghost",
+      author: "Cocoa Tokay",
     },
     {
       id: 12,
@@ -102,6 +103,7 @@ export default function Gallery() {
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F37141c9fc5cb437eb952e4cc6e4e1dab",
       title: "Shooting Star",
       morph: "Shooting Star",
+      author: "Cocoa Tokay",
     },
     {
       id: 15,
