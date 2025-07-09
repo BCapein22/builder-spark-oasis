@@ -136,7 +136,7 @@ export default function Genetics() {
     {
       name: "Luna",
       genetics: "Recessive",
-      symbol: "l",
+      symbol: "LN",
       description: "Solid white coloration",
     },
     {
