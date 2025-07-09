@@ -150,12 +150,12 @@ export default function MorphGuide() {
       name: "Luna",
       genetics: "Recessive",
       description:
-        "A stunning morph characterized by solid white coloration resulting from a complete absence of melanin. Both parents must carry the gene to produce Luna offspring.",
+        "A stunning morph characterized by solid white coloration. Both parents must carry the gene to produce Luna offspring.",
       traits: [
         "Solid white coloration",
-        "No melanin",
         "Extremely rare",
         "Striking appearance",
+        "Leucistic trait",
       ],
       rarity: "Super Rare" as const,
       image:
@@ -253,12 +253,12 @@ export default function MorphGuide() {
       name: "Carmel Albino",
       genetics: "Recessive",
       description:
-        "A distinctive albino morph with reduced melanistic pigmentation displaying a beautiful caramel hue. This recessive trait requires both parents to carry the gene for expression.",
+        "A distinctive albino morph displaying a beautiful caramel hue. This recessive trait requires both parents to carry the gene for expression.",
       traits: [
         "Caramel coloration",
-        "Reduced melanin",
         "Light pigmentation",
         "Recessive trait",
+        "Pale appearance",
       ],
       rarity: "Super Rare" as const,
       image:
@@ -268,12 +268,12 @@ export default function MorphGuide() {
       name: "T+ Albino",
       genetics: "Recessive",
       description:
-        "Tyrosinase-positive albino with partial melanin production resulting in pale caramel coloration. The tyrosinase enzyme is present but functions incompletely.",
+        "A pale albino morph with caramel coloration and brown/gray tones.",
       traits: [
         "Caramel background",
-        "Partial melanin production",
         "Brown/gray tones",
-        "Reduced black pigmentation",
+        "Pale coloration",
+        "Light pigmentation",
       ],
       rarity: "Super Rare" as const,
       image: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
@@ -282,12 +282,12 @@ export default function MorphGuide() {
       name: "T- Albino",
       genetics: "Recessive",
       description:
-        "Tyrosinase-negative albino with complete lack of melanin production due to non-functional tyrosinase enzyme. Features pale coloration and distinctive red irises.",
+        "An extreme albino morph featuring pale coloration and distinctive red irises.",
       traits: [
-        "No melanin production",
         "Pale coloration",
         "Red irises",
-        "Non-functional tyrosinase",
+        "Light appearance",
+        "Extreme albinism",
       ],
       rarity: "Super Rare" as const,
       image:
