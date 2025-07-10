@@ -609,7 +609,9 @@ export default function MorphDetail() {
                   ? { height: "608px", marginTop: "-1px" }
                   : morph.name === "Reduced Pattern"
                     ? { height: "569px" }
-                    : {}
+                    : morph.name === "Patternless (BHG)"
+                      ? { height: "419px" }
+                      : {}
               }
             />
           </div>
