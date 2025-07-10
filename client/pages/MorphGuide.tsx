@@ -218,7 +218,8 @@ export default function MorphGuide() {
         "Monochrome appearance",
       ],
       rarity: "Rare" as const,
-      image: "",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F6d0d3ee54f3c412f9928072512e55cb2",
     },
     {
       name: "Shooting Star",
