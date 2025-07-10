@@ -461,8 +461,7 @@ export default function MorphDetail() {
         size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
         temperament:
           "No specific temperament differences from normal tokays. Typical territorial and vocal behavior.",
-        availability:
-          "Limited availability from specialized breeders, particularly those working with Asian bloodlines.",
+        availability: "Limited availability from specialized breeders.",
         history:
           "Represents one of the distinctive morphs originating from Southeast Asian breeding programs with unique foot coloration patterns.",
       },
