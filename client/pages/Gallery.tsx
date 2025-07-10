@@ -67,12 +67,7 @@ export default function Gallery() {
       morph: "Diablo",
       author: "Crystal Palace Reptiles",
     },
-    {
-      id: 9,
-      url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fdc56379e226949a18315bd69b0030b1b",
-      title: "Green Galaxy",
-      morph: "Green Galaxy",
-    },
+
     {
       id: 10,
       url: "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fa1bfad9d36894dcdb5777d16e36d8178",
