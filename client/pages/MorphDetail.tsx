@@ -257,9 +257,9 @@ export default function MorphDetail() {
       rarity: "Super Rare",
       detailed: {
         genetics:
-          "Incomplete dominant trait where one copy produces visible candy dot patterns. Two copies result in enhanced expression with more pronounced spot alignment and darker eye coloration.",
+          "Recessive trait affecting coloration with lavender base and distinctive black eyes. Both parents must carry the gene to produce visual Diablo offspring.",
         breeding:
-          "Incomplete dominant inheritance means candy dot x normal produces 50% candy dot offspring. Breeding two candy dots can produce super forms with enhanced pattern expression.",
+          "Standard recessive breeding applies - both parents must carry the gene for visual offspring. Diablo x normal produces 100% het offspring, while het x het produces 25% visual Diablo.",
         care: "Standard tokay care with attention to maintaining proper humidity for color development.",
         size: "Normal size range",
         temperament: "Limited data due to rarity, but similar to other morphs.",
