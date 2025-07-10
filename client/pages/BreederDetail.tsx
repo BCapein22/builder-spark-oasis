@@ -21,7 +21,7 @@ export default function BreederDetail() {
     "bledsoe-exotics": {
       name: "Bledsoe Exotics",
       location: "USA",
-      website: "https://bledsoeexotics.com",
+      website: "https://www.instagram.com/bledsoes.exoticz/",
       specialization: "High-quality morphs and genetic diversity",
       image:
         "https://images.pexels.com/photos/2364787/pexels-photo-2364787.jpeg",
