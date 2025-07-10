@@ -611,7 +611,9 @@ export default function MorphDetail() {
                     ? { height: "569px" }
                     : morph.name === "Patternless (BHG)"
                       ? { height: "419px" }
-                      : {}
+                      : morph.name === "Super Red"
+                        ? { height: "720px" }
+                        : {}
               }
             />
           </div>
