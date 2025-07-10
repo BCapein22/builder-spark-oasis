@@ -73,7 +73,6 @@ export default function ImageSubmissionForm({
     "Platinum",
     "Candy Dot",
     "Diablo",
-    "Green Galaxy",
     "Luna",
     "Ghost",
     "Nightmare",
