@@ -104,7 +104,7 @@ export default function MorphDetail() {
       description:
         "A stunning recessive morph displaying an ice blue coloration across both head and body, creating a uniform, ethereal appearance without any pattern.",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc1f66d00582145faa715a74535e01788",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F62f46a51c9f248dd8fb3ff292311d9b4",
       traits: [
         "Ice blue coloration",
         "No pattern",
@@ -162,7 +162,7 @@ export default function MorphDetail() {
       description:
         "A dominant morph producing geckos with intensely vibrant red coloration, ranging from deep crimson to bright orange-red spots with enhanced color saturation.",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc9bc22750446420397a738136f74bed8",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F0e613898ad864e4b9c382323a7854f4b",
       traits: [
         "Intense red spots",
         "Enhanced saturation",
@@ -524,7 +524,8 @@ export default function MorphDetail() {
       genetics: "Recessive",
       description:
         "A pale albino morph with caramel coloration and brown/gray tones.",
-      image: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F86d76b2137c646819d6432e7c391f1ca",
       traits: [
         "Caramel background",
         "Brown/gray tones",
