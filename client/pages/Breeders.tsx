@@ -23,7 +23,7 @@ export default function Breeders() {
       name: "Gekko and Gecko",
       location: "USA",
       image:
-        "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F7d4010b322e4494c8e67d8ec3c02d6c8",
     },
   ];
 
