@@ -418,7 +418,6 @@ export default function MorphDetail() {
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F37141c9fc5cb437eb952e4cc6e4e1dab",
       traits: [
         "Linear spot alignment",
-        "Solid black eyes",
         "Straight-line pattern",
         "Distinctive appearance",
       ],
