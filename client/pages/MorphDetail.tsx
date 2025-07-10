@@ -61,7 +61,7 @@ export default function MorphDetail() {
       rarity: "Uncommon",
       detailed: {
         genetics:
-          "Incomplete dominant inheritance means one copy produces a visible effect, while two copies (super form) may produce even more dramatic pattern reduction. Breeding two reduced patterns can yield Patternless (BHG).",
+          "Incomplete dominant inheritance means one copy produces a visible effect. Breeding two reduced patterns can yield Patternless (BHG).",
         breeding:
           "When breeding reduced pattern to normal, expect 50% reduced pattern offspring. Reduced pattern to reduced pattern breeding can produce super reduced forms with even less pattern.",
         care: "Same care requirements as normal tokays, though some breeders report reduced pattern morphs may be slightly more docile.",
