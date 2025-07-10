@@ -60,7 +60,7 @@ export default function MorphGuide() {
       ],
       rarity: "Rare" as const,
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F62f46a51c9f248dd8fb3ff292311d9b4",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fe8f515b1f4d5428d87e8f4ec424a0efb",
     },
     {
       name: "Granite",
