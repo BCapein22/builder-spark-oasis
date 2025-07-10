@@ -129,7 +129,7 @@ export default function MorphDetail() {
     },
     granite: {
       name: "Granite",
-      genetics: "Recessive Progressive",
+      genetics: "Recessive",
       description:
         "Features a dark gray or charcoal base with black spots resembling granite stone. This is a progressive trait where offspring may appear normal at hatching and develop the granite appearance over time.",
       image:
