@@ -97,7 +97,7 @@ export default function BreederDetail() {
       specialization:
         "Innovative breeding techniques and new morph development",
       image:
-        "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F7d4010b322e4494c8e67d8ec3c02d6c8",
       description:
         "Gekko and Gecko is an innovative breeding facility in the USA focused on developing new morphs.",
       morphsWorkedWith: [
