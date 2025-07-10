@@ -317,7 +317,7 @@ export default function MorphDetail() {
         genetics:
           "Recessive trait resulting in faded or washed-out appearance. Color intensity can vary between individuals.",
         breeding:
-          "Both parents must carry the gene for visual ghost offspring. Het x het produces 25% visual ghosts.",
+          "Both parents must carry the gene for visual ghost offspring. Het x het Yields the outcome for 25% visual ghosts.",
         care: "Standard tokay care, though some report increased light sensitivity due to reduced pigmentation.",
         size: "Normal size range",
         temperament: "Often reported as calmer than normal tokays.",
