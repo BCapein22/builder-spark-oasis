@@ -607,7 +607,9 @@ export default function MorphDetail() {
               style={
                 morph.name === "Powder Blue Patternless"
                   ? { height: "608px", marginTop: "-1px" }
-                  : {}
+                  : morph.name === "Reduced Pattern"
+                    ? { height: "569px" }
+                    : {}
               }
             />
           </div>
