@@ -49,7 +49,7 @@ export default function MorphGuide() {
     },
     {
       name: "Powder Blue Patternless",
-      genetics: "Recessive",
+      genetics: "Co-dominant",
       description:
         "A stunning recessive morph displaying uniform ice blue coloration across both head and body, creating an ethereal appearance without any pattern. Unlike BHG patternless (blue head, green body), Powder Blue maintains consistent ice-blue coloration throughout.",
       traits: [
@@ -108,7 +108,7 @@ export default function MorphGuide() {
     },
     {
       name: "Candy Dot",
-      genetics: "Recessive",
+      genetics: "Incomplete Dominant",
       description:
         "A recessive morph where spots align in uniform patterns resembling candy dots. Notable for the absence of white baring and eyes that range from dark to completely black.",
       traits: [

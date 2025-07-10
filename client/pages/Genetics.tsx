@@ -99,7 +99,7 @@ export default function Genetics() {
     },
     {
       name: "Powder Blue",
-      genetics: "Recessive",
+      genetics: "Co-dominant",
       symbol: "pb",
       description: "Ice blue coloration throughout",
     },

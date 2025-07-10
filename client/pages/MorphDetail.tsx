@@ -100,7 +100,7 @@ export default function MorphDetail() {
     },
     "powder-blue-patternless": {
       name: "Powder Blue Patternless",
-      genetics: "Recessive",
+      genetics: "Co-dominant",
       description:
         "A stunning recessive morph displaying an ice blue coloration across both head and body, creating a uniform, ethereal appearance without any pattern.",
       image:
@@ -216,7 +216,7 @@ export default function MorphDetail() {
     },
     "candy-dot": {
       name: "Candy Dot",
-      genetics: "Recessive",
+      genetics: "Incomplete Dominant",
       description:
         "A recessive morph where spots align in uniform patterns resembling candy dots. Notable for the absence of white baring and eyes that range from dark to completely black.",
       image:
