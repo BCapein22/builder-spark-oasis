@@ -90,7 +90,7 @@ export default function MorphGuide() {
       ],
       rarity: "Rare" as const,
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc9bc22750446420397a738136f74bed8",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F0e613898ad864e4b9c382323a7854f4b",
     },
     {
       name: "Platinum",
