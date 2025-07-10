@@ -288,7 +288,7 @@ export default function MorphGuide() {
       ],
       rarity: "Super Rare" as const,
       image:
-        "https://images.pexels.com/photos/6788326/pexels-photo-6788326.jpeg",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F285f5000887f4635a3a48ca2a1085c79",
     },
   ];
 
