@@ -172,7 +172,7 @@ export default function MorphDetail() {
       rarity: "Rare",
       detailed: {
         genetics:
-          "The Super Red gene is a dominant mutation affecting erythrophore pigment cells, specifically enhancing red and orange pigment production. A single copy of the gene significantly intensifies red coloration in spots and overall body tones. When breeding a Super Red back to a normal tokay, 50% of offspring will display the enhanced red coloration while 50% will appear normal but may carry subtle red enhancement. The gene is fully penetrant, meaning all carriers will show visual differences from wild-type normals.",
+          "The Super Red gene is a dominant mutation specifically enhancing red and orange pigment production. A single copy of the gene significantly intensifies red coloration in spots and overall body tones. When breeding a Super Red back to a normal tokay, 50% of offspring will display the enhanced red coloration while 50% will appear normal but may carry subtle red enhancement. The gene is fully penetrant, meaning all carriers will show visual differences from wild-type normals.",
         breeding:
           "Super red x normal produces 50% super red offspring. Super red x super red can produce super forms with exceptional coloration.",
         care: "Standard tokay care with attention to diet quality to maintain vibrant colors. High-quality feeder insects and calcium supplementation recommended.",
