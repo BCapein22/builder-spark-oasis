@@ -86,7 +86,7 @@ export default function MorphDetail() {
       rarity: "Rare",
       detailed: {
         genetics:
-          "Co-Dominant trait meaning only one copy of the morph needs to be present to yield visual outcome.",
+          "The BHG gene is a co-dominant mutation that affects pattern development and pigment distribution. A single copy of the gene eliminates spot patterns while establishing distinct color zones - producing the characteristic blue head and green body coloration. This gene appears to regulate both melanophore distribution and chromatophore expression, resulting in the clear separation between head and body coloration unique to this morph.",
         breeding:
           "Known to be easier to produce since they are more commonly available and only one parent needs to carry the trait.",
         care: "Standard tokay care with attention to UV lighting to maintain proper Health and coloration.",
