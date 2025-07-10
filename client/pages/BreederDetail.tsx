@@ -271,9 +271,16 @@ export default function BreederDetail() {
               Connect with this breeder to learn more about their available
               animals and breeding programs.
             </p>
-            <Button variant="outline" disabled>
-              <Globe className="mr-2 h-4 w-4" />
-              Visit Website (Coming Soon)
+            <Button variant="outline" asChild>
+              <a
+                href={breeder.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center"
+              >
+                <Globe className="mr-2 h-4 w-4" />
+                Visit Instagram
+              </a>
             </Button>
           </CardContent>
         </Card>
