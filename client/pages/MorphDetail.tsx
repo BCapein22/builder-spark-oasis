@@ -509,8 +509,8 @@ export default function MorphDetail() {
         genetics:
           "Recessive albino mutation. Unlike T- albinos, T+ shows lighter but not completely absent pigmentation.",
         breeding:
-          "Must avoid crossing with T- albinos as this produces double heterozygous offspring that appear normal. Breed T+ with T+ for consistent results.",
-        care: "Requires careful lighting management due to reduced pigmentation. Standard tokay temperatures but monitor for light sensitivity.",
+          "Crossing with T- albinos as this produces double Hets offspring that appear normal. Breed T+ with T+ for consistent results.",
+        care: "Standard tokay gecko care requirements",
         size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
         temperament:
           "Typical tokay behavior, though may show increased light sensitivity affecting activity patterns.",
