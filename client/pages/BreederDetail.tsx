@@ -73,7 +73,6 @@ export default function BreederDetail() {
         "Nightmare",
         "Axanthic",
         "Powder Blue Patternless",
-        "Green Galaxy",
         "Shooting Star",
       ],
       breedingFocus: [
@@ -106,7 +105,6 @@ export default function BreederDetail() {
         "Candy Dot",
         "Super Red",
         "Granite",
-        "Green Galaxy",
         "Normal (Wild-type)",
       ],
       breedingFocus: [
