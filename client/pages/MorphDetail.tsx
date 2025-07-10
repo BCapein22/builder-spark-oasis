@@ -114,9 +114,9 @@ export default function MorphDetail() {
       rarity: "Rare",
       detailed: {
         genetics:
-          "Recessive trait that produces uniform ice-blue coloration throughout the entire body and head, unlike BHG patternless which displays a blue head with green body. Due to crossbreeding with BHG lines, pure powder blues showing consistent ice-blue coloration are becoming rarer.",
+          "Co-dominant trait that produces uniform ice-blue coloration throughout the entire body and head, unlike BHG patternless which displays a blue head with green body. One copy produces the visible powder blue coloration. Due to crossbreeding with BHG lines, pure powder blues showing consistent ice-blue coloration are becoming rarer.",
         breeding:
-          "Both parents must carry the gene. Breeding two powder blues produces 100% powder blue offspring, though crossing with BHG can muddy the bloodlines.",
+          "Co-dominant inheritance means only one parent needs to carry the gene. Powder blue x normal produces 50% powder blue offspring. Breeding two powder blues produces varying intensities of blue coloration.",
         care: "Requires careful temperature regulation as pale morphs can be more sensitive to thermal stress. Optimal range 76-80°F.",
         size: "Often slightly smaller than normals, males 10-12 inches, females 9-10 inches",
         temperament:
@@ -257,7 +257,7 @@ export default function MorphDetail() {
       rarity: "Super Rare",
       detailed: {
         genetics:
-          "Simple recessive trait requiring both parents to carry the gene for offspring to display the distinctive characteristics.",
+          "Incomplete dominant trait where one copy produces visible candy dot patterns. Two copies result in enhanced expression with more pronounced spot alignment and darker eye coloration.",
         breeding:
           "Simple recessive requiring both parents to carry the gene. Still very limited breeding stock available.",
         care: "Standard tokay care with attention to maintaining proper humidity for color development.",
