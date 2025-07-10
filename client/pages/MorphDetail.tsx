@@ -218,7 +218,7 @@ export default function MorphDetail() {
       name: "Candy Dot",
       genetics: "Incomplete Dominant",
       description:
-        "A recessive morph where spots align in uniform patterns resembling candy dots. Notable for the absence of white baring and eyes that range from dark to completely black.",
+        "An incomplete dominant morph where spots align in uniform patterns resembling candy dots. Notable for the absence of white baring and eyes that range from dark to completely black.",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F1486ff8f3dc449ec8843041f426a36b2",
       traits: [
@@ -230,9 +230,9 @@ export default function MorphDetail() {
       rarity: "Rare",
       detailed: {
         genetics:
-          "Recessive trait affecting both pattern arrangement and pigmentation. The uniform spot alignment is unique among tokay morphs.",
+          "Incomplete dominant trait where one copy produces visible candy dot patterns with aligned spots and darker eyes. Two copies result in enhanced expression with more pronounced spot alignment and completely black eyes. The uniform spot alignment is unique among tokay morphs.",
         breeding:
-          "Standard recessive breeding applies - both parents must carry the gene for visual offspring.",
+          "Incomplete dominant inheritance means candy dot x normal produces 50% candy dot offspring. Breeding two candy dots can produce super forms with enhanced pattern expression and darker eye coloration.",
         care: "Standard tokay care, though the dark eyes may indicate slightly different light sensitivity.",
         size: "Normal size range",
         temperament: "No significant temperament differences reported.",
