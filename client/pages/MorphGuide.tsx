@@ -270,14 +270,10 @@ export default function MorphGuide() {
       genetics: "Recessive",
       description:
         "A pale albino morph with caramel coloration and brown/gray tones.",
-      traits: [
-        "Caramel background",
-        "Brown/gray tones",
-        "Pale coloration",
-        "Light pigmentation",
-      ],
+      traits: ["Brown/gray tones", "Pale coloration", "Light pigmentation"],
       rarity: "Super Rare" as const,
-      image: "https://images.pexels.com/photos/298010/pexels-photo-298010.jpeg",
+      image:
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F86d76b2137c646819d6432e7c391f1ca",
     },
     {
       name: "T- Albino",
