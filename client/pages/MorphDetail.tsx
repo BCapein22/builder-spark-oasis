@@ -332,7 +332,7 @@ export default function MorphDetail() {
       description:
         "A distinctive recessive morph featuring a dark base color (black or deep brown) with contrasting light spots or patterns, creating a striking 'nightmarish' appearance.",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fd7aadac7b8ce4e2aaf388671a89e5b32",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F97430dd350ff4aa78ca7a799eb483bb8",
       traits: [
         "Dark base color",
         "Light contrasting spots",
