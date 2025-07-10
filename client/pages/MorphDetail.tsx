@@ -86,7 +86,7 @@ export default function MorphDetail() {
       rarity: "Rare",
       detailed: {
         genetics:
-          "The BHG gene is a co-dominant mutation that removes all spot patterns and creates distinct color zones. One copy of the gene produces the signature blue head and green body combination that makes this morph instantly recognizable.",
+          "The BHG gene is a co-dominant mutation that removes all spot patterns and creates distinct color zones. One copy of the gene needs to be present to produce visual Patternless(BHG) with a chance to produce normal off spring as well. While with two copies present you will produce 100% Patternless (BHG). The signature blue head and green body combination that makes this morph instantly recognizable.",
         breeding:
           "Known to be easier to produce since they are more commonly available and only one parent needs to carry the trait.",
         care: "Standard tokay care with attention to UV lighting to maintain proper Health and coloration.",
