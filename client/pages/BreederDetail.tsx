@@ -93,7 +93,7 @@ export default function BreederDetail() {
     "gekko-and-gecko": {
       name: "Gekko and Gecko",
       location: "USA",
-      website: "https://gekkoandgecko.com",
+      website: "https://www.instagram.com/gekko_and_gecko/",
       specialization:
         "Innovative breeding techniques and new morph development",
       image:
