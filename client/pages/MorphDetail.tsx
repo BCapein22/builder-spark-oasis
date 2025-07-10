@@ -604,6 +604,11 @@ export default function MorphDetail() {
               src={morph.image}
               alt={morph.name}
               className="w-full h-80 object-cover rounded-lg shadow-lg"
+              style={
+                morph.name === "Powder Blue Patternless"
+                  ? { height: "608px", marginTop: "-1px" }
+                  : {}
+              }
             />
           </div>
         </div>
