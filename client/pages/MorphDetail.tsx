@@ -259,7 +259,7 @@ export default function MorphDetail() {
         genetics:
           "Incomplete dominant trait where one copy produces visible candy dot patterns. Two copies result in enhanced expression with more pronounced spot alignment and darker eye coloration.",
         breeding:
-          "Simple recessive requiring both parents to carry the gene. Still very limited breeding stock available.",
+          "Incomplete dominant inheritance means candy dot x normal produces 50% candy dot offspring. Breeding two candy dots can produce super forms with enhanced pattern expression.",
         care: "Standard tokay care with attention to maintaining proper humidity for color development.",
         size: "Normal size range",
         temperament: "Limited data due to rarity, but similar to other morphs.",
