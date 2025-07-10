@@ -146,7 +146,7 @@ export default function MorphDetail() {
           "Progressive recessive trait that develops over 6 months to 2 years. Hatchlings often appear normal but gradually transform into the granite pattern.",
         breeding:
           "Extremely challenging to reproduce consistently. Even granite x granite pairings don't guarantee granite offspring, making this one of the most unpredictable morphs.",
-        care: "Standard care with attention to stress reduction during color development phase. Some breeders recommend slightly cooler temperatures.",
+        care: "Standard care with attention to stress reduction during color development phase.",
         size: "Normal size range, though development may be slightly slower",
         temperament:
           "No significant temperament differences reported from normal tokays.",
