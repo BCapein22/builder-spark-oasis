@@ -616,7 +616,9 @@ export default function MorphDetail() {
                           ? { height: "513px" }
                           : morph.name === "Shooting Star"
                             ? { height: "556px", marginBottom: "4px" }
-                            : {}
+                            : morph.name === "T+ Albino"
+                              ? { height: "572px" }
+                              : {}
               }
             />
           </div>
