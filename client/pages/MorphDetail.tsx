@@ -114,7 +114,7 @@ export default function MorphDetail() {
       rarity: "Rare",
       detailed: {
         genetics:
-          "Recessive trait that produces uniform ice-blue coloration. Due to crossbreeding with BHG lines, pure powder blues are becoming rarer.",
+          "Recessive trait that produces uniform ice-blue coloration throughout the entire body and head, unlike BHG patternless which displays a blue head with green body. Due to crossbreeding with BHG lines, pure powder blues showing consistent ice-blue coloration are becoming rarer.",
         breeding:
           "Both parents must carry the gene. Breeding two powder blues produces 100% powder blue offspring, though crossing with BHG can muddy the bloodlines.",
         care: "Requires careful temperature regulation as pale morphs can be more sensitive to thermal stress. Optimal range 76-80°F.",

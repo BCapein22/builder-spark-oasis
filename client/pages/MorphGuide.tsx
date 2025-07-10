@@ -51,7 +51,7 @@ export default function MorphGuide() {
       name: "Powder Blue Patternless",
       genetics: "Recessive",
       description:
-        "A stunning recessive morph displaying an ice blue coloration across both head and body, creating a uniform, ethereal appearance without any pattern.",
+        "A stunning recessive morph displaying uniform ice blue coloration across both head and body, creating an ethereal appearance without any pattern. Unlike BHG patternless (blue head, green body), Powder Blue maintains consistent ice-blue coloration throughout.",
       traits: [
         "Ice blue coloration",
         "No pattern",
