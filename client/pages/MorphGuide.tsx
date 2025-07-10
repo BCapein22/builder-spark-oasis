@@ -110,7 +110,7 @@ export default function MorphGuide() {
       name: "Candy Dot",
       genetics: "Incomplete Dominant",
       description:
-        "A recessive morph where spots align in uniform patterns resembling candy dots. Notable for the absence of white baring and eyes that range from dark to completely black.",
+        "An incomplete dominant morph where spots align in uniform patterns resembling candy dots. Notable for the absence of white baring and eyes that range from dark to completely black.",
       traits: [
         "Aligned spots",
         "No white baring",
