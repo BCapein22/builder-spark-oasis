@@ -485,8 +485,8 @@ export default function MorphDetail() {
         genetics:
           "Simple recessive mutation resulting in reduced dark pigmentation and characteristic caramel coloration. Both parents must carry the albino gene.",
         breeding:
-          "Standard recessive breeding - both parents must be homozygous recessive or heterozygous carriers. Breeding two Carmel Albinos produces 100% Carmel Albino offspring.",
-        care: "Requires specialized care. UV lighting must be carefully managed and temperature regulation is critical for health.",
+          "Standard recessive breeding - Breeding two Carmel Albinos produces 100% Carmel Albino offspring.",
+        care: "Standard tokay gecko care requirements",
         size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
         temperament:
           "No specific temperament differences from normal tokays, though may be slightly more sensitive to bright lighting.",
