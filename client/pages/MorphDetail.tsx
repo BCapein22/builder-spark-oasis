@@ -410,7 +410,7 @@ export default function MorphDetail() {
       description:
         "Characterized by the reduction or absence of yellow and red pigments, resulting in predominantly gray or silver coloration with black spots. Both parents must carry the axanthic gene.",
       image:
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F6d0d3ee54f3c412f9928072512e55cb2",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F938fd48f5d514278b10afd4a0fc5a8b6",
       traits: [
         "Gray/silver base",
         "No yellow/red pigments",
