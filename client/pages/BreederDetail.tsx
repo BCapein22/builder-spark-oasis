@@ -60,7 +60,7 @@ export default function BreederDetail() {
     "cocoa-tokay": {
       name: "Cocoa Tokay",
       location: "South Korea",
-      website: "https://cocoatokay.com",
+      website: "https://www.instagram.com/direct/t/17850406823807570/",
       specialization: "rare morphs",
       image:
         "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fcc148cf109ff41c2b37de36a4bb77d21",
