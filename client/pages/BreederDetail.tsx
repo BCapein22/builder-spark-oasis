@@ -115,8 +115,8 @@ export default function BreederDetail() {
       achievements: ["Developed innovative breeding protocols"],
       gallery: [
         "https://images.pexels.com/photos/5475202/pexels-photo-5475202.jpeg",
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F0c8db1cd12134dc8a042d5978f3fe16b",
-        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2Fc9bc22750446420397a738136f74bed8",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F64a135a05c5b4fb69f65b702b7536e5f",
+        "https://cdn.builder.io/api/v1/image/assets%2F82fbf18842f94c9ca6227973b7bf690c%2F26696dc7f22841529faf67830c298b03",
       ],
     },
   };
