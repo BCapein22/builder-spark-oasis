@@ -538,13 +538,12 @@ export default function MorphDetail() {
         genetics:
           "Complete recessive mutation. Most extreme form of albinism in tokay geckos.",
         breeding:
-          "Must breed T- with T- only. Crossing with T+ albinos produces normal-appearing double heterozygous offspring, diluting the bloodline.",
-        care: "Requires most intensive care of all morphs. Specialized UV filtering and temperature control essential.",
+          "Crossing with T+ albinos produces normal-appearing double Hets offspring, Breeding T- to T- insures visual t- albinos.",
+        care: "Standard tokay gecko care requirements",
         size: "Normal adult size range: males 12-14 inches, females 10-12 inches",
         temperament:
           "May be more docile due to light sensitivity. Require low-light environments and careful handling.",
-        availability:
-          "Rarest of all tokay morphs. Available only from dedicated T- albino breeding programs.",
+        availability: "Limited availability from specialized breeders.",
         history:
           "Represents the most extreme albino mutation in tokay geckos. Critical to maintain pure T- lines without T+ contamination.",
       },
